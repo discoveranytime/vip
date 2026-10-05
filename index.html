@@ -1,0 +1,1417 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>VIP — The Gut-Brain Messenger | Claims vs Evidence</title>
+<meta name="description" content="An interactive, educational deep-dive into VIP (vasoactive intestinal peptide): real physiology, stalled trials, and what people online report. Not medical advice.">
+<script>
+try{var _t=localStorage.getItem("vip-theme");if(_t==="light"||_t==="dark")document.documentElement.setAttribute("data-theme",_t);}catch(e){}
+</script>
+<style>
+:root{
+  --bg0:#06070d; --bg1:#000000;
+  --ink:#c2cae7; --muted:#8b92aa; --faint:#686d7f;
+  --sky:#67e8f9; --sky-deep:#0369a1;
+  --teal:#0369a1; --teal-deep:#172554;
+  --org:#6472a1; --org-deep:#172554;
+  --amber:#fbbf24; --rose:#fb7185; --cyan:#67e8f9;
+  --card:#000000; --card2:#000000;
+  --line:rgba(255,255,255,.09);
+  --grad:linear-gradient(100deg,#67e8f9 5%,#0369a1 50%,#6472a1 95%);
+  --ongrad:#000000;
+  --radius:18px;
+  --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
+  --disp:"Avenir Next","Segoe UI",-apple-system,BlinkMacSystemFont,Inter,Roboto,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--font);background:var(--bg0);color:var(--ink);
+  font-size:1.06rem;line-height:1.75;overflow-x:clip;-webkit-font-smoothing:antialiased}
+.bg-grad{position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:
+    radial-gradient(900px 620px at 12% -6%, rgba(23, 37, 84,0.288), transparent 60%),
+    radial-gradient(820px 600px at 88% 22%, rgba(23, 37, 84,0.192), transparent 60%),
+    radial-gradient(1000px 800px at 50% 110%, rgba(3, 105, 161,0.192), transparent 62%),
+    radial-gradient(700px 500px at 78% 78%, rgba(103, 232, 249,0.096), transparent 60%)}
+#dots{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.85}
+.orb{position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(90px)}
+.o1{width:520px;height:520px;left:-140px;top:6%;background:radial-gradient(circle,rgba(23, 37, 84,0.24),transparent 70%);animation:drift1 38s ease-in-out infinite alternate}
+.o2{width:460px;height:460px;right:-120px;top:38%;background:radial-gradient(circle,rgba(23, 37, 84,0.192),transparent 70%);animation:drift2 46s ease-in-out infinite alternate}
+.o3{width:430px;height:430px;left:24%;bottom:-160px;background:radial-gradient(circle,rgba(3, 105, 161,0.192),transparent 70%);animation:drift3 54s ease-in-out infinite alternate}
+@keyframes drift1{from{transform:translate(0,0)}to{transform:translate(120px,80px)}}
+@keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-100px,-70px)}}
+@keyframes drift3{from{transform:translate(0,0)}to{transform:translate(90px,-80px)}}
+#confetti{position:fixed;inset:0;z-index:65;pointer-events:none;opacity:0;transition:opacity .6s ease}
+#confetti.show{opacity:1}
+#doneToast{position:fixed;left:50%;bottom:26px;transform:translate(-50%,16px);z-index:66;
+  background:var(--card);border:1px solid var(--line);color:var(--ink);
+  padding:.7rem 1.25rem;border-radius:999px;font-size:.9rem;font-weight:600;white-space:nowrap;
+  opacity:0;pointer-events:none;transition:opacity .5s ease,transform .5s ease;
+  box-shadow:0 8px 30px rgba(0,0,0,.28)}
+#doneToast.show{opacity:1;transform:translate(-50%,0)}
+#progress{position:fixed;top:0;left:0;height:3px;width:0%;z-index:60;background:var(--grad);border-radius:0 3px 3px 0}
+#themeToggle{position:fixed;top:12px;right:14px;z-index:70;display:flex;align-items:center;gap:2px;
+  border:1px solid var(--line);background:var(--card);border-radius:999px;padding:3px;
+  box-shadow:0 4px 18px rgba(0,0,0,.25)}
+#themeToggle .tt-opt{display:flex;align-items:center;gap:.35rem;border:0;cursor:pointer;
+  padding:.42rem .7rem;border-radius:999px;background:transparent;color:var(--muted);
+  font:700 .74rem var(--font);letter-spacing:.02em;transition:background .25s ease,color .25s ease}
+#themeToggle .tt-opt svg{width:15px;height:15px}
+#themeToggle .tt-opt:hover{color:var(--ink)}
+#themeToggle .tt-opt:focus-visible{outline:2px solid var(--sky);outline-offset:2px}
+#themeToggle .tt-opt.active{background:var(--grad);color:#000000}
+@media(max-width:720px){#themeToggle{top:66px}}
+[data-theme="dark"]{color-scheme:dark}
+/* soft neutral gray light theme — never stark white */
+[data-theme="light"]{
+  --bg0:#c7cbd4; --bg1:#c9d0de;
+  --ink:#07090d; --muted:#393d48; --faint:#5c606a;
+  --sky:#0369a1; --sky-deep:#172554;
+  --teal:#172554; --teal-deep:#172554;
+  --org:#0369a1; --org-deep:#172554;
+  --amber:#b45309; --rose:#e11d48; --cyan:#172554;
+  --card:#f8fafc; --card2:#c5cdda;
+  --line:rgba(0, 0, 0,.14);
+  --grad:linear-gradient(100deg,#0369a1,#172554,#0369a1);
+  --ongrad:#ffffff;
+  color-scheme:light;
+}
+[data-theme="light"] nav.chapters{background:rgba(199, 203, 212,.88)}
+[data-theme="light"] .toc{background:rgba(199, 203, 212,.85)}
+[data-theme="light"] .toc a:hover{background:rgba(0, 0, 0,.06)}
+[data-theme="light"] .orb{opacity:.5}
+[data-theme="light"] #dots{opacity:.55}
+[data-theme="light"] .bg-grad{opacity:.55}
+nav.chapters{position:sticky;top:0;z-index:50;background:rgba(6,7,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.chapters .rail{max-width:1080px;margin:0 auto;padding:.65rem 1rem;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding-right:3.8rem}
+nav.chapters .rail::-webkit-scrollbar{display:none}
+nav.chapters a{flex:0 0 auto;text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:600;
+  letter-spacing:.04em;padding:.42rem .8rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap;transition:all .25s ease}
+nav.chapters a:hover{color:var(--ink);border-color:rgba(255,255,255,.25)}
+nav.chapters a.active{color:#000000;background:var(--grad);border-color:transparent}
+.toc{display:none}
+@media(min-width:1200px){
+  nav.chapters{display:none}
+  body{padding-left:248px}
+  .toc{display:flex;position:fixed;left:0;top:0;bottom:0;width:248px;z-index:45;
+    flex-direction:column;justify-content:center;gap:.2rem;
+    padding:2rem 1.1rem 2rem 1.4rem;
+    background:rgba(6,7,13,.72);backdrop-filter:blur(14px);border-right:1px solid var(--line)}
+  .toc .brand{font-family:var(--disp);font-weight:800;font-size:.98rem;letter-spacing:-.01em;
+    margin-bottom:1.2rem;line-height:1.35;color:var(--ink);
+    text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
+  .toc .brand .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+  .toc a{display:flex;align-items:center;gap:.7rem;text-decoration:none;color:var(--muted);
+    font-size:.86rem;font-weight:600;padding:.55rem .7rem;border-radius:10px;
+    border:1px solid transparent;transition:all .22s ease;position:relative;z-index:1}
+  .toc a .n{font-size:.72rem;font-weight:800;color:var(--faint);width:1.7rem;flex:0 0 auto;font-variant-numeric:tabular-nums;letter-spacing:.04em}
+  .toc a:hover{color:var(--ink);background:rgba(255,255,255,.045)}
+  .toc a.active{color:var(--ongrad);font-weight:700}
+  .toc a.active .n{color:var(--ongrad)}
+  .toc-pill{position:absolute;left:1.4rem;top:0;width:calc(100% - 2.5rem);height:40px;border-radius:10px;
+    background:var(--grad);z-index:0;opacity:0;pointer-events:none;
+    transition:transform .5s cubic-bezier(.25,.8,.25,1),opacity .35s ease,height .3s ease}
+  .toc .mini{margin-top:1.5rem;font-size:.7rem;color:var(--faint);letter-spacing:.14em;
+    text-transform:uppercase;font-weight:700;display:flex;justify-content:space-between;align-items:baseline}
+  .toc .mini #tocPct{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+    font-size:.85rem;font-weight:800;letter-spacing:0;font-variant-numeric:tabular-nums}
+  .toc .mini-bar{height:3px;background:rgba(255,255,255,.08);border-radius:99px;margin-top:.55rem;overflow:hidden}
+  .toc .mini-bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:99px}
+}
+.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 1.25rem}
+section.chapter{padding:4.2rem 0 1rem;scroll-margin-top:84px}
+.eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:700;letter-spacing:.22em;
+  text-transform:uppercase;color:var(--faint);margin-bottom:1rem}
+.eyebrow .n{display:inline-flex;align-items:center;justify-content:center;width:2rem;height:2rem;border-radius:10px;
+  background:var(--grad);color:#000000;font-size:.85rem;letter-spacing:0}
+h2{font-family:var(--disp);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;letter-spacing:-.02em;line-height:1.15;margin-bottom:1rem}
+h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.lede{color:var(--muted);font-size:1.12rem;max-width:44rem;margin-bottom:2rem}
+.lede strong{color:var(--ink)}
+.hero{position:relative;z-index:1;text-align:center;padding:5.5rem 1.25rem 3.5rem;max-width:960px;margin:0 auto}
+.hero-disc{display:inline-block;margin:0 auto 1.1rem;padding:.5rem 1.05rem;border:1px solid var(--line);border-radius:999px;font-size:.8rem;color:var(--muted);background:rgba(255,255,255,.03)}
+.badge{display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;font-weight:700;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,.04);
+  padding:.55rem 1.1rem;border-radius:999px;margin-bottom:1.6rem}
+.badge .dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(251,191,36,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}70%{box-shadow:0 0 0 12px rgba(251,191,36,0)}100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}}
+.hero h1{font-family:var(--disp);font-weight:900;letter-spacing:-.03em;line-height:1.02;font-size:clamp(2.4rem,7.5vw,4.8rem);margin-bottom:1.1rem}
+.hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
+  background-size:200% auto;animation:sheen 9s ease-in-out infinite}
+@keyframes sheen{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+.hero .sub{color:var(--muted);font-size:clamp(1.05rem,2.4vw,1.3rem);max-width:42rem;margin:0 auto 2.2rem}
+.hero .sub strong{color:var(--ink)}
+.quickread{max-width:46rem;margin:0 auto;text-align:left;background:rgba(255,255,255,.035);
+  border:1px solid var(--line);border-radius:var(--radius);padding:1.3rem 1.5rem;display:flex;gap:1rem;align-items:flex-start}
+.quickread .tag{flex:0 0 auto;font-size:.72rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--grad);color:#000000;border-radius:8px;padding:.35rem .7rem;margin-top:.2rem}
+.quickread p{color:var(--muted);font-size:.98rem}
+.quickread p strong{color:var(--ink)}
+.hero-stats{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem}
+.stat{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.1rem 1.5rem;min-width:150px}
+.stat .num{font-family:var(--disp);font-size:2rem;font-weight:800;background:var(--grad);
+  -webkit-background-clip:text;background-clip:text;color:transparent}
+.stat .lbl{font-size:.8rem;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+.scroll-hint{margin-top:3rem;color:var(--faint);font-size:.85rem;letter-spacing:.2em;text-transform:uppercase;animation:bob 2.6s ease-in-out infinite}
+@keyframes bob{0%,100%{transform:translateY(0);opacity:.7}50%{transform:translateY(8px);opacity:1}}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:1.2rem;margin-bottom:1.5rem}
+.grid3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.2rem;margin-bottom:1.5rem}
+@media(max-width:720px){.grid2,.grid3{grid-template-columns:1fr}}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0 0 auto 0;height:3px;background:var(--ac,var(--grad))}
+.card.sky{--ac:linear-gradient(90deg,var(--sky-deep),var(--sky))}
+.card.teal{--ac:linear-gradient(90deg,var(--teal-deep),var(--teal))}
+.card.org{--ac:linear-gradient(90deg,var(--org-deep),var(--org))}
+.card h3{font-family:var(--disp);font-size:1.35rem;font-weight:800;margin-bottom:.4rem;letter-spacing:-.01em}
+.card h3 .chem{font-size:.85rem;font-weight:600;color:var(--faint);letter-spacing:.08em}
+.card p,.card li{color:var(--muted);font-size:.99rem}
+.card ul{list-style:none;margin-top:.9rem;display:grid;gap:.65rem}
+.card ul li{padding-left:1.5rem;position:relative}
+.card ul li::before{content:"▸";position:absolute;left:0;font-weight:800}
+.card.sky ul li::before{color:var(--sky)}
+.card.teal ul li::before{color:var(--teal)}
+.card.org ul li::before{color:var(--org)}
+.card strong{color:var(--ink)}
+.plain{margin-top:1.2rem;background:rgba(255,255,255,.035);border:1px dashed rgba(255,255,255,.22);
+  border-radius:12px;padding:1rem 1.2rem;font-size:.96rem;color:var(--muted)}
+.plain b{color:var(--ink)}
+.plain .plabel{display:block;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--org);margin-bottom:.35rem}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem;margin-bottom:1.4rem}
+.panel h3{font-family:var(--disp);font-size:1.3rem;font-weight:800;margin-bottom:.8rem}
+.panel p{color:var(--muted);margin-bottom:.8rem}
+.panel p strong,.panel li strong{color:var(--ink)}
+.kv{display:flex;gap:.9rem;align-items:flex-start;padding:.9rem 0;border-top:1px solid var(--line)}
+.kv:first-of-type{border-top:none}
+.kv .k{flex:0 0 auto;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
+  padding:.3rem .7rem;border-radius:8px;margin-top:.25rem}
+.kv .k.s{background:rgba(70, 137, 255,.12);color:var(--sky);border:1px solid rgba(70, 137, 255,.35)}
+.kv .k.t{background:rgba(38, 225, 198,.10);color:var(--teal);border:1px solid rgba(38, 225, 198,.35)}
+.kv .k.o{background:rgba(251,146,60,.12);color:var(--org);border:1px solid rgba(251,146,60,.35)}
+.kv .k.a{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.35)}
+.kv .k.g{background:rgba(103, 232, 249,.12);color:var(--rose);border:1px solid rgba(103, 232, 249,.35)}
+.kv p{font-size:.99rem}
+.diagram{background:radial-gradient(600px 300px at 50% 0%,rgba(23, 37, 84,.10),transparent 70%),#000000;
+  border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;margin:0 0 1.4rem;overflow:hidden}
+.diagram svg{display:block;width:100%;height:auto}
+.diagram .cap{text-align:center;color:var(--faint);font-size:.85rem;margin-top:.9rem;letter-spacing:.03em}
+.flow{stroke-dasharray:6 7;animation:dashmove 1.6s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-26}}
+.float-slow{animation:floaty 5s ease-in-out infinite}
+.float-slower{animation:floaty 7s ease-in-out infinite reverse}
+@keyframes floaty{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+.glow-pulse{animation:glowp 2.8s ease-in-out infinite}
+@keyframes glowp{0%,100%{opacity:.55}50%{opacity:1}}
+.ebar{margin:1rem 0 1.4rem}
+.ebar .row{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:.4rem}
+.ebar .row .t{font-weight:700;font-size:.98rem}
+.ebar .row .v{font-size:.88rem;color:var(--faint);font-variant-numeric:tabular-nums}
+.ebar .track{height:14px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
+.ebar .fill{height:100%;width:0;border-radius:999px;transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
+.in .ebar .fill{width:var(--w)}
+.ebar .note{font-size:.85rem;color:var(--faint);margin-top:.45rem}
+.anec-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media(max-width:720px){.anec-grid{grid-template-columns:1fr}}
+.anec{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;position:relative;overflow:hidden}
+.anec::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
+.anec .stamp{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;
+  color:var(--amber);border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.08);
+  padding:.28rem .6rem;border-radius:7px;text-transform:uppercase;margin-bottom:.65rem}
+.anec h4{font-size:1.05rem;font-weight:800;margin-bottom:.5rem}
+.anec-head{display:flex;align-items:center;gap:.85rem;margin-bottom:.55rem}
+.udot{display:inline-block;width:11px;height:11px;border-radius:50%;background:var(--amber);flex:0 0 auto;position:relative}
+.udot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--amber);animation:udotPulse 2.2s ease-out infinite}
+@keyframes udotPulse{0%{transform:scale(.55);opacity:.9}70%{opacity:.25}100%{transform:scale(1.25);opacity:0}}
+.anec-head .udot{margin-left:.15rem}
+.ulegend{display:flex;align-items:center;gap:.75rem;margin:0 0 1.5rem;padding:.85rem 1.15rem;border:1px dashed var(--line);border-radius:14px;background:rgba(255,255,255,.03);color:var(--muted);font-size:.93rem}
+.ulegend strong{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.udot::after{animation:none;opacity:.35;transform:scale(.8)}}
+.anec-head .thumb{flex:0 0 auto;width:54px;height:54px;border-radius:14px;border:1px solid var(--line)}
+.anec-head h4{margin-bottom:0}
+.anec p{color:var(--muted);font-size:.95rem}
+.anec p strong{color:var(--ink)}
+.anec .caveat{margin-top:.8rem;font-size:.82rem;color:var(--faint);border-top:1px dashed var(--line);padding-top:.7rem}
+.folk-note{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.3);border-radius:var(--radius);
+  padding:1.2rem 1.4rem;margin-bottom:1.6rem;color:var(--muted);font-size:.98rem}
+.folk-note strong{color:var(--amber)}
+.safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
+@media(max-width:720px){.safety-grid{grid-template-columns:1fr}}
+.scard{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem}
+.scard .level{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;
+  padding:.3rem .65rem;border-radius:7px;margin-bottom:.7rem}
+.scard h4{font-size:1.05rem;font-weight:800;margin-bottom:.5rem}
+.scard p{color:var(--muted);font-size:.95rem}
+.scard p strong{color:var(--ink)}
+.lvl-known .level{background:rgba(251,191,36,.1);color:var(--amber);border:1px solid rgba(251,191,36,.4)}
+.lvl-theory .level{background:rgba(251,146,60,.1);color:var(--org);border:1px solid rgba(251,146,60,.4)}
+.lvl-unknown .level{background:rgba(103, 232, 249,.1);color:var(--rose);border:1px solid rgba(103, 232, 249,.4)}
+.gloss{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card)}
+.g-item{border-bottom:1px solid var(--line)}
+.g-item:last-child{border-bottom:none}
+.g-q{width:100%;background:none;border:none;color:var(--ink);font-family:var(--font);font-size:1.02rem;font-weight:700;
+  text-align:left;padding:1.05rem 1.4rem;cursor:pointer;display:flex;justify-content:flex-start;align-items:center;gap:1rem}
+.g-q:hover{background:rgba(255,255,255,.03)}
+.g-q .term{color:var(--sky)}
+.g-item:nth-child(3n+2) .g-q .term{color:var(--teal)}
+.g-item:nth-child(3n) .g-q .term{color:var(--org)}
+.g-q .plus{flex:0 0 auto;width:1.7rem;height:1.7rem;border-radius:50%;border:1px solid var(--line);margin-left:auto;
+  display:inline-flex;align-items:center;justify-content:center;font-size:1.1rem;color:var(--muted);transition:all .3s}
+.g-item.open .g-q .plus{transform:rotate(45deg);background:var(--grad);color:#000000;border-color:transparent}
+.gthumb{flex:0 0 auto;width:42px;height:42px;border-radius:12px;border:1px solid var(--line);
+  animation:gaFloat 5s ease-in-out infinite}
+.gthumb.v2{animation:gaBreathe 4.4s ease-in-out infinite}
+.gthumb.v3{animation:gaTilt 6s ease-in-out infinite}
+@keyframes gaFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes gaBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+@keyframes gaTilt{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
+.g-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.g-a .gsci,.g-a .gex{padding:0 1.4rem 1rem;color:var(--muted);font-size:.95rem}
+.g-a .gsci strong,.g-a .gex strong{color:var(--ink)}
+.gslabel{display:block;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
+.g-a .gex{margin:0 1.4rem 1rem;padding:0 0 0 1rem;border-left:2px solid var(--line)}
+.g-a .plain{margin:0 1.4rem 1.3rem;background:rgba(255,255,255,.035);border:1px dashed rgba(255,255,255,.22);
+  border-radius:12px;padding:1rem 1.2rem;font-size:.96rem;color:var(--muted)}
+.g-a .plain b{color:var(--ink)}
+.g-a .plain .plabel{display:block;font-size:.72rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--teal);margin-bottom:.35rem}
+.take-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.6rem}
+@media(max-width:720px){.take-grid{grid-template-columns:1fr}}
+.take{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem}
+.take .tk{font-size:1.5rem;margin-bottom:.5rem}
+.take h4{font-size:1.05rem;font-weight:800;margin-bottom:.4rem}
+.take p{color:var(--muted);font-size:.95rem}
+.take p strong{color:var(--ink)}
+.limits{background:rgba(103, 232, 249,.05);border:1px solid rgba(103, 232, 249,.3);border-radius:var(--radius);
+  padding:1.4rem 1.6rem;margin-bottom:1.6rem}
+.limits h3{font-family:var(--disp);font-size:1.2rem;font-weight:800;margin-bottom:.7rem;color:var(--rose)}
+.limits ul{list-style:none;display:grid;gap:.6rem}
+.limits li{color:var(--muted);font-size:.97rem;padding-left:1.6rem;position:relative}
+.limits li::before{content:"✕";position:absolute;left:0;color:var(--rose);font-weight:800}
+.limits li strong{color:var(--ink)}
+footer{position:relative;z-index:1;margin-top:4rem;border-top:1px solid var(--line);
+  background:linear-gradient(180deg,rgba(255,255,255,.02),transparent)}
+footer .wrap{padding-top:2.5rem;padding-bottom:3rem}
+footer .disc{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.8rem;margin-bottom:1.4rem}
+footer .disc h3{font-size:1rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;margin-bottom:.8rem;color:var(--amber)}
+footer .disc p{color:var(--muted);font-size:.92rem;margin-bottom:.8rem}
+footer .disc p strong{color:var(--ink)}
+footer .meta{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:1rem;
+  color:var(--faint);font-size:.85rem}
+footer .meta .srcs{display:flex;gap:.6rem;flex-wrap:wrap}
+footer .meta a{color:var(--muted);text-decoration:none;border-bottom:1px dotted var(--faint)}
+footer .meta a:hover{color:var(--ink)}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.cmp{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-bottom:1.4rem}
+@media(max-width:720px){.cmp{grid-template-columns:1fr}}
+.cmp .card{text-align:center}
+.cmp .big{font-family:var(--disp);font-size:2.3rem;font-weight:800;margin:.4rem 0}
+.cmp.sky .big{color:var(--sky)}.cmp .card.sky .big{color:var(--sky)}
+.cmp .card.teal .big{color:var(--teal)}
+.cmp .card.org .big{color:var(--org)}
+.cmp .sub2{font-size:.82rem;color:var(--faint);letter-spacing:.06em;text-transform:uppercase;font-weight:700}
+table.trial{width:100%;border-collapse:collapse;font-size:.94rem;margin:1rem 0 1.4rem}
+table.trial th,table.trial td{text-align:left;padding:.7rem .8rem;border-bottom:1px solid var(--line)}
+table.trial th{font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);font-weight:800}
+table.trial td{color:var(--muted)}
+table.trial td strong{color:var(--ink);font-variant-numeric:tabular-nums}
+table.trial tr td:first-child{color:var(--ink);font-weight:600}
+.twrap{overflow-x:auto}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .reveal{opacity:1;transform:none}
+  .in .ebar .fill{transition:none}
+}
+
+/* --- ambient motion additions: subtle, additive, non-intrusive --- */
+@keyframes ringp{0%{transform:scale(.5);opacity:.85}100%{transform:scale(2.1);opacity:0}}
+.ringp{transform-box:fill-box;transform-origin:center;animation:ringp 2.8s ease-out infinite}
+@keyframes seqGlow{0%,100%{opacity:.35}18%{opacity:1}40%{opacity:.35}}
+.seqr1{animation:seqGlow 4.5s ease-in-out infinite}
+.seqr2{animation:seqGlow 4.5s ease-in-out .9s infinite}
+.seqr3{animation:seqGlow 4.5s ease-in-out 1.8s infinite}
+.flowseq{stroke-dasharray:6 7;animation:dashmove 1.6s linear infinite,seqGlow 4.5s ease-in-out infinite}
+.flowseq2{stroke-dasharray:6 7;animation:dashmove 1.6s linear infinite,seqGlow 4.5s ease-in-out .9s infinite}
+.flowseq3{stroke-dasharray:6 7;animation:dashmove 1.6s linear infinite,seqGlow 4.5s ease-in-out 1.8s infinite}
+
+/* ===== mini-poll component ===== */
+/* Mini-poll component styles — compact, theme-aware via CSS vars with fallbacks.
+   Works inside this infographic (which defines --card, --ink, etc.)
+   and standalone. */
+mini-poll { display: block; }
+.mpoll {
+  max-width: 620px;
+  margin: 2.2rem auto;
+  border: 1px solid transparent;
+  border-radius: 18px;
+  background:
+    linear-gradient(var(--card, #000000), var(--card, #000000)) padding-box,
+    linear-gradient(135deg, var(--mpc1, #67e8f9), var(--mpc2, #0369a1)) border-box;
+  font-family: inherit;
+  overflow: hidden;
+}
+/* slim collapsed teaser */
+.mpoll-teaser {
+  display: flex; align-items: center; gap: .6rem;
+  width: 100%; cursor: pointer; text-align: left;
+  padding: .75rem 1rem; border: 0; background: transparent;
+  color: var(--muted, #8b92aa); font-size: .88rem;
+}
+.mpoll-teaser:hover { background: rgba(255,255,255,.03); }
+.mpoll-teaser:focus-visible { outline: 2px solid var(--amber, #fbbf24); outline-offset: -2px; }
+.mpoll-teaser-dot {
+  flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%;
+  background: var(--mpc1, #67e8f9);
+  box-shadow: 0 0 10px var(--mpc1, #67e8f9);
+  animation: mpulse 2.4s ease-in-out infinite;
+}
+@keyframes mpulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+.mpoll-teaser-text {
+  flex: 1; min-width: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.mpoll-teaser-chev {
+  flex: 0 0 auto; transition: transform .2s; color: var(--faint, #686d7f);
+}
+.mpoll.open .mpoll-teaser-chev { transform: rotate(180deg); }
+/* animated expand/collapse */
+.mpoll-bodywrap {
+  display: grid; grid-template-rows: 0fr;
+  transition: grid-template-rows .45s cubic-bezier(.25,.8,.3,1);
+}
+.mpoll.open .mpoll-bodywrap { grid-template-rows: 1fr; }
+.mpoll-clip { overflow: hidden; min-height: 0; }
+.mpoll-body {
+  padding: 0 1.4rem 1.3rem;
+  opacity: 0; transform: translateY(-10px);
+  transition: opacity .32s ease, transform .45s cubic-bezier(.25,.8,.3,1);
+}
+.mpoll.open .mpoll-body { opacity: 1; transform: translateY(0); }
+.mpoll-kicker {
+  font-size: .78rem; font-weight: 800; letter-spacing: .14em;
+  text-transform: uppercase; color: var(--muted, #8b92aa);
+  margin-bottom: .6rem;
+}
+/* single top-of-page banner (preview mode only) */
+.mpoll-topbanner {
+  display: flex; align-items: center; justify-content: center; gap: .6rem;
+  max-width: 620px; margin: 0 auto 1.4rem; padding: .6rem 1.2rem;
+  border-radius: 999px; font-size: .82rem; font-weight: 700; color: #000000;
+  background: linear-gradient(100deg, var(--acc1, #67e8f9), var(--acc2, #0369a1), var(--acc3, #6472a1));
+}
+.mpoll-topbanner-dot {
+  flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%;
+  background: #000000;
+  animation: mpulse 2.4s ease-in-out infinite;
+}
+.mpoll-field { border: 0; margin: 0; padding: 0; }
+.mpoll-q {
+  font-size: 1.12rem; font-weight: 800; line-height: 1.35;
+  color: var(--ink, #c2cae7); margin-bottom: .9rem; padding: 0;
+}
+.mpoll-opts { display: grid; gap: .55rem; }
+.mpoll-opt {
+  display: flex; align-items: center; gap: .7rem;
+  width: 100%; text-align: left; cursor: pointer;
+  padding: .72rem .9rem; border-radius: 12px;
+  border: 1px solid var(--line, rgba(255,255,255,.09));
+  background: rgba(255,255,255,.03); color: var(--ink, #c2cae7);
+  font-size: .95rem; transition: border-color .15s, background .15s, transform .15s;
+}
+.mpoll-opt:hover { border-color: var(--amber, #fbbf24); background: rgba(255,255,255,.05); }
+.mpoll-opt:focus-visible { outline: 2px solid var(--amber, #fbbf24); outline-offset: 2px; }
+.mpoll-opt.sel { border-color: var(--amber, #fbbf24); background: rgba(251,191,36,.10); }
+.mpoll-emoji { font-size: 1.25rem; flex: 0 0 auto; }
+.mpoll-label { flex: 1; }
+.mpoll-vote, .mpoll-again {
+  display: block; width: 100%; margin-top: .9rem; padding: .8rem;
+  border: 0; border-radius: 12px; cursor: pointer;
+  font-size: 1rem; font-weight: 800; color: #000000;
+  background: linear-gradient(100deg, var(--acc1, #67e8f9), var(--acc2, #0369a1));
+  transition: transform .15s, opacity .15s;
+}
+.mpoll-vote:hover:not(:disabled), .mpoll-again:hover { transform: translateY(-1px); }
+.mpoll-vote:disabled { opacity: .45; cursor: not-allowed; transform: none; }
+.mpoll-note {
+  margin-top: .7rem; font-size: .88rem; color: #fbbf24;
+  border: 1px dashed rgba(251,191,36,.4); border-radius: 10px; padding: .6rem .8rem;
+}
+.mpoll-bars { display: grid; gap: .6rem; margin-top: .4rem; }
+.mpoll-rowtop {
+  display: flex; justify-content: space-between; gap: .8rem;
+  font-size: .9rem; color: var(--ink, #c2cae7); margin-bottom: .28rem;
+}
+.mpoll-pct { font-weight: 800; color: var(--muted, #8b92aa); flex: 0 0 auto; }
+.mpoll-mine { color: var(--amber, #fbbf24); font-weight: 700; font-size: .8rem; }
+.mpoll-track {
+  height: 10px; border-radius: 999px; overflow: hidden;
+  background: rgba(255,255,255,.07);
+}
+.mpoll-fill {
+  height: 100%; width: 0; border-radius: 999px;
+  background: linear-gradient(90deg, var(--acc1, #67e8f9), var(--acc2, #0369a1), var(--acc3, #6472a1));
+  transition: width .9s cubic-bezier(.22,.8,.3,1);
+}
+.mpoll-row.mine .mpoll-fill { box-shadow: 0 0 10px rgba(251,191,36,.45); }
+.mpoll-total {
+  margin-top: .8rem; font-size: .85rem; color: var(--faint, #686d7f);
+}
+.mpoll-sub { margin-top: .8rem; font-size: .9rem; color: var(--muted, #8b92aa); }
+.mpoll-count { font-weight: 800; color: var(--ink, #c2cae7); font-variant-numeric: tabular-nums; }
+.mpoll-disc {
+  margin-top: .9rem; padding-top: .7rem;
+  border-top: 1px dashed var(--line, rgba(255,255,255,.09));
+  font-size: .76rem; line-height: 1.5; color: var(--faint, #686d7f);
+}
+.mpoll-loading { color: var(--faint, #686d7f); font-size: .9rem; padding: .6rem 0; }
+@media (prefers-reduced-motion: reduce) {
+  .mpoll-opt, .mpoll-vote, .mpoll-again, .mpoll-fill, .mpoll-teaser-chev,
+  .mpoll-bodywrap, .mpoll-body { transition: none; }
+  .mpoll-teaser-dot { animation: none; }
+  .mpoll-body { opacity: 1; transform: none; }
+}
+@media (max-width: 560px) {
+  .mpoll { margin: 1.6rem .2rem; }
+  .mpoll-body { padding: 0 1rem 1.1rem; }
+  .mpoll-q { font-size: 1.02rem; }
+}
+
+</style>
+</head>
+<body>
+<svg class="sr-only" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="triGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#67e8f9"/><stop offset="50%" stop-color="#0369a1"/><stop offset="100%" stop-color="#6472a1"/>
+    </linearGradient>
+  </defs>
+</svg>
+<div class="bg-grad" aria-hidden="true"></div>
+<svg id="dots" aria-hidden="true"></svg>
+<div class="orb o1" aria-hidden="true"></div><div class="orb o2" aria-hidden="true"></div><div class="orb o3" aria-hidden="true"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+<div id="doneToast" role="status">You made it through the VIP guide 🧬</div>
+<div id="progress" aria-hidden="true"></div>
+<div id="themeToggle" role="group" aria-label="Color theme">
+  <button type="button" class="tt-opt" data-mode="light" aria-pressed="false">
+    <svg class="ic-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4.5"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.6 4.6l1.8 1.8M17.6 17.6l1.8 1.8M4.6 19.4l1.8-1.8M17.6 6.4l1.8-1.8"/></svg><span>Light</span>
+  </button>
+  <button type="button" class="tt-opt" data-mode="dark" aria-pressed="true">
+    <svg class="ic-moon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.4 14.2A8.5 8.5 0 0 1 9.8 3.6a.7.7 0 0 0-.9-.9 10.5 10.5 0 1 0 12.4 12.4.7.7 0 0 0-.9-.9Z"/></svg><span>Dark</span>
+  </button>
+</div>
+<aside class="toc" aria-label="Chapters">
+  <div class="brand">VIP<br><span class="g">the gut-brain messenger</span></div>
+  <div class="toc-pill" aria-hidden="true"></div>
+  <a href="#ch1"><span class="n">01</span>The Peptide</a>
+  <a href="#ch2"><span class="n">02</span>Discovery</a>
+  <a href="#ch3"><span class="n">03</span>How It Might Work</a>
+  <a href="#ch4"><span class="n">04</span>Evidence Check</a>
+  <a href="#ch5"><span class="n">05</span>VIP vs PACAP</a>
+  <a href="#ch6"><span class="n">06</span>What People Say</a>
+  <a href="#ch7"><span class="n">07</span>Risks &amp; Unknowns</a>
+  <a href="#ch8"><span class="n">08</span>Glossary</a>
+  <a href="#ch9"><span class="n">09</span>Takeaways</a>
+  <div class="mini"><span>Read</span><span id="tocPct">0%</span></div>
+  <div class="mini-bar"><i id="tocBar"></i></div>
+</aside>
+<nav class="chapters" aria-label="Chapters"><div class="rail" id="rail">
+  <a href="#ch1">01 · Peptide</a><a href="#ch2">02 · Discovery</a><a href="#ch3">03 · Mechanism</a>
+  <a href="#ch4">04 · Evidence</a><a href="#ch5">05 · Vs PACAP</a><a href="#ch6">06 · Reports</a><a href="#ch7">07 · Risks</a>
+  <a href="#ch8">08 · Glossary</a><a href="#ch9">09 · Takeaways</a>
+</div></nav>
+
+<header class="hero">
+  <div class="badge"><span class="dot"></span>Neuropeptide · research stage</div>
+  <div class="hero-disc">⚠️ Educational content — not medical advice. Full details in the footer.</div>
+  <h1>VIP<br><span class="g">the gut-brain messenger</span></h1>
+  <p class="sub">A 28-amino-acid messenger found in the gut, lungs, brain, and immune cells — it widens blood vessels, relaxes airways, and talks to the immune system. A genuine research molecule with real trial history, and zero approved medicines.</p>
+  <div class="quickread">
+    <span class="tag">Quick read</span>
+    <p><strong>Vasoactive Intestinal Peptide (VIP)</strong> was discovered in 1970 and named for its effects on the gut and blood vessels. It is a <strong>neuropeptide</strong> — a chemical messenger used by nerves and immune cells alike. Researchers have studied it for <strong>sarcoidosis and pulmonary arterial hypertension</strong>, among other conditions. No VIP-based drug has been approved; gray-market vials exist with <strong>no established safety profile</strong>. Scroll for the full picture.</p>
+  </div>
+  <div class="hero-stats">
+    <div class="stat"><div class="num" data-count="28">0</div><div class="lbl">amino acids in the peptide</div></div>
+    <div class="stat"><div class="num" data-count="1970">0</div><div class="lbl">year it was discovered</div></div>
+    <div class="stat"><div class="num" data-count="4">0</div><div class="lbl">organ systems it works in</div></div>
+    <div class="stat"><div class="num" data-count="0">0</div><div class="lbl">approved VIP medicines</div></div>
+  </div>
+  <div class="scrollcue" aria-hidden="true">scroll ↓</div>
+</header>
+
+<main class="wrap">
+
+<!-- ============ CHAPTER 1 ============ -->
+<section class="chapter" id="ch1">
+  <span class="eyebrow"><span class="n">01</span>The peptide</span>
+  <h2>What <span class="hl">VIP</span> actually is</h2>
+  <p class="lede">Not a lab invention — a <strong>28-amino-acid diplomat</strong> your body already employs across four organ systems. Real molecule, real jobs, no approved drug.</p>
+<div class="diagram reveal">
+    <svg viewBox="0 0 640 210" role="img" aria-label="VIP · 28 AMINO ACIDS">
+      <text x="20" y="24" fill="#8b92aa" font-size="13" font-weight="700" letter-spacing="2">VIP · 28 AMINO ACIDS</text>
+      <g id="vipchain"></g>
+      <text x="320" y="152" fill="#67e8f9" font-size="13" font-weight="800" text-anchor="middle">VASOACTIVE INTESTINAL PEPTIDE · 28 AA</text>
+      <text x="320" y="172" fill="#686d7f" font-size="12" text-anchor="middle">a neuropeptide working in gut, lung, brain & immune tissue</text>
+      <rect x="170" y="186" width="300" height="4" rx="2" fill="#0369a1" opacity=".8"/>
+    </svg>
+    <script>(function(){var g=document.getElementById('vipchain');if(!g)return;var NS='http://www.w3.org/2000/svg';var n=28,h0=0,h1=28;for(var i=0;i<n;i++){var c=document.createElementNS(NS,'circle');var hot=i>=h0&&i<h1;c.setAttribute('cx',(40+i*19.5).toFixed(1));c.setAttribute('cy','93');c.setAttribute('r',hot?9:6);c.setAttribute('fill',hot?'#6472a1':'#181b27');if(hot){c.setAttribute('stroke','#67e8f9');c.setAttribute('stroke-width','2');}g.appendChild(c);}})();</script>
+    <div class="cap">Twenty-eight amino acids — one messenger with four different jobs in four different systems.</div>
+  </div>
+  <div class="grid3">
+    <div class="card sky reveal"><h3>A real neuropeptide</h3><p>VIP is <strong>made by your body</strong> — found in the intestines, lungs, brain, and immune cells. This is not a lab invention; it is endogenous chemistry with a real job description.</p></div>
+    <div class="card teal reveal"><h3>Four systems, one messenger</h3><p>It <strong>widens blood vessels</strong>, relaxes airway muscle, modulates immune responses, and influences gut function. Few peptides moonlight across this many systems.</p></div>
+    <div class="card org reveal"><h3>Research molecule, not medicine</h3><p>Studied in <strong>real clinical trials</strong> for conditions like sarcoidosis and pulmonary arterial hypertension — but <strong>no VIP drug has ever been approved</strong>.</p></div>
+  </div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>Think of VIP as a <strong>multilingual diplomat</strong> — the same messenger, fluent in gut, lung, brain, and immune-system dialects. It tells blood vessels to relax, airways to open, and immune cells to calm down. One molecule, four embassies.</p></div></section>
+<mini-poll slug="vip-mini-ch1"
+  data-question="Had you heard of VIP before today?"
+  data-answers='[["🆕", "Brand new"], ["👀", "Heard the name"], ["📖", "Know the basics"], ["🧪", "Know it well"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 2 ============ -->
+<section class="chapter" id="ch2">
+  <span class="eyebrow"><span class="n">02</span>Discovery</span>
+  <h2>Fifty years of <span class="hl">promise</span></h2>
+  <p class="lede">Discovered in 1970, interesting ever since. VIP is the <strong>perpetual prospect</strong> — brilliant in trials, absent from pharmacies.</p>
+<div class="diagram reveal">
+    <svg viewBox="0 0 640 260" role="img" aria-label="Timeline from VIP discovery to modern clinical trials">
+      <line x1="40" y1="130" x2="600" y2="130" stroke="#0369a1" stroke-width="3" stroke-dasharray="8 6" class="flow"/>
+      <circle cx="70" cy="130" r="14" fill="#04050a" stroke="#67e8f9" stroke-width="2.5" class="pulse"/><circle cx="70" cy="130" r="5" fill="#67e8f9"/><line x1="70" y1="130" x2="70" y2="62" stroke="#262937" stroke-width="2"/><circle cx="236" cy="130" r="14" fill="#04050a" stroke="#0369a1" stroke-width="2.5" class="pulse"/><circle cx="236" cy="130" r="5" fill="#0369a1"/><line x1="236" y1="130" x2="236" y2="198" stroke="#262937" stroke-width="2"/><circle cx="403" cy="130" r="14" fill="#04050a" stroke="#67e8f9" stroke-width="2.5" class="pulse"/><circle cx="403" cy="130" r="5" fill="#67e8f9"/><line x1="403" y1="130" x2="403" y2="62" stroke="#262937" stroke-width="2"/><circle cx="570" cy="130" r="14" fill="#04050a" stroke="#0369a1" stroke-width="2.5" class="pulse"/><circle cx="570" cy="130" r="5" fill="#0369a1"/><line x1="570" y1="130" x2="570" y2="198" stroke="#262937" stroke-width="2"/><text x="70" y="52" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">1970</text><text x="70" y="68" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">VIP discovered</text><text x="70" y="82" fill="#686d7f" font-size="10" text-anchor="middle">Said & Mutt isolate it</text><text x="236" y="208" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">1970s–80s</text><text x="236" y="224" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">Jobs mapped</text><text x="236" y="238" fill="#686d7f" font-size="10" text-anchor="middle">vessels, gut, lungs</text><text x="403" y="52" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">2000s</text><text x="403" y="68" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">Immune role emerges</text><text x="403" y="82" fill="#686d7f" font-size="10" text-anchor="middle">the calming signal</text><text x="570" y="208" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">2010s–20s</text><text x="570" y="224" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">Clinical trials</text><text x="570" y="238" fill="#686d7f" font-size="10" text-anchor="middle">sarcoidosis, PAH</text>
+    </svg>
+    <div class="cap">Half a century from gut extract to clinical trials — a serious molecule that never crossed the finish line.</div>
+  </div>
+  <div class="kv reveal"><span class="k s">1970: found in the gut</span><p>Isolated from intestinal tissue and named for its <strong>vasoactivity</strong> — its ability to widen blood vessels. The name stuck even as the job description kept growing.</p></div>
+  <div class="kv reveal"><span class="k t">Jobs kept multiplying</span><p>Over the decades VIP turned up <strong>everywhere</strong>: relaxing airways, slowing gut spasms, calming immune cells. Each discovery made it more interesting — and harder to turn into a drug.</p></div>
+  <div class="kv reveal"><span class="k o">Trials, no approvals</span><p>Real researchers ran <strong>real trials</strong> — sarcoidosis, pulmonary hypertension — with genuinely interesting signals. None produced an approved medicine. Interesting is not the same as proven.</p></div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>VIP is the <strong>employee of the month, every month, for fifty years</strong> — brilliant at everything, promoted to trial after trial, but never quite landing the big job. A résumé full of promise and a trophy case that is empty.</p></div></section>
+<mini-poll slug="vip-mini-ch2"
+  data-question="A messenger in four body systems — more interesting?"
+  data-answers='[["✅", "Yes, fascinating"], ["🤔", "Interesting, not convincing"], ["📊", "Need trial data"], ["😐", "Too broad to aim"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 3 ============ -->
+<section class="chapter" id="ch3">
+  <span class="eyebrow"><span class="n">03</span>How it might work</span>
+  <h2>How it’s <span class="hl">supposed</span> to work</h2>
+  <p class="lede"><strong>Dilate, open, calm, balance</strong> — genuine physiology across four systems. But physiology is not a prescription.</p>
+<div class="diagram reveal">
+    <svg viewBox="0 0 640 240" role="img" aria-label="Four proposed actions of VIP across body systems">
+      <g font-size="13" font-weight="800" text-anchor="middle"><rect x="20" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#67e8f9" stroke-width="2"/><text x="84" y="105" fill="1">DILATE · #67e8f9</text><text x="84" y="130" fill="#8b92aa" font-size="11" font-weight="600">Relaxes vessel walls,</text><text x="84" y="146" fill="#8b92aa" font-size="11" font-weight="600">blood flow increases</text><rect x="172" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#0369a1" stroke-width="2"/><text x="236" y="105" fill="2">OPEN · #0369a1</text><text x="236" y="130" fill="#8b92aa" font-size="11" font-weight="600">Relaxes airway muscle,</text><text x="236" y="146" fill="#8b92aa" font-size="11" font-weight="600">breathing eases</text><rect x="324" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#6472a1" stroke-width="2"/><text x="388" y="105" fill="3">CALM · #6472a1</text><text x="388" y="130" fill="#8b92aa" font-size="11" font-weight="600">Tells immune cells</text><text x="388" y="146" fill="#8b92aa" font-size="11" font-weight="600">to stand down</text><rect x="476" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#0369a1" stroke-width="2"/><text x="540" y="105" fill="4">BALANCE · #0369a1</text><text x="540" y="130" fill="#8b92aa" font-size="11" font-weight="600">Gut motility and secretion</text><text x="540" y="146" fill="#8b92aa" font-size="11" font-weight="600">settle toward normal</text></g>
+      <g stroke="#686d7f" stroke-width="2" fill="none" class="flow" stroke-dasharray="6 6"><path d="M148 120 h24"/><path d="M300 120 h24"/><path d="M452 120 h24"/></g>
+      <text x="320" y="220" fill="#686d7f" font-size="12" text-anchor="middle">Proposed from decades of physiology — real biology, unproven as a therapy</text>
+    </svg>
+    <div class="cap">The textbook story. Genuine physiology — but physiology is not a prescription.</div>
+  </div><div class="ebar"><div class="row"><span class="t">Basic physiology</span><span class="v">well established</span></div><div class="track"><div class="fill" style="--w:88%;background:linear-gradient(90deg,#0369a1,#67e8f9)"></div></div><div class="note">VIP’s effects on vessels, airways, and gut are textbook — decades of replicated lab work.</div></div><div class="ebar"><div class="row"><span class="t">Immune modulation</span><span class="v">real, complex</span></div><div class="track"><div class="fill" style="--w:62%;background:linear-gradient(90deg,#67e8f9,#6472a1)"></div></div><div class="note">Anti-inflammatory signals in cells and animals; immune systems are complicated customers.</div></div><div class="ebar"><div class="row"><span class="t">Clinical trials (sarcoidosis, PAH)</span><span class="v">interesting, inconclusive</span></div><div class="track"><div class="fill" style="--w:38%;background:linear-gradient(90deg,#6472a1,#0369a1)"></div></div><div class="note">Real human trials with real signals — but no approvals and no follow-through to market.</div></div><div class="ebar"><div class="row"><span class="t">Gray-market VIP products</span><span class="v">no data</span></div><div class="track"><div class="fill" style="--w:4%;background:linear-gradient(90deg,#262937,#262937)"></div></div></div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>The pitch: <strong>dilate → open → calm → balance</strong>. Like a <strong>building superintendent</strong> who loosens the pipes, airs the rooms, and quiets the noisy tenants. The super is real — hiring him as your personal contractor is the unproven part.</p></div></section>
+<mini-poll slug="vip-mini-ch3"
+  data-question="Which proposed action is most compelling?"
+  data-answers='[["🩸", "Vasodilation"], ["🌬️", "Airway opening"], ["🛡️", "Immune calming"], ["🦠", "Gut balancing"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 4 ============ -->
+<section class="chapter" id="ch4">
+  <span class="eyebrow"><span class="n">04</span>Evidence check</span>
+  <h2>What the science <span class="hl">actually</span> supports</h2>
+  <p class="lede"><strong>Physiology A+, pharmacology incomplete.</strong> Real trials, real signals — then the trail went quiet and no drug emerged.</p>
+
+  <div class="grid3">
+    <div class="card sky reveal"><h3>Physiology: genuinely rich</h3><p><strong>Decades of replicated biology</strong>: vessels, airways, gut, immunity. This is not a hype molecule — it is a real endogenous messenger doing real jobs.</p></div>
+    <div class="card teal reveal"><h3>Trials: real but stalled</h3><p>Human trials in <strong>sarcoidosis and pulmonary arterial hypertension</strong> produced interesting signals. Then — little follow-through, no approvals. The trail goes quiet.</p></div>
+    <div class="card org reveal"><h3>Products: no basis</h3><p>Gray-market VIP vials borrow the molecule’s <strong>reputation, not its trial data</strong>. What is in them, and what it does, is unstudied.</p></div>
+  </div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>VIP’s report card: <strong>physiology A+, pharmacology incomplete</strong>. The molecule genuinely does all these things in the body — but swallowing or injecting extra VIP is a <strong>different experiment</strong>, and that experiment never graduated.</p></div></section>
+<mini-poll slug="vip-mini-ch4"
+  data-question="Real trials, no approvals — your reaction?"
+  data-answers='[["📊", "Dealbreaker"], ["⏳", "Science takes time"], ["🔬", "The signals matter"], ["⚠️", "That stall worries me"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 5 ============ -->
+<section class="chapter" id="ch5">
+  <span class="eyebrow"><span class="n">05</span>VIP vs PACAP</span>
+  <h2>VIP <span class="hl">vs</span> PACAP</h2>
+  <p class="lede">Sibling messengers sharing receptors and the same fate: <strong>fascinating, research-stage, drugless</strong>.</p>
+
+  <div class="grid3">
+    <div class="card sky reveal"><h3>VIP · the diplomat</h3><p><strong>28 amino acids</strong>, four organ systems, decades of research. The better-known sibling with actual trial history.</p></div>
+    <div class="card teal reveal"><h3>PACAP · the sibling</h3><p><strong>Pituitary adenylate cyclase-activating polypeptide</strong> — a close relative sharing receptors (VPAC1/VPAC2) and many jobs. Also research-stage, also unapproved.</p></div>
+    <div class="card org reveal"><h3>Siblings, shared fate</h3><p>Both are <strong>real, fascinating, and drugless</strong>. Biology this broad is hard to bottle — every job is a side effect waiting to happen.</p></div>
+  </div><div class="diagram reveal">
+    <svg viewBox="0 0 640 230" role="img" aria-label="VIP and PACAP as two paths converging on the neuropeptide shelf">
+      <g font-size="13" font-weight="800" text-anchor="middle">
+        <rect x="40" y="40" width="180" height="90" rx="14" fill="#04050a" stroke="#67e8f9" stroke-width="2"/>
+        <text x="130" y="75" fill="#67e8f9">VIP</text>
+        <text x="130" y="98" fill="#8b92aa" font-size="11" font-weight="600">28-aa messenger</text>
+        <text x="130" y="114" fill="#8b92aa" font-size="11" font-weight="600">trials, no approval</text>
+        <rect x="420" y="40" width="180" height="90" rx="14" fill="#04050a" stroke="#0369a1" stroke-width="2"/>
+        <text x="510" y="75" fill="#0369a1">PACAP</text>
+        <text x="510" y="98" fill="#8b92aa" font-size="11" font-weight="600">sister peptide</text>
+        <text x="510" y="114" fill="#8b92aa" font-size="11" font-weight="600">shared receptors</text>
+        <rect x="230" y="150" width="180" height="60" rx="14" fill="#04050a" stroke="#686d7f" stroke-width="2" stroke-dasharray="7 5"/>
+        <text x="320" y="176" fill="#8b92aa" font-size="12">"NEUROPEPTIDE SHELF"</text>
+        <text x="320" y="195" fill="#686d7f" font-size="10" font-weight="600">fascinating — and unproven</text>
+      </g>
+      <g stroke="#686d7f" stroke-width="2" fill="none" class="flow" stroke-dasharray="6 6">
+        <path d="M220 100 Q 280 130 240 155"/><path d="M420 100 Q 360 130 400 155"/>
+      </g>
+    </svg>
+    <div class="cap">Two sibling messengers sharing receptors, research programs, and the same empty trophy case.</div>
+  </div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>VIP and PACAP are <strong>siblings who job-share</strong> — same receptors, overlapping shifts, both brilliant. Pharma keeps interviewing them for drug roles and keeps <strong>not hiring</strong>. There is a reason: a messenger this chatty is hard to aim.</p></div></section>
+<mini-poll slug="vip-mini-ch5"
+  data-question="VIP vs PACAP — which interests you more?"
+  data-answers='[["💙", "VIP the diplomat"], ["💜", "PACAP the sibling"], ["🤝", "Both, same story"], ["📊", "Neither until approval"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 6 ============ -->
+<section class="chapter" id="ch6">
+  <span class="eyebrow"><span class="n">06</span>What people say</span>
+  <h2>Reports from the <span class="hl">wild</span></h2>
+  <p class="lede">Thinner chatter than the cosmetic world — <strong>patient forums and biohacker threads</strong> circling the trial history. Stories, not data.</p>
+
+  <p class="lede" style="margin-bottom:1.2rem">Online chatter is thinner here than in the cosmetic-peptide world — mostly <strong>patient forums and biohacker threads</strong> circling the trial history. Stories, not data.</p>
+  <div class="ulegend reveal"><span class="udot" role="img" aria-label="Unverified anecdote"></span><p><strong>Unverified anecdote</strong> — the pulsing dot marks a paraphrased recurring theme from forums and social media: not verified, not evidence.</p></div>
+  <div class="anec-grid">
+    <div class="anec reveal"><div class="anec-head"><h4>The sarcoidosis hope</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Read about the trials — asked my doctor, who had never heard of it.&rdquo; <strong>Caveat:</strong> trial-stage molecules rarely reach clinics; "my doctor hasn’t heard of it" is the norm, not a conspiracy.</p><div class="caveat">Pattern: patient hope outpacing the trial pipeline.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The biohacker thread</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Someone’s self-experimenting with VIP nasal spray. Following closely.&rdquo; <strong>Caveat:</strong> uncontrolled self-experiments with unregulated vials prove nothing and risk plenty.</p><div class="caveat">Pattern: gray-market curiosity as spectator sport.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The breathing story</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Tried a VIP product for airways — breathing felt easier for an hour.&rdquo; <strong>Caveat:</strong> airway sensations fluctuate constantly; an hour of "easier" is noise, not signal.</p><div class="caveat">Pattern: short-window subjective outcomes.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The non-responder</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Ran it for a month. Nothing I could point to.&rdquo; <strong>Caveat:</strong> negative reports vanish quickly in enthusiast spaces.</p><div class="caveat">Pattern: quiet non-response, heavily underreported.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The blood-pressure dip</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Felt lightheaded after dosing — that means it’s working, right?&rdquo; <strong>Caveat:</strong> lightheadedness is a <strong>side effect</strong> (vasodilation), not a progress meter — and a warning sign.</p><div class="caveat">Pattern: side effects reframed as efficacy.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The immune hope</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;My autoimmune issues — hoping this calms things down.&rdquo; <strong>Caveat:</strong> immune modulation in a dish is not immune treatment in a person; hope is not a protocol.</p><div class="caveat">Pattern: disease hope attached to early science.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The price talk</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;It’s expensive, which makes me think the trials were onto something.&rdquo; <strong>Caveat:</strong> price reflects scarcity and marketing, not trial success — failed trials don’t discount vials.</p><div class="caveat">Pattern: cost-as-proof reasoning.</div></div>
+    <div class="anec reveal"><div class="anec-head"><h4>The honest shrug</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Interesting molecule. I’ll wait for an actual drug.&rdquo; <strong>Caveat:</strong> the most defensible position in the thread — and the least exciting.</p><div class="caveat">Pattern: patience as the contrarian take.</div></div>
+  </div>
+  <div class="folk-note reveal"><p>Read these the way scientists read case reports: <strong>useful for generating hypotheses, useless for proving them</strong>. The most honest sentence here is "I’ll wait for an actual drug" — because the trials never produced one.</p></div></section>
+<mini-poll slug="vip-mini-ch6"
+  data-question="Trial-stage stories online — how do you read them?"
+  data-answers='[["💬", "Encouraging"], ["🧂", "Salt required"], ["🚫", "Placebo-prone"], ["⚖️", "Stories aren&#39;t data"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 7 ============ -->
+<section class="chapter" id="ch7">
+  <span class="eyebrow"><span class="n">07</span>Risks & unknowns</span>
+  <h2>Risks &amp; <span class="hl">unknowns</span></h2>
+  <p class="lede">It <strong>moves blood pressure by design</strong>. Everything about casual use of unregulated vials is unknown — kept in separate boxes on purpose.</p>
+
+  <div class="safety-grid">
+    <div class="scard lvl-known reveal"><h4>Blood pressure effects</h4><p><strong>Observed:</strong> vasodilation is VIP’s headline act — drops in blood pressure and lightheadedness are <strong>expected pharmacology</strong>, not surprises.</p></div>
+    <div class="scard lvl-known reveal"><h4>Unregulated vials</h4><p><strong>Observed:</strong> gray-market VIP has no quality oversight. A potent vasoactive peptide of <strong>unknown content</strong> is a different risk class than a face cream.</p></div>
+    <div class="scard lvl-theory reveal"><h4>Too many jobs</h4><p><strong>Theoretical:</strong> a messenger active in four systems will have <strong>off-target effects everywhere</strong>. Drug developers’ struggle to aim it is the safety signal.</p></div>
+    <div class="scard lvl-theory reveal"><h4>Immune unknowns</h4><p><strong>Theoretical:</strong> calming immune cells sounds nice until you need them. <strong>Immune modulation without a protocol</strong> is uncharted.</p></div>
+    <div class="scard lvl-unknown reveal"><h4>Casual-use safety</h4><p><strong>Unknown:</strong> no safety data exists for healthy people using VIP products. The trials studied <strong>patients, under supervision</strong> — not biohackers.</p></div>
+    <div class="scard lvl-unknown reveal"><h4>Long-term effects</h4><p><strong>Unknown:</strong> chronic use data does not exist. What sustained vasodilation-plus-immune-calming does over years is <strong>entirely uncharted</strong>.</p></div>
+  </div>
+  <div class="plain reveal"><div class="plabel">Plain English</div><p>Known: it <strong>moves blood pressure</strong> — that is the job description, and the warning label. Unknown: <strong>nearly everything about casual use</strong> of unregulated vials. A molecule this powerful is not a supplement; it is an <strong>unfinished drug</strong>.</p></div></section>
+<mini-poll slug="vip-mini-ch7"
+  data-question="Which unknown bothers you most?"
+  data-answers='[["🩸", "Blood pressure swings"], ["🛡️", "Immune unknowns"], ["🏭", "What&#39;s in the vial"], ["❓", "All of it"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 8 ============ -->
+<section class="chapter" id="ch8">
+  <span class="eyebrow"><span class="n">08</span>Glossary</span>
+  <h2>Speak <span class="hl">neuropeptide</span></h2>
+  <p class="lede">Twelve terms, each with the science, an example, and a plain-English translation. Tap any term to expand it.</p>
+
+  <div class="gloss">
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M14 24h20M24 14v20" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">VIP</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Vasoactive Intestinal Peptide: a 28-amino-acid neuropeptide made by the body, active in the gut, lungs, brain, and immune system.</p><p class="gex"><span class="gslabel">Example</span>The molecule this whole page is about — the multilingual diplomat.</p><div class="plain"><span class="plabel">Plain English</span>A natural messenger with four different jobs.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M18 8h12v6l-6 4-6-4zM24 18v14M16 40h16" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Neuropeptide</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>A small protein used by nerve cells as a chemical messenger — slower and longer-acting than classic neurotransmitters.</p><p class="gex"><span class="gslabel">Example</span>VIP’s job category: the postal service, not the telephone.</p><div class="plain"><span class="plabel">Plain English</span>A slow, long-lasting nerve message.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M24 6c6 8 10 14 10 20a10 10 0 0 1-20 0c0-6 4-12 10-20z" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Vasodilation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Widening of blood vessels, increasing blood flow and typically lowering blood pressure. VIP’s namesake effect.</p><p class="gex"><span class="gslabel">Example</span>The headline act — and the built-in warning label.</p><div class="plain"><span class="plabel">Plain English</span>Pipes loosening so more blood flows through.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M24 40C14 32 8 26 8 18a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 8-6 14-16 22z" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">VPAC receptors</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>The cell-surface receptors (VPAC1, VPAC2) that VIP and its sibling PACAP bind — the locks the messenger’s key fits.</p><p class="gex"><span class="gslabel">Example</span>Why VIP and PACAP keep showing up in the same studies.</p><div class="plain"><span class="plabel">Plain English</span>The doorbells VIP knows how to ring.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M24 6l14 6v10c0 10-6 16-14 20C16 38 10 32 10 22V12z" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">PACAP</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Pituitary adenylate cyclase-activating polypeptide — VIP’s close sibling, sharing receptors and many jobs. Also research-stage.</p><p class="gex"><span class="gslabel">Example</span>The sister peptide job-sharing with VIP.</p><div class="plain"><span class="plabel">Plain English</span>VIP’s sibling, working the same beat.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M10 24a14 14 0 0 1 24-9M38 24a14 14 0 0 1-24 9M30 10l4 5-5 4M18 38l-4-5 5-4" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Sarcoidosis</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>An inflammatory disease causing tiny clumps of immune cells (granulomas) in organs, often the lungs. A VIP trial target.</p><p class="gex"><span class="gslabel">Example</span>Where VIP’s immune-calming act was auditioned.</p><div class="plain"><span class="plabel">Plain English</span>An inflammatory disease VIP was tested against.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M20 20a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM26 26l12 12" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Pulmonary arterial hypertension</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>High blood pressure in the lung arteries — a serious condition and another VIP trial target, given the vasodilation angle.</p><p class="gex"><span class="gslabel">Example</span>The other stage VIP auditioned on.</p><div class="plain"><span class="plabel">Plain English</span>Dangerously high lung blood pressure.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M6 18c4-6 8-6 12 0s8 6 12 0 8-6 12 0M6 30c4-6 8-6 12 0s8 6 12 0 8-6 12 0" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Immune modulation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Adjusting immune activity up or down. VIP tends to calm inflammatory responses — interesting, and double-edged.</p><p class="gex"><span class="gslabel">Example</span>The "stand down" order to immune cells.</p><div class="plain"><span class="plabel">Plain English</span>Turning the immune volume knob.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M24 14a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM24 4v6M24 38v6M4 24h6M38 24h6" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Bronchodilation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Widening of the airways — VIP relaxes airway smooth muscle, which is why lung researchers noticed it.</p><p class="gex"><span class="gslabel">Example</span>The "breathe easier" part of the pitch.</p><div class="plain"><span class="plabel">Plain English</span>Airways opening up.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M10 10h12v12H10zM26 10h12v12H26zM10 26h12v12H10zM26 26h12v12H26z" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Gut-brain axis</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>The two-way signaling between digestive system and brain, in which neuropeptides like VIP are fluent messengers.</p><p class="gex"><span class="gslabel">Example</span>VIP’s original neighborhood.</p><div class="plain"><span class="plabel">Plain English</span>The hotline between belly and brain.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M10 14h28v20H10zM10 14l14 10 14-10" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Preclinical</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Lab and animal research before human trials. Much of VIP’s mechanism story lives here — necessary, not sufficient.</p><p class="gex"><span class="gslabel">Example</span>The minor leagues of medical proof.</p><div class="plain"><span class="plabel">Plain English</span>Dish and animal studies — not human proof.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M10 8h16a6 6 0 0 1 6 6v22H16a6 6 0 0 1-6-6zM16 8v28" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Placebo</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Improvement from expectation — powerful for breathing ease and wellbeing, exactly where VIP anecdotes live.</p><p class="gex"><span class="gslabel">Example</span>The eternal rival explanation for every "I feel better" story.</p><div class="plain"><span class="plabel">Plain English</span>Feeling better because you expect to.</div></div></div>
+  </div></section>
+<!-- ============ CHAPTER 9 ============ -->
+<section class="chapter" id="ch9">
+  <span class="eyebrow"><span class="n">09</span>Takeaways</span>
+  <h2>The <span class="hl">bottom line</span></h2>
+  <p class="lede">Nine chapters, distilled. Brilliant physiology, no prescription — and a molecule to respect, not to self-experiment with.</p>
+
+  <div class="take-grid">
+    <div class="take reveal"><div class="tk">🧬</div><h4>A real endogenous messenger</h4><p>VIP is <strong>made by your body</strong> — 28 amino acids working across gut, lung, brain, and immune tissue.</p></div>
+<div class="take reveal"><div class="tk">🩸</div><h4>Vessels are the headline</h4><p><strong>Vasodilation</strong> is the namesake effect — and the built-in warning label for casual use.</p></div>
+<div class="take reveal"><div class="tk">🔬</div><h4>Genuinely rich physiology</h4><p><strong>Decades of replicated biology</strong>: airways, gut, immunity. Not a hype molecule — a real one.</p></div>
+<div class="take reveal"><div class="tk">🧪</div><h4>Real trials, no approvals</h4><p>Studied for <strong>sarcoidosis and pulmonary hypertension</strong> with interesting signals — then the trail went quiet.</p></div>
+<div class="take reveal"><div class="tk">👯</div><h4>PACAP: the sibling</h4><p>A <strong>close relative sharing receptors</strong> and the same fate: fascinating, research-stage, drugless.</p></div>
+<div class="take reveal"><div class="tk">💧</div><h4>Products lack a basis</h4><p>Gray-market vials borrow the molecule’s <strong>reputation, not its trial data</strong>. Contents and effects unstudied.</p></div>
+<div class="take reveal"><div class="tk">⚠️</div><h4>Potent is not safe</h4><p>A vasoactive, immune-active peptide is <strong>an unfinished drug</strong>, not a supplement — treat it accordingly.</p></div>
+<div class="take reveal"><div class="tk">💬</div><h4>Stories are not data</h4><p>Breathing-ease anecdotes are <strong>vivid, unverified, and placebo-prone</strong>.</p></div>
+<div class="take reveal"><div class="tk">🩺</div><h4>Patients, not biohackers</h4><p>Trials studied <strong>supervised patients</strong> — nothing supports casual experimentation.</p></div>
+<div class="take reveal"><div class="tk">🔭</div><h4>What would change the story</h4><p>A <strong>completed, positive phase 3</strong> and an approved drug. Until then: brilliant physiology, no prescription.</p></div>
+  </div>
+  <div class="limits reveal">
+    <h3>What this page does not do</h3>
+    <ul>
+      <li><strong>No usage or dosage guidance.</strong> This page deliberately contains no instructions for obtaining, preparing, or using VIP or any related product.</li>
+      <li><strong>No sourcing or vendor information.</strong> This page does not help find, evaluate, or buy any product.</li>
+      <li><strong>No medical advice.</strong> Nothing here is a recommendation for or against any treatment. Talk to a licensed clinician about any health decision.</li>
+    </ul>
+  </div></section>
+<mini-poll slug="vip-mini-ch8"
+  data-question="How would you rate this infographic?"
+  data-answers='[["😍", "⭐⭐⭐⭐⭐ · Loved it"], ["🙂", "⭐⭐⭐⭐ · Good stuff"], ["😐", "⭐⭐⭐ · It&#39;s okay"]]'>
+</mini-poll>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="disc">
+      <h3>⚠️ Educational content — not medical advice</h3>
+      <p>This page is for <strong>education and entertainment only</strong>. It is not medical advice, not a recommendation, and not a substitute for a qualified healthcare professional. VIP is a <strong>research-stage molecule</strong>; no VIP-based medicine has been approved, no human safety profile exists for casual use, and unregulated products are unstudied.</p>
+      <p>Online anecdotes are <strong>unverified stories</strong>, often involving unregulated products of unknown content — they prove nothing about what would happen to you. <strong>Do not attempt to obtain or use unapproved substances.</strong> If you are considering any treatment, speak with a licensed clinician who can evaluate your individual situation.</p>
+
+    </div>
+    <div class="meta">
+      <span>Compiled October 2026</span>
+      <span class="srcs"><span>Sources:</span> physiology and trial references; no approved drug to cite.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+"use strict";
+var reduced=window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+/* ---------- theme ---------- */
+function setTheme(t){
+  document.documentElement.setAttribute("data-theme",t);
+  try{localStorage.setItem("vip-theme",t)}catch(e){}
+  document.querySelectorAll("#themeToggle .tt-opt").forEach(function(b){
+    var on=b.dataset.mode===t;
+    b.classList.toggle("active",on);
+    b.setAttribute("aria-pressed",on?"true":"false");
+  });
+}
+document.querySelectorAll("#themeToggle .tt-opt").forEach(function(b){
+  b.addEventListener("click",function(){setTheme(b.dataset.mode);});
+});
+setTheme(document.documentElement.getAttribute("data-theme")==="light"?"light":"dark");
+/* ---------- ambient dots ---------- */
+(function(){
+  var svg=document.getElementById("dots"),W,H,dots=[];
+  function size(){W=window.innerWidth;H=window.innerHeight;svg.setAttribute("viewBox","0 0 "+W+" "+H);}
+  size();window.addEventListener("resize",size);
+  var NS="http://www.w3.org/2000/svg";
+  var colors=["#67e8f9","#0369a1","#6472a1","#0369a1","#67e8f9","#172554"];
+  for(var i=0;i<140;i++){
+    var c=document.createElementNS(NS,"circle");
+    var col=colors[i%colors.length];
+    var baseOp=0.30+Math.random()*0.35;
+    var sx=Math.random()*2000,sy=Math.random()*2000;
+    c.setAttribute("r",(1.4+Math.random()*2.2).toFixed(1));
+    c.setAttribute("fill",col);c.setAttribute("opacity",baseOp.toFixed(2));
+    c.style.transform="translate("+sx.toFixed(1)+"px,"+sy.toFixed(1)+"px)";
+    svg.appendChild(c);
+    dots.push({el:c,x:sx,y:sy,
+      vx:(Math.random()-0.5)*0.3,vy:(Math.random()-0.5)*0.3,
+      baseOp:baseOp,ph:Math.random()*Math.PI*2,sp:0.3+Math.random()*0.7});
+  }
+  var paused=document.hidden;
+  document.addEventListener("visibilitychange",function(){paused=document.hidden;});
+  var t0=0;
+  function tick(ts){
+    requestAnimationFrame(tick);
+    if(paused||reduced)return;
+    if(!t0)t0=ts;var t=(ts-t0)/1000;
+    var w=window.innerWidth,h=window.innerHeight;
+    for(var i=0;i<dots.length;i++){var d=dots[i];
+      d.x+=d.vx;d.y+=d.vy;
+      if(d.x<-20)d.x=w+20;if(d.x>w+20)d.x=-20;
+      if(d.y<-20)d.y=h+20;if(d.y>h+20)d.y=-20;
+      d.el.style.transform="translate("+d.x.toFixed(1)+"px,"+d.y.toFixed(1)+"px)";
+      d.el.style.opacity=(d.baseOp*(0.7+0.3*Math.sin(t*d.sp+d.ph))).toFixed(2);
+    }
+  }
+  if(!reduced)requestAnimationFrame(tick);
+})();
+/* ---------- bead-chain diagram guard (no-op if element absent) ---------- */
+(function(){
+  var g=document.getElementById("retaBeads");if(!g)return;
+  var NS="http://www.w3.org/2000/svg";
+  var n=39,startX=70,endX=720,y=120,amp=34;
+  for(var i=0;i<n;i++){
+    var t=i/(n-1),x=startX+(endX-startX)*t,yy=y+Math.sin(t*Math.PI*2.2)*amp;
+    var c=document.createElementNS(NS,"circle");
+    c.setAttribute("cx",x.toFixed(1));c.setAttribute("cy",yy.toFixed(1));
+    c.setAttribute("r",i%5===0?11:8.5);
+    c.setAttribute("fill","#000000");
+    c.setAttribute("stroke","url(#beadTri)");c.setAttribute("stroke-width","4");
+    g.appendChild(c);
+    if(i<n-1){
+      var t2=(i+1)/(n-1),x2=startX+(endX-startX)*t2,yy2=y+Math.sin(t2*Math.PI*2.2)*amp;
+      var l=document.createElementNS(NS,"line");
+      l.setAttribute("x1",x.toFixed(1));l.setAttribute("y1",yy.toFixed(1));
+      l.setAttribute("x2",x2.toFixed(1));l.setAttribute("y2",yy2.toFixed(1));
+      l.setAttribute("stroke","#262937");l.setAttribute("stroke-width","3");
+      g.insertBefore(l,g.firstChild);
+    }
+  }
+})();
+/* ---------- reveal on scroll ---------- */
+var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
+},{threshold:0.12,rootMargin:"0px 0px -6% 0px"});
+document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+/* ---------- count-up stats ---------- */
+var cio=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(!e.isIntersecting)return;cio.unobserve(e.target);
+    var el=e.target,end=parseFloat(el.getAttribute("data-count")),
+        dec=parseInt(el.getAttribute("data-decimals")||"0",10),
+        pre=el.getAttribute("data-prefix")||"",suf=el.getAttribute("data-suffix")||"";
+    if(reduced){el.textContent=pre+end.toFixed(dec)+suf;return;}
+    var t0=null,dur=1600;
+    function step(ts){if(!t0)t0=ts;var p=Math.min((ts-t0)/dur,1),ease=1-Math.pow(1-p,3);
+      el.textContent=pre+(end*ease).toFixed(dec)+suf;
+      if(p<1)requestAnimationFrame(step);}
+    requestAnimationFrame(step);
+  });
+},{threshold:0.5});
+document.querySelectorAll("[data-count]").forEach(function(el){cio.observe(el);});
+/* ---------- glossary accordion ---------- */
+document.querySelectorAll(".g-item").forEach(function(item){
+  var q=item.querySelector(".g-q"),a=item.querySelector(".g-a");
+  q.addEventListener("click",function(){
+    var open=item.classList.contains("open");
+    document.querySelectorAll(".g-item.open").forEach(function(o){
+      o.classList.remove("open");
+      o.querySelector(".g-a").style.maxHeight="0px";
+      o.querySelector(".g-q").setAttribute("aria-expanded","false");
+    });
+    if(!open){
+      item.classList.add("open");
+      q.setAttribute("aria-expanded","true");
+      requestAnimationFrame(function(){a.style.maxHeight=a.scrollHeight+"px";});
+    }
+  });
+});
+/* ---------- sidebar / rail smooth scroll ---------- */
+document.querySelectorAll('.toc a[href^="#"], nav.chapters a[href^="#"]').forEach(function(a){
+  a.addEventListener("click",function(e){
+    e.preventDefault();
+    var id=a.getAttribute("href"),t=id.length>1?document.querySelector(id):null;
+    if(t)t.scrollIntoView({behavior:reduced?"auto":"smooth",block:"start"});
+    if(history.replaceState&&id.length>1){try{history.replaceState(null,"",id);}catch(err){}}
+  });
+});
+/* ---------- progress + scrollspy ---------- */
+var bar=document.getElementById("progress"),
+    tocBar=document.getElementById("tocBar"),tocPct=document.getElementById("tocPct"),
+    links=Array.prototype.slice.call(document.querySelectorAll(".toc a, nav.chapters a")),
+    rail=document.getElementById("rail"),
+    sections=["ch1","ch2","ch3","ch4","ch5","ch6","ch7","ch8","ch9"].map(function(id){return document.getElementById(id);}),
+    pill=document.querySelector(".toc-pill"),cur=-1,ticking=false;
+function easeWidth(el,v){el.style.width=v+"%";}
+function update(){
+  ticking=false;
+  var h=document.documentElement,
+      max=h.scrollHeight-h.clientHeight,
+      p=max>0?Math.min(100,Math.max(0,(h.scrollTop||document.body.scrollTop)/max*100)):0;
+  easeWidth(bar,p);
+  if(tocBar)easeWidth(tocBar,p);
+  if(tocPct)tocPct.textContent=Math.round(p)+"%";
+  var idx=0;
+  sections.forEach(function(s,i){if(s&&s.getBoundingClientRect().top<window.innerHeight*0.4)idx=i;});
+  if(idx!==cur){
+    cur=idx;
+    links.forEach(function(a){a.classList.remove("active");});
+    links.forEach(function(a){if(a.getAttribute("href")==="#ch"+(idx+1))a.classList.add("active");});
+    var active=document.querySelector(".toc a.active");
+    if(active&&pill){
+      var tocEl=document.querySelector(".toc"),
+          tr=tocEl.getBoundingClientRect(),ar=active.getBoundingClientRect();
+      pill.style.opacity="1";
+      pill.style.height=active.offsetHeight+"px";
+      pill.style.transform="translateY("+Math.round(ar.top-tr.top)+"px)";
+      if(rail&&window.innerWidth<1200){
+        var ra=rail.querySelector('a[href="#ch'+(idx+1)+'"]');
+        if(ra)rail.scrollTo({left:ra.offsetLeft-24,behavior:reduced?"auto":"smooth"});
+      }
+    }else if(pill){pill.style.opacity="0";}
+  }
+}
+window.addEventListener("scroll",function(){if(!ticking){ticking=true;requestAnimationFrame(update);}},{passive:true});
+window.addEventListener("resize",function(){cur=-1;update();});
+window.addEventListener("load",function(){cur=-1;update();});
+if(document.fonts&&document.fonts.ready){document.fonts.ready.then(function(){cur=-1;update();});}
+setTimeout(function(){cur=-1;update();},800);
+update();
+/* ---------- completion confetti ---------- */
+var done=false;
+function fireConfetti(){
+  var c=document.getElementById("confetti"),ctx=c.getContext("2d");
+  c.width=window.innerWidth;c.height=window.innerHeight;
+  c.classList.add("show");
+  var cols=["#67e8f9","#0369a1","#6472a1","#fbbf24","#c2cae7"],parts=[];
+  for(var i=0;i<45;i++)parts.push({x:Math.random()*c.width,y:-20-Math.random()*c.height*0.25,
+    w:4+Math.random()*4,h:5+Math.random()*5,c:cols[i%cols.length],
+    vy:0.7+Math.random()*1.1,ph:Math.random()*Math.PI*2,sw:0.4+Math.random()*0.8,
+    r:Math.random()*Math.PI,vr:-0.06+Math.random()*0.12});
+  var start=null,dur=4200;
+  function frame(ts){
+    if(!start)start=ts;var el=ts-start,p=el/dur;
+    ctx.clearRect(0,0,c.width,c.height);
+    ctx.globalAlpha=p>0.7?Math.max(0,1-(p-0.7)/0.3):1;
+    parts.forEach(function(q){q.y+=q.vy;q.ph+=0.02;q.r+=q.vr;
+      var sx=q.x+Math.sin(q.ph)*22*q.sw;
+      ctx.save();ctx.translate(sx,q.y);ctx.rotate(q.r);ctx.fillStyle=q.c;
+      ctx.fillRect(-q.w/2,-q.h/2,q.w,q.h);ctx.restore();});
+    ctx.globalAlpha=1;
+    if(el<dur&&!reduced)requestAnimationFrame(frame);
+    else{c.classList.remove("show");ctx.clearRect(0,0,c.width,c.height);}
+  }
+  if(!reduced)requestAnimationFrame(frame);else c.classList.remove("show");
+}
+var fio=new IntersectionObserver(function(es){
+  es.forEach(function(e){
+    if(e.isIntersecting&&!done){done=true;
+      fireConfetti();
+      var t=document.getElementById("doneToast");
+      t.classList.add("show");setTimeout(function(){t.classList.remove("show");},4200);
+      fio.disconnect();}
+  });
+},{threshold:0.35});
+fio.observe(document.querySelector("footer"));
+})();
+</script>
+<script>
+/* Mini-poll backend config. Empty = preview mode (local votes, 3-day cooldown).
+   To go live: fill in your Supabase project URL + anon key (see poll-admin README). */
+window.MINI_POLL_CONFIG = { supabaseUrl: "", anonKey: "", turnstileSiteKey: "",
+  accents: ["#67e8f9", "#0369a1", "#0369a1", "#0369a1", "#6472a1", "#67e8f9", "#fbbf24", "#0369a1", "#6472a1"] };
+</script>
+<script>
+/* Mini-poll web component — vanilla JS, no dependencies.
+   Usage:
+     <mini-poll slug="vip-mini-ch1"
+       data-question="Had you heard of VIP before today?"
+       data-answers='[["🆕","No — brand new to me"],["👀","Heard the name"]]'>
+     </mini-poll>
+   Add `data-expanded` to start open; otherwise polls start as a slim,
+   collapsed teaser (tap to expand). Questions/answers come from the backend
+   when configured; data-* attributes are the preview fallback.
+   Configure once per page:
+     window.MINI_POLL_CONFIG = { supabaseUrl: "https://xyz.supabase.co",
+                                 anonKey: "eyJ...", turnstileSiteKey: "" };
+   No backend configured -> honest preview mode (localStorage, 3-day cooldown,
+   clearly badged). */
+(function () {
+  'use strict';
+  var CFG = window.MINI_POLL_CONFIG || {};
+  var API = (CFG.supabaseUrl || '').replace(/\/$/, '');
+  var ANON = CFG.anonKey || '';
+
+  function lsKey(slug) { return 'minipoll:' + slug; }
+
+  async function fingerprint() {
+    try {
+      var c = document.createElement('canvas');
+      var x = c.getContext('2d');
+      x.textBaseline = 'top'; x.font = '14px Arial';
+      x.fillText('poll-fp::' + navigator.userAgent, 2, 2);
+      var raw = [navigator.userAgent, screen.width + 'x' + screen.height,
+        screen.colorDepth, Intl.DateTimeFormat().resolvedOptions().timeZone,
+        navigator.language, c.toDataURL()].join('|');
+      var buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(raw));
+      return Array.from(new Uint8Array(buf)).map(function (b) {
+        return b.toString(16).padStart(2, '0');
+      }).join('');
+    } catch (e) { return 'fp-' + Math.random().toString(36).slice(2); }
+  }
+
+  function apiHeaders() {
+    return { 'apikey': ANON, 'Authorization': 'Bearer ' + ANON, 'Content-Type': 'application/json' };
+  }
+  async function restGet(path) {
+    var r = await fetch(API + '/rest/v1/' + path, { headers: apiHeaders() });
+    if (!r.ok) throw new Error('api ' + r.status);
+    return r.json();
+  }
+  async function rpc(name, body) {
+    var r = await fetch(API + '/rest/v1/rpc/' + name, {
+      method: 'POST', headers: apiHeaders(), body: JSON.stringify(body)
+    });
+    if (!r.ok) throw new Error('rpc ' + r.status);
+    return r.json();
+  }
+  async function edge(name, body) {
+    var r = await fetch(API + '/functions/v1/' + name, {
+      method: 'POST', headers: apiHeaders(), body: JSON.stringify(body)
+    });
+    var data = await r.json().catch(function () { return {}; });
+    return { status: r.status, data: data };
+  }
+
+  function fmtCountdown(ms) {
+    if (ms <= 0) return 'now';
+    var s = Math.floor(ms / 1000);
+    var d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600),
+        m = Math.floor(s % 3600 / 60), ss = s % 60;
+    if (d > 0) return d + 'd ' + h + 'h';
+    if (h > 0) return h + 'h ' + m + 'm';
+    if (m > 0) return m + 'm ' + ss + 's';
+    return ss + 's';
+  }
+  function esc(s) {
+    return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
+      return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+    });
+  }
+
+  /* per-poll accent: distinct pulsing-dot color + gradient border per poll.
+     Palette comes from window.MINI_POLL_CONFIG.accents when the page sets one,
+     otherwise the default nine-color set. */
+  var ACCENTS = (window.MINI_POLL_CONFIG && window.MINI_POLL_CONFIG.accents) ||
+                ['#67e8f9', '#0369a1', '#6472a1', '#8257f1', '#6472a1',
+                 '#0369a1', '#fbbf24', '#fb7185', '#0e8bcc'];
+  function pollAccents(slug) {
+    var m = /ch(\d+)/.exec(slug || '');
+    var i = m ? parseInt(m[1], 10) - 1 : 0;
+    i = ((i % ACCENTS.length) + ACCENTS.length) % ACCENTS.length;
+    return [ACCENTS[i], ACCENTS[(i + 3) % ACCENTS.length]];
+  }
+
+  function MiniPoll() { return Reflect.construct(HTMLElement, [], MiniPoll); }
+  MiniPoll.prototype = Object.create(HTMLElement.prototype);
+  Object.setPrototypeOf(MiniPoll, HTMLElement);
+
+  MiniPoll.prototype.connectedCallback = function () {
+    var self = this;
+    this._slug = this.getAttribute('slug') || '';
+    this._selected = null;
+    this._timer = null;
+    this._refreshTimer = null;
+    this._open = this.hasAttribute('data-expanded');
+    if (!this._slug) { this.style.display = 'none'; return; }
+    this.renderShell();
+    fingerprint().then(function (fp) {
+      self._fp = fp;
+      self.boot();
+    });
+  };
+
+  MiniPoll.prototype.disconnectedCallback = function () {
+    if (this._timer) clearInterval(this._timer);
+    if (this._refreshTimer) clearInterval(this._refreshTimer);
+  };
+
+  /* ---------------- shell: slim teaser + collapsible body ---------------- */
+  MiniPoll.prototype.renderShell = function () {
+    this.innerHTML =
+      '<div class="mpoll">' +
+      '<button type="button" class="mpoll-teaser" aria-expanded="' + (this._open ? 'true' : 'false') + '">' +
+      '<span class="mpoll-teaser-dot" aria-hidden="true"></span>' +
+      '<span class="mpoll-teaser-text"><span class="mpoll-teaser-q">loading…</span></span>' +
+      '<span class="mpoll-teaser-chev" aria-hidden="true">▾</span>' +
+      '</button>' +
+      '<div class="mpoll-bodywrap"' + (this._open ? '' : ' inert') + '>' +
+      '<div class="mpoll-clip"><div class="mpoll-body">' +
+      '<div class="mpoll-loading" aria-live="polite">Loading poll…</div>' +
+      '</div></div></div></div>';
+    this._root = this.querySelector('.mpoll');
+    this._teaser = this.querySelector('.mpoll-teaser');
+    this._teaserQ = this.querySelector('.mpoll-teaser-q');
+    this._wrap = this.querySelector('.mpoll-bodywrap');
+    this._body = this.querySelector('.mpoll-body');
+    var ac = pollAccents(this._slug);
+    this._root.style.setProperty('--mpc1', ac[0]);
+    this._root.style.setProperty('--mpc2', ac[1]);
+    if (this._open) this._root.classList.add('open');
+    var self = this;
+    this._teaser.addEventListener('click', function () { self.toggle(); });
+  };
+
+  MiniPoll.prototype.toggle = function (force) {
+    this._open = typeof force === 'boolean' ? force : !this._open;
+    this._teaser.setAttribute('aria-expanded', this._open ? 'true' : 'false');
+    this._root.classList.toggle('open', this._open);
+    this._wrap.inert = !this._open;
+  };
+
+  MiniPoll.prototype.setTeaser = function (q, voted) {
+    this._teaserQ.textContent = voted ? '✓ you voted · see results' : q;
+  };
+
+  MiniPoll.prototype.showPreviewBanner = function () {
+    if (window.__mpollBannerShown) return;
+    window.__mpollBannerShown = true;
+    var d = document.createElement('div');
+    d.className = 'mpoll-topbanner';
+    d.setAttribute('role', 'note');
+    d.innerHTML = '<span class="mpoll-topbanner-dot" aria-hidden="true"></span>' +
+      '<span>Votes stay in this browser</span>';
+    var main = document.querySelector('main');
+    if (main) { main.insertBefore(d, main.firstChild); return; }
+    var firstChapter = document.querySelector('section.chapter');
+    if (firstChapter && firstChapter.parentNode) {
+      firstChapter.parentNode.insertBefore(d, firstChapter);
+    }
+  };
+
+  MiniPoll.prototype.boot = async function () {
+    try {
+      if (!API) return this.bootPreview();
+      var rows = await restGet('polls?slug=eq.' + encodeURIComponent(this._slug) +
+        '&select=id,slug,title,description,status,hide_results_until_close,require_captcha,disclaimer,cooldown_hours');
+      if (!rows.length) { this.style.display = 'none'; return; }
+      this._poll = rows[0];
+      this.setTeaser(this._poll.description || 'Quick poll', false);
+      var opts = await restGet('poll_options?poll_id=eq.' + this._poll.id +
+        '&select=id,label,emoji,position&order=position.asc');
+      this._options = opts;
+      var st = await edge('vote-status', { poll_id: this._poll.id, fingerprint: this._fp });
+      var s = st.data || {};
+      if (this._poll.status === 'closed') {
+        this.setTeaser(this._poll.description || 'Quick poll', !!s.voted);
+        this.showResults(s.results || { options: [], total: 0 }, s.your_option_id, 'closed');
+      } else if (s.voted && !s.can_revote) {
+        this.setTeaser(this._poll.description || 'Quick poll', true);
+        this.showResults(s.results, s.your_option_id, 'cooldown', s.revote_at);
+      } else {
+        this.showVote();
+      }
+      var self = this;
+      this._refreshTimer = setInterval(function () { self.softRefresh(); }, 45000);
+    } catch (e) {
+      this.bootPreview();
+    }
+  };
+
+  MiniPoll.prototype.softRefresh = async function () {
+    if (!API || !this._poll || this._mode !== 'results' || document.hidden || !this._open) return;
+    try {
+      var res = await rpc('get_public_results', { p_poll_id: this._poll.id });
+      this._lastResults = res;
+      this.paintBars(res);
+    } catch (e) { /* silent */ }
+  };
+
+  /* ---------------- preview mode (no backend) ---------------- */
+  MiniPoll.prototype.bootPreview = function () {
+    this.showPreviewBanner();
+    var q = this.getAttribute('data-question') || 'Quick poll';
+    var answers = [];
+    try { answers = JSON.parse(this.getAttribute('data-answers') || '[]'); } catch (e) {}
+    this._poll = { id: 'preview', title: '🧬 Quick poll', description: q,
+      status: 'open', hide_results_until_close: false, disclaimer: '',
+      cooldown_hours: 72 };
+    this._options = answers.map(function (a, i) {
+      return { id: 'opt' + i, label: a[1], emoji: a[0] };
+    });
+    this._preview = true;
+    var saved = null;
+    try { saved = JSON.parse(localStorage.getItem(lsKey(this._slug)) || 'null'); } catch (e) {}
+    var now = Date.now();
+    if (saved && now - saved.voted_at < 72 * 3600 * 1000) {
+      this._previewVotes = saved.tally || {};
+      this.setTeaser(q, true);
+      this.showResults(this.tallyResults(), saved.option_id, 'cooldown',
+        new Date(saved.voted_at + 72 * 3600 * 1000).toISOString(), true);
+    } else {
+      this.setTeaser(q, false);
+      this.showVote(true);
+    }
+  };
+
+  MiniPoll.prototype.tallyResults = function () {
+    var tally = this._previewVotes || {};
+    var total = Object.keys(tally).reduce(function (s, k) { return s + tally[k]; }, 0);
+    return {
+      hidden: false, total: total,
+      options: this._options.map(function (o) {
+        var v = tally[o.id] || 0;
+        return { option_id: o.id, label: o.label, emoji: o.emoji, votes: v,
+          pct: total ? Math.round(v / total * 1000) / 10 : 0 };
+      })
+    };
+  };
+
+  /* ---------------- vote form ---------------- */
+  MiniPoll.prototype.showVote = function (isPreview) {
+    var self = this;
+    this._mode = 'vote';
+    this._selected = null;
+    var opts = this._options.map(function (o, i) {
+      return '<button type="button" class="mpoll-opt" data-i="' + i + '" aria-pressed="false">' +
+        '<span class="mpoll-emoji" aria-hidden="true">' + esc(o.emoji) + '</span>' +
+        '<span class="mpoll-label">' + esc(o.label) + '</span></button>';
+    }).join('');
+    this._body.innerHTML =
+      '<div class="mpoll-kicker">' + esc(this._poll.title || '🧬 Quick poll') + '</div>' +
+      '<fieldset class="mpoll-field"><legend class="mpoll-q">' + esc(this._poll.description) + '</legend>' +
+      '<div class="mpoll-opts">' + opts + '</div></fieldset>' +
+      '<button type="button" class="mpoll-vote" disabled>Vote</button>' +
+      (this._poll.disclaimer ? '<div class="mpoll-disc">' + esc(this._poll.disclaimer) + '</div>' : '');
+    var btns = this._body.querySelectorAll('.mpoll-opt');
+    var voteBtn = this._body.querySelector('.mpoll-vote');
+    btns.forEach(function (b) {
+      b.addEventListener('click', function () {
+        btns.forEach(function (x) { x.classList.remove('sel'); x.setAttribute('aria-pressed', 'false'); });
+        b.classList.add('sel'); b.setAttribute('aria-pressed', 'true');
+        self._selected = parseInt(b.getAttribute('data-i'), 10);
+        voteBtn.disabled = false;
+      });
+    });
+    voteBtn.addEventListener('click', function () { self.castVote(); });
+  };
+
+  MiniPoll.prototype.castVote = async function () {
+    var self = this;
+    var opt = this._options[this._selected];
+    if (!opt) return;
+    var btn = this._body.querySelector('.mpoll-vote');
+    btn.disabled = true; btn.textContent = 'Voting…';
+    if (this._preview) {
+      var tally = this._previewVotes || {};
+      tally[opt.id] = (tally[opt.id] || 0) + 1;
+      this._previewVotes = tally;
+      try {
+        localStorage.setItem(lsKey(this._slug), JSON.stringify({
+          option_id: opt.id, voted_at: Date.now(), tally: tally }));
+      } catch (e) {}
+      this.setTeaser(this._poll.description, true);
+      this.showResults(this.tallyResults(), opt.id, 'cooldown',
+        new Date(Date.now() + 72 * 3600 * 1000).toISOString(), true);
+      return;
+    }
+    try {
+      var body = { poll_id: this._poll.id, option_id: opt.id, fingerprint: this._fp };
+      var res = await edge('mini-vote', body);
+      var d = res.data || {};
+      if (d.error === 'cooldown') {
+        this.setTeaser(this._poll.description, true);
+        this.showResults(d.results, d.your_option_id, 'cooldown', d.revote_at);
+      } else if (d.ok) {
+        try {
+          localStorage.setItem(lsKey(this._slug), JSON.stringify({
+            option_id: opt.id, voted_at: Date.now() }));
+        } catch (e) {}
+        this.setTeaser(this._poll.description, true);
+        this.showResults(d.results, d.your_option_id, 'cooldown', d.revote_at);
+      } else {
+        btn.disabled = false; btn.textContent = 'Vote';
+        this.note(this.friendlyError(d.error));
+      }
+    } catch (e) {
+      btn.disabled = false; btn.textContent = 'Vote';
+      this.note('Could not reach the poll server. Try again in a moment.');
+    }
+  };
+
+  MiniPoll.prototype.friendlyError = function (code) {
+    return { rate_limited: 'Too many votes from your network right now — try again later.',
+      banned: 'Voting is not available for this device.',
+      poll_closed: 'Voting has closed for this poll.',
+      captcha_failed: 'Please complete the CAPTCHA and try again.',
+      invalid_option: 'That answer is no longer available.' }[code] ||
+      'Something went wrong. Please try again.';
+  };
+
+  MiniPoll.prototype.note = function (msg) {
+    var n = this._body.querySelector('.mpoll-note');
+    if (!n) {
+      n = document.createElement('div');
+      n.className = 'mpoll-note'; n.setAttribute('role', 'alert');
+      this._body.appendChild(n);
+    }
+    n.textContent = msg;
+  };
+
+  /* ---------------- results ---------------- */
+  MiniPoll.prototype.showResults = function (results, yourId, state, revoteAt, isPreview) {
+    var self = this;
+    this._mode = 'results';
+    this._lastResults = results;
+    this._yourId = yourId;
+    this._revoteAt = revoteAt ? new Date(revoteAt).getTime() : 0;
+    var head = '<div class="mpoll-kicker">🔥 Community results</div>';
+    var foot = '';
+    if (state === 'closed') {
+      foot = '<div class="mpoll-sub">Voting has closed — final results.</div>';
+    } else if (state === 'cooldown' && this._revoteAt > Date.now()) {
+      foot = '<div class="mpoll-sub">You can vote again in <span class="mpoll-count" aria-live="off">…</span></div>';
+    } else if (state === 'cooldown') {
+      foot = '<button type="button" class="mpoll-again">🔄 Vote again</button>';
+    }
+    this._body.innerHTML = head +
+      '<div class="mpoll-bars" aria-live="polite"></div>' +
+      '<div class="mpoll-total"></div>' + foot +
+      (this._poll.disclaimer ? '<div class="mpoll-disc">' + esc(this._poll.disclaimer) + '</div>' : '');
+    this.paintBars(results);
+    var again = this._body.querySelector('.mpoll-again');
+    if (again) again.addEventListener('click', function () {
+      self.setTeaser(self._poll.description, false);
+      self.showVote(isPreview);
+    });
+    this.startCountdown();
+  };
+
+  MiniPoll.prototype.paintBars = function (results) {
+    var bars = this._body.querySelector('.mpoll-bars');
+    var totalEl = this._body.querySelector('.mpoll-total');
+    if (!bars) return;
+    if (!results || results.hidden) {
+      bars.innerHTML = '<div class="mpoll-sub">Results unlock when voting closes — ' +
+        (results && results.total || 0) + ' votes so far.</div>';
+      if (totalEl) totalEl.textContent = '';
+      return;
+    }
+    var yourId = this._yourId;
+    bars.innerHTML = results.options.map(function (o) {
+      var mine = String(o.option_id) === String(yourId);
+      return '<div class="mpoll-row' + (mine ? ' mine' : '') + '">' +
+        '<div class="mpoll-rowtop"><span>' + esc(o.emoji) + ' ' + esc(o.label) +
+        (mine ? ' <span class="mpoll-mine">· your pick</span>' : '') + '</span>' +
+        '<span class="mpoll-pct">' + o.pct + '%</span></div>' +
+        '<div class="mpoll-track"><div class="mpoll-fill" style="width:0%"></div></div></div>';
+    }).join('');
+    requestAnimationFrame(function () {
+      requestAnimationFrame(function () {
+        var fills = bars.querySelectorAll('.mpoll-fill');
+        results.options.forEach(function (o, i) {
+          if (fills[i]) fills[i].style.width = Math.max(o.pct, o.votes ? 2 : 0) + '%';
+        });
+      });
+    });
+    if (totalEl) totalEl.textContent = (results.total || 0).toLocaleString() +
+      (results.total === 1 ? ' vote' : ' votes');
+  };
+
+  MiniPoll.prototype.startCountdown = function () {
+    var self = this;
+    if (this._timer) clearInterval(this._timer);
+    var el = function () { return self._body && self._body.querySelector('.mpoll-count'); };
+    var tick = function () {
+      var node = el();
+      if (!node) { clearInterval(self._timer); return; }
+      var ms = self._revoteAt - Date.now();
+      if (ms <= 0) {
+        clearInterval(self._timer);
+        var sub = self._body.querySelector('.mpoll-sub');
+        if (sub) {
+          sub.innerHTML = '';
+          var b = document.createElement('button');
+          b.type = 'button'; b.className = 'mpoll-again'; b.textContent = '🔄 Vote again';
+          b.addEventListener('click', function () {
+            self.setTeaser(self._poll.description, false);
+            self.showVote(self._preview);
+          });
+          sub.appendChild(b);
+        }
+        return;
+      }
+      node.textContent = fmtCountdown(ms);
+    };
+    tick();
+    this._timer = setInterval(tick, 1000);
+  };
+
+  if (!window.customElements.get('mini-poll')) {
+    window.customElements.define('mini-poll', MiniPoll);
+  }
+  window.MiniPoll = { version: '1.5.1' };
+})();
+
+</script>
+</body>
+</html>
