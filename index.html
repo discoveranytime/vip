@@ -10,15 +10,15 @@ try{var _t=localStorage.getItem("vip-theme");if(_t==="light"||_t==="dark")docume
 </script>
 <style>
 :root{
-  --bg0:#06070d; --bg1:#000000;
-  --ink:#c2cae7; --muted:#8b92aa; --faint:#686d7f;
-  --sky:#67e8f9; --sky-deep:#0369a1;
-  --teal:#0369a1; --teal-deep:#172554;
-  --org:#6472a1; --org-deep:#172554;
-  --amber:#fbbf24; --rose:#fb7185; --cyan:#67e8f9;
+  --bg0:#09060d; --bg1:#000000;
+  --ink:#d4c2e7; --muted:#9a8baa; --faint:#686d7f;
+  --sky:#22d3ee; --sky-deep:#0b8294;
+  --teal:#fb7185; --teal-deep:#f50729;
+  --org:#c084fc; --org-deep:#8816f9;
+  --amber:#22d3ee; --rose:#fb7185; --cyan:#22d3ee;
   --card:#000000; --card2:#000000;
   --line:rgba(255,255,255,.09);
-  --grad:linear-gradient(100deg,#67e8f9 5%,#0369a1 50%,#6472a1 95%);
+  --grad:linear-gradient(100deg,#67e6f9 5%,#a0041b 50%,#8264a1 95%);
   --ongrad:#000000;
   --radius:18px;
   --font:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Roboto,"Helvetica Neue",Arial,sans-serif;
@@ -30,15 +30,15 @@ body{font-family:var(--font);background:var(--bg0);color:var(--ink);
   font-size:1.06rem;line-height:1.75;overflow-x:clip;-webkit-font-smoothing:antialiased}
 .bg-grad{position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(900px 620px at 12% -6%, rgba(23, 37, 84,0.288), transparent 60%),
-    radial-gradient(820px 600px at 88% 22%, rgba(23, 37, 84,0.192), transparent 60%),
-    radial-gradient(1000px 800px at 50% 110%, rgba(3, 105, 161,0.192), transparent 62%),
-    radial-gradient(700px 500px at 78% 78%, rgba(103, 232, 249,0.096), transparent 60%)}
+    radial-gradient(900px 620px at 12% -6%, rgba(53,23,84,0.288), transparent 60%),
+    radial-gradient(820px 600px at 88% 22%, rgba(53,23,84,0.192), transparent 60%),
+    radial-gradient(1000px 800px at 50% 110%, rgba(160,4,27,0.192), transparent 62%),
+    radial-gradient(700px 500px at 78% 78%, rgba(103,230,249,0.096), transparent 60%)}
 #dots{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.85}
 .orb{position:fixed;z-index:0;pointer-events:none;border-radius:50%;filter:blur(90px)}
-.o1{width:520px;height:520px;left:-140px;top:6%;background:radial-gradient(circle,rgba(23, 37, 84,0.24),transparent 70%);animation:drift1 38s ease-in-out infinite alternate}
-.o2{width:460px;height:460px;right:-120px;top:38%;background:radial-gradient(circle,rgba(23, 37, 84,0.192),transparent 70%);animation:drift2 46s ease-in-out infinite alternate}
-.o3{width:430px;height:430px;left:24%;bottom:-160px;background:radial-gradient(circle,rgba(3, 105, 161,0.192),transparent 70%);animation:drift3 54s ease-in-out infinite alternate}
+.o1{width:520px;height:520px;left:-140px;top:6%;background:radial-gradient(circle,rgba(53,23,84,0.24),transparent 70%);animation:drift1 38s ease-in-out infinite alternate}
+.o2{width:460px;height:460px;right:-120px;top:38%;background:radial-gradient(circle,rgba(53,23,84,0.192),transparent 70%);animation:drift2 46s ease-in-out infinite alternate}
+.o3{width:430px;height:430px;left:24%;bottom:-160px;background:radial-gradient(circle,rgba(160,4,27,0.192),transparent 70%);animation:drift3 54s ease-in-out infinite alternate}
 @keyframes drift1{from{transform:translate(0,0)}to{transform:translate(120px,80px)}}
 @keyframes drift2{from{transform:translate(0,0)}to{transform:translate(-100px,-70px)}}
 @keyframes drift3{from{transform:translate(0,0)}to{transform:translate(90px,-80px)}}
@@ -65,26 +65,26 @@ body{font-family:var(--font);background:var(--bg0);color:var(--ink);
 [data-theme="dark"]{color-scheme:dark}
 /* soft neutral gray light theme — never stark white */
 [data-theme="light"]{
-  --bg0:#c7cbd4; --bg1:#c9d0de;
-  --ink:#07090d; --muted:#393d48; --faint:#5c606a;
-  --sky:#0369a1; --sky-deep:#172554;
-  --teal:#172554; --teal-deep:#172554;
-  --org:#0369a1; --org-deep:#172554;
-  --amber:#b45309; --rose:#e11d48; --cyan:#172554;
-  --card:#f8fafc; --card2:#c5cdda;
+  --bg0:#d4c7c9; --bg1:#dec9cc;
+  --ink:#0d0708; --muted:#393d48; --faint:#5c606a;
+  --sky:#078ea3; --sky-deep:#023037;
+  --teal:#f90d2f; --teal-deep:#920418;
+  --org:#078ea3; --org-deep:#023037;
+  --amber:#8d21f9; --rose:#078ea3; --cyan:#f90d2f;
+  --card:#f8fbfc; --card2:#dac5c8;
   --line:rgba(0, 0, 0,.14);
-  --grad:linear-gradient(100deg,#0369a1,#172554,#0369a1);
+  --grad:linear-gradient(100deg,#048ba0,#541720,#048ba0);
   --ongrad:#ffffff;
   color-scheme:light;
 }
-[data-theme="light"] nav.chapters{background:rgba(199, 203, 212,.88)}
-[data-theme="light"] .toc{background:rgba(199, 203, 212,.85)}
+[data-theme="light"] nav.chapters{background:rgba(206,199,212,.88)}
+[data-theme="light"] .toc{background:rgba(206,199,212,.85)}
 [data-theme="light"] .toc a:hover{background:rgba(0, 0, 0,.06)}
 [data-theme="light"] .orb{opacity:.5}
 [data-theme="light"] #dots{opacity:.55}
 [data-theme="light"] .bg-grad{opacity:.55}
-nav.chapters{position:sticky;top:0;z-index:50;background:rgba(6,7,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
-nav.chapters .rail{max-width:1080px;margin:0 auto;padding:.65rem 1rem;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding-right:3.8rem}
+nav.chapters{position:sticky;top:0;z-index:50;background:rgba(9,6,13,.82);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav.chapters .rail{max-width:1280px;margin:0 auto;padding:.65rem 1rem;display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;padding-right:3.8rem}
 nav.chapters .rail::-webkit-scrollbar{display:none}
 nav.chapters a{flex:0 0 auto;text-decoration:none;color:var(--muted);font-size:.82rem;font-weight:600;
   letter-spacing:.04em;padding:.42rem .8rem;border:1px solid var(--line);border-radius:999px;white-space:nowrap;transition:all .25s ease}
@@ -97,7 +97,7 @@ nav.chapters a.active{color:#000000;background:var(--grad);border-color:transpar
   .toc{display:flex;position:fixed;left:0;top:0;bottom:0;width:248px;z-index:45;
     flex-direction:column;justify-content:center;gap:.2rem;
     padding:2rem 1.1rem 2rem 1.4rem;
-    background:rgba(6,7,13,.72);backdrop-filter:blur(14px);border-right:1px solid var(--line)}
+    background:rgba(9,6,13,.72);backdrop-filter:blur(14px);border-right:1px solid var(--line)}
   .toc .brand{font-family:var(--disp);font-weight:800;font-size:.98rem;letter-spacing:-.01em;
     margin-bottom:1.2rem;line-height:1.35;color:var(--ink);
     text-decoration:underline;text-decoration-thickness:2px;text-underline-offset:5px}
@@ -119,7 +119,7 @@ nav.chapters a.active{color:#000000;background:var(--grad);border-color:transpar
   .toc .mini-bar{height:3px;background:rgba(255,255,255,.08);border-radius:99px;margin-top:.55rem;overflow:hidden}
   .toc .mini-bar i{display:block;height:100%;width:0;background:var(--grad);border-radius:99px}
 }
-.wrap{position:relative;z-index:1;max-width:960px;margin:0 auto;padding:0 1.25rem}
+.wrap{position:relative;z-index:1;max-width:1280px;margin:0 auto;padding:0 1.25rem}
 section.chapter{padding:4.2rem 0 1rem;scroll-margin-top:84px}
 .eyebrow{display:inline-flex;align-items:center;gap:.5rem;font-size:.78rem;font-weight:700;letter-spacing:.22em;
   text-transform:uppercase;color:var(--faint);margin-bottom:1rem}
@@ -129,13 +129,13 @@ h2{font-family:var(--disp);font-size:clamp(1.7rem,4vw,2.5rem);font-weight:800;le
 h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
 .lede{color:var(--muted);font-size:1.12rem;max-width:44rem;margin-bottom:2rem}
 .lede strong{color:var(--ink)}
-.hero{position:relative;z-index:1;text-align:center;padding:5.5rem 1.25rem 3.5rem;max-width:960px;margin:0 auto}
+.hero{position:relative;z-index:1;text-align:center;padding:5.5rem 1.25rem 3.5rem;max-width:1280px;margin:0 auto}
 .hero-disc{display:inline-block;margin:0 auto 1.1rem;padding:.5rem 1.05rem;border:1px solid var(--line);border-radius:999px;font-size:.8rem;color:var(--muted);background:rgba(255,255,255,.03)}
 .badge{display:inline-flex;align-items:center;gap:.55rem;font-size:.78rem;font-weight:700;letter-spacing:.18em;
   text-transform:uppercase;color:var(--ink);border:1px solid var(--line);background:rgba(255,255,255,.04);
   padding:.55rem 1.1rem;border-radius:999px;margin-bottom:1.6rem}
-.badge .dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(251,191,36,.6);animation:pulse 2.2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(251,191,36,.55)}70%{box-shadow:0 0 0 12px rgba(251,191,36,0)}100%{box-shadow:0 0 0 0 rgba(251,191,36,0)}}
+.badge .dot{width:.6rem;height:.6rem;border-radius:50%;background:var(--amber);box-shadow:0 0 0 0 rgba(38,221,249,.6);animation:pulse 2.2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(38,221,249,.55)}70%{box-shadow:0 0 0 12px rgba(38,221,249,0)}100%{box-shadow:0 0 0 0 rgba(38,221,249,0)}}
 .hero h1{font-family:var(--disp);font-weight:900;letter-spacing:-.03em;line-height:1.02;font-size:clamp(2.4rem,7.5vw,4.8rem);margin-bottom:1.1rem}
 .hero h1 .g{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;
   background-size:200% auto;animation:sheen 9s ease-in-out infinite}
@@ -186,13 +186,13 @@ h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .kv:first-of-type{border-top:none}
 .kv .k{flex:0 0 auto;font-size:.72rem;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
   padding:.3rem .7rem;border-radius:8px;margin-top:.25rem}
-.kv .k.s{background:rgba(70, 137, 255,.12);color:var(--sky);border:1px solid rgba(70, 137, 255,.35)}
-.kv .k.t{background:rgba(38, 225, 198,.10);color:var(--teal);border:1px solid rgba(38, 225, 198,.35)}
-.kv .k.o{background:rgba(251,146,60,.12);color:var(--org);border:1px solid rgba(251,146,60,.35)}
-.kv .k.a{background:rgba(251,191,36,.12);color:var(--amber);border:1px solid rgba(251,191,36,.35)}
-.kv .k.g{background:rgba(103, 232, 249,.12);color:var(--rose);border:1px solid rgba(103, 232, 249,.35)}
+.kv .k.s{background:rgba(162,75,250,.12);color:var(--sky);border:1px solid rgba(162,75,250,.35)}
+.kv .k.t{background:rgba(38,200,225,.10);color:var(--teal);border:1px solid rgba(38,200,225,.35)}
+.kv .k.o{background:rgba(61,225,250,.12);color:var(--org);border:1px solid rgba(61,225,250,.35)}
+.kv .k.a{background:rgba(38,221,249,.12);color:var(--amber);border:1px solid rgba(38,221,249,.35)}
+.kv .k.g{background:rgba(103,230,249,.12);color:var(--rose);border:1px solid rgba(103,230,249,.35)}
 .kv p{font-size:.99rem}
-.diagram{background:radial-gradient(600px 300px at 50% 0%,rgba(23, 37, 84,.10),transparent 70%),#000000;
+.diagram{background:radial-gradient(600px 300px at 50% 0%,rgba(53,23,84,.10),transparent 70%),#000000;
   border:1px solid var(--line);border-radius:var(--radius);padding:1.6rem;margin:0 0 1.4rem;overflow:hidden}
 .diagram svg{display:block;width:100%;height:auto}
 .diagram .cap{text-align:center;color:var(--faint);font-size:.85rem;margin-top:.9rem;letter-spacing:.03em}
@@ -209,14 +209,14 @@ h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .ebar .row .v{font-size:.88rem;color:var(--faint);font-variant-numeric:tabular-nums}
 .ebar .track{height:14px;background:rgba(255,255,255,.06);border-radius:999px;overflow:hidden;border:1px solid var(--line)}
 .ebar .fill{height:100%;width:0;border-radius:999px;transition:width 1.6s cubic-bezier(.2,.7,.2,1)}
-.in .ebar .fill{width:var(--w)}
+.ebar.in .fill{width:var(--w)}
 .ebar .note{font-size:.85rem;color:var(--faint);margin-top:.45rem}
 .anec-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
 @media(max-width:720px){.anec-grid{grid-template-columns:1fr}}
 .anec{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem;position:relative;overflow:hidden}
 .anec::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad)}
 .anec .stamp{display:inline-block;font-size:.66rem;font-weight:800;letter-spacing:.12em;
-  color:var(--amber);border:1px solid rgba(251,191,36,.4);background:rgba(251,191,36,.08);
+  color:var(--amber);border:1px solid rgba(38,221,249,.4);background:rgba(38,221,249,.08);
   padding:.28rem .6rem;border-radius:7px;text-transform:uppercase;margin-bottom:.65rem}
 .anec h4{font-size:1.05rem;font-weight:800;margin-bottom:.5rem}
 .anec-head{display:flex;align-items:center;gap:.85rem;margin-bottom:.55rem}
@@ -232,7 +232,7 @@ h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .anec p{color:var(--muted);font-size:.95rem}
 .anec p strong{color:var(--ink)}
 .anec .caveat{margin-top:.8rem;font-size:.82rem;color:var(--faint);border-top:1px dashed var(--line);padding-top:.7rem}
-.folk-note{background:rgba(251,191,36,.06);border:1px solid rgba(251,191,36,.3);border-radius:var(--radius);
+.folk-note{background:rgba(38,221,249,.06);border:1px solid rgba(38,221,249,.3);border-radius:var(--radius);
   padding:1.2rem 1.4rem;margin-bottom:1.6rem;color:var(--muted);font-size:.98rem}
 .folk-note strong{color:var(--amber)}
 .safety-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem}
@@ -243,9 +243,9 @@ h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .scard h4{font-size:1.05rem;font-weight:800;margin-bottom:.5rem}
 .scard p{color:var(--muted);font-size:.95rem}
 .scard p strong{color:var(--ink)}
-.lvl-known .level{background:rgba(251,191,36,.1);color:var(--amber);border:1px solid rgba(251,191,36,.4)}
-.lvl-theory .level{background:rgba(251,146,60,.1);color:var(--org);border:1px solid rgba(251,146,60,.4)}
-.lvl-unknown .level{background:rgba(103, 232, 249,.1);color:var(--rose);border:1px solid rgba(103, 232, 249,.4)}
+.lvl-known .level{background:rgba(38,221,249,.1);color:var(--amber);border:1px solid rgba(38,221,249,.4)}
+.lvl-theory .level{background:rgba(61,225,250,.1);color:var(--org);border:1px solid rgba(61,225,250,.4)}
+.lvl-unknown .level{background:rgba(103,230,249,.1);color:var(--rose);border:1px solid rgba(103,230,249,.4)}
 .gloss{border:1px solid var(--line);border-radius:var(--radius);overflow:hidden;background:var(--card)}
 .g-item{border-bottom:1px solid var(--line)}
 .g-item:last-child{border-bottom:none}
@@ -266,10 +266,9 @@ h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 @keyframes gaBreathe{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
 @keyframes gaTilt{0%,100%{transform:rotate(-4deg)}50%{transform:rotate(4deg)}}
 .g-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
-.g-a .gsci,.g-a .gex{padding:0 1.4rem 1rem;color:var(--muted);font-size:.95rem}
-.g-a .gsci strong,.g-a .gex strong{color:var(--ink)}
+.g-a .gsci{padding:0 1.4rem 1rem;color:var(--muted);font-size:.95rem}
+.g-a .gsci strong{color:var(--ink)}
 .gslabel{display:block;font-size:.7rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:.35rem}
-.g-a .gex{margin:0 1.4rem 1rem;padding:0 0 0 1rem;border-left:2px solid var(--line)}
 .g-a .plain{margin:0 1.4rem 1.3rem;background:rgba(255,255,255,.035);border:1px dashed rgba(255,255,255,.22);
   border-radius:12px;padding:1rem 1.2rem;font-size:.96rem;color:var(--muted)}
 .g-a .plain b{color:var(--ink)}
@@ -282,7 +281,7 @@ h2 .hl{background:var(--grad);-webkit-background-clip:text;background-clip:text;
 .take h4{font-size:1.05rem;font-weight:800;margin-bottom:.4rem}
 .take p{color:var(--muted);font-size:.95rem}
 .take p strong{color:var(--ink)}
-.limits{background:rgba(103, 232, 249,.05);border:1px solid rgba(103, 232, 249,.3);border-radius:var(--radius);
+.limits{background:rgba(103,230,249,.05);border:1px solid rgba(103,230,249,.3);border-radius:var(--radius);
   padding:1.4rem 1.6rem;margin-bottom:1.6rem}
 .limits h3{font-family:var(--disp);font-size:1.2rem;font-weight:800;margin-bottom:.7rem;color:var(--rose)}
 .limits ul{list-style:none;display:grid;gap:.6rem}
@@ -323,7 +322,7 @@ table.trial tr td:first-child{color:var(--ink);font-weight:600}
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
   .reveal{opacity:1;transform:none}
-  .in .ebar .fill{transition:none}
+  .ebar.in .fill{transition:none}
 }
 
 /* --- ambient motion additions: subtle, additive, non-intrusive --- */
@@ -337,6 +336,36 @@ table.trial tr td:first-child{color:var(--ink);font-weight:600}
 .flowseq2{stroke-dasharray:6 7;animation:dashmove 1.6s linear infinite,seqGlow 4.5s ease-in-out .9s infinite}
 .flowseq3{stroke-dasharray:6 7;animation:dashmove 1.6s linear infinite,seqGlow 4.5s ease-in-out 1.8s infinite}
 
+/* ---------- benefits / fit chapters (2026-10-06) ---------- */
+.tier{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:1.4rem 1.6rem;margin-bottom:1.3rem;position:relative;overflow:hidden}
+.tier::before{content:"";position:absolute;top:0;left:0;right:0;height:3px}
+.tier-est::before{background:linear-gradient(90deg,var(--teal),var(--sky))}
+.tier-emg::before{background:linear-gradient(90deg,var(--org),var(--amber))}
+.tier-com::before{background:linear-gradient(90deg,var(--amber),var(--rose))}
+.tbadge{display:inline-block;font-size:.68rem;font-weight:800;letter-spacing:.13em;text-transform:uppercase;padding:.35rem .75rem;border-radius:8px;margin-bottom:.8rem}
+.b-est{background:rgba(20,162,184,.12);color:var(--teal);border:1px solid rgba(20,162,184,.45)}
+.b-emg{background:rgba(61,225,250,.12);color:var(--org);border:1px solid rgba(61,225,250,.45)}
+.b-com{background:rgba(38,221,249,.12);color:var(--amber);border:1px solid rgba(38,221,249,.45)}
+.tier .tintro{color:var(--muted);font-size:.95rem;margin-bottom:.2rem}
+.tlist{list-style:none;margin:.7rem 0 0;padding:0}
+.tlist li{position:relative;padding:.55rem 0 .55rem 1.5rem;color:var(--muted);border-top:1px solid var(--line);font-size:.96rem}
+.tlist li::before{content:"";position:absolute;left:.3rem;top:1.08rem;width:8px;height:8px;border-radius:50%}
+.tier-est .tlist li::before{background:var(--teal)}
+.tier-emg .tlist li::before{background:var(--org)}
+.tlist li strong{color:var(--ink)}
+.laytip{display:flex;gap:.85rem;align-items:flex-start;background:rgba(255,255,255,.03);border:1px dashed var(--line);border-radius:12px;padding:.95rem 1.15rem;margin:1.1rem 0 0;color:var(--muted);font-size:.93rem}
+.laytip .ldot{width:11px;height:11px;border-radius:50%;background:var(--cyan);flex:0 0 auto;margin-top:.4rem;position:relative}
+.laytip .ldot::after{content:"";position:absolute;inset:-5px;border-radius:50%;border:2px solid var(--cyan);animation:udotPulse 2.2s ease-out infinite}
+.laytip p strong{color:var(--ink)}
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;margin-bottom:1.4rem}
+@media(max-width:720px){.fit-grid{grid-template-columns:1fr}}
+.lvl-fit .level{background:rgba(20,162,184,.12);color:var(--teal);border:1px solid rgba(20,162,184,.45)}
+.lvl-nofit .level{background:rgba(251,113,133,.12);color:var(--rose);border:1px solid rgba(251,113,133,.45)}
+.fitlist{list-style:none;margin:.7rem 0 0;padding:0}
+.fitlist li{position:relative;padding:.45rem 0 .45rem 1.4rem;color:var(--muted);font-size:.95rem}
+.fitlist li::before{content:"\2013";position:absolute;left:.15rem;color:var(--faint)}
+.fitlist li strong{color:var(--ink)}
+@media (prefers-reduced-motion:reduce){.laytip .ldot::after{animation:none;opacity:.35;transform:scale(.8)}}
 /* ===== mini-poll component ===== */
 /* Mini-poll component styles — compact, theme-aware via CSS vars with fallbacks.
    Works inside this infographic (which defines --card, --ink, etc.)
@@ -349,7 +378,7 @@ mini-poll { display: block; }
   border-radius: 18px;
   background:
     linear-gradient(var(--card, #000000), var(--card, #000000)) padding-box,
-    linear-gradient(135deg, var(--mpc1, #67e8f9), var(--mpc2, #0369a1)) border-box;
+    linear-gradient(135deg, var(--mpc1, #67e6f9), var(--mpc2, #a0041b)) border-box;
   font-family: inherit;
   overflow: hidden;
 }
@@ -358,14 +387,14 @@ mini-poll { display: block; }
   display: flex; align-items: center; gap: .6rem;
   width: 100%; cursor: pointer; text-align: left;
   padding: .75rem 1rem; border: 0; background: transparent;
-  color: var(--muted, #8b92aa); font-size: .88rem;
+  color: var(--muted, #9a8baa); font-size: .88rem;
 }
 .mpoll-teaser:hover { background: rgba(255,255,255,.03); }
-.mpoll-teaser:focus-visible { outline: 2px solid var(--amber, #fbbf24); outline-offset: -2px; }
+.mpoll-teaser:focus-visible { outline: 2px solid var(--amber, #26ddf9); outline-offset: -2px; }
 .mpoll-teaser-dot {
   flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%;
-  background: var(--mpc1, #67e8f9);
-  box-shadow: 0 0 10px var(--mpc1, #67e8f9);
+  background: var(--mpc1, #67e6f9);
+  box-shadow: 0 0 10px var(--mpc1, #67e6f9);
   animation: mpulse 2.4s ease-in-out infinite;
 }
 @keyframes mpulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
@@ -391,7 +420,7 @@ mini-poll { display: block; }
 .mpoll.open .mpoll-body { opacity: 1; transform: translateY(0); }
 .mpoll-kicker {
   font-size: .78rem; font-weight: 800; letter-spacing: .14em;
-  text-transform: uppercase; color: var(--muted, #8b92aa);
+  text-transform: uppercase; color: var(--muted, #9a8baa);
   margin-bottom: .6rem;
 }
 /* single top-of-page banner (preview mode only) */
@@ -399,7 +428,7 @@ mini-poll { display: block; }
   display: flex; align-items: center; justify-content: center; gap: .6rem;
   max-width: 620px; margin: 0 auto 1.4rem; padding: .6rem 1.2rem;
   border-radius: 999px; font-size: .82rem; font-weight: 700; color: #000000;
-  background: linear-gradient(100deg, var(--acc1, #67e8f9), var(--acc2, #0369a1), var(--acc3, #6472a1));
+  background: linear-gradient(100deg, var(--acc1, #67e6f9), var(--acc2, #a0041b), var(--acc3, #8264a1));
 }
 .mpoll-topbanner-dot {
   flex: 0 0 auto; width: 8px; height: 8px; border-radius: 50%;
@@ -409,7 +438,7 @@ mini-poll { display: block; }
 .mpoll-field { border: 0; margin: 0; padding: 0; }
 .mpoll-q {
   font-size: 1.12rem; font-weight: 800; line-height: 1.35;
-  color: var(--ink, #c2cae7); margin-bottom: .9rem; padding: 0;
+  color: var(--ink, #d4c2e7); margin-bottom: .9rem; padding: 0;
 }
 .mpoll-opts { display: grid; gap: .55rem; }
 .mpoll-opt {
@@ -417,49 +446,49 @@ mini-poll { display: block; }
   width: 100%; text-align: left; cursor: pointer;
   padding: .72rem .9rem; border-radius: 12px;
   border: 1px solid var(--line, rgba(255,255,255,.09));
-  background: rgba(255,255,255,.03); color: var(--ink, #c2cae7);
+  background: rgba(255,255,255,.03); color: var(--ink, #d4c2e7);
   font-size: .95rem; transition: border-color .15s, background .15s, transform .15s;
 }
-.mpoll-opt:hover { border-color: var(--amber, #fbbf24); background: rgba(255,255,255,.05); }
-.mpoll-opt:focus-visible { outline: 2px solid var(--amber, #fbbf24); outline-offset: 2px; }
-.mpoll-opt.sel { border-color: var(--amber, #fbbf24); background: rgba(251,191,36,.10); }
+.mpoll-opt:hover { border-color: var(--amber, #26ddf9); background: rgba(255,255,255,.05); }
+.mpoll-opt:focus-visible { outline: 2px solid var(--amber, #26ddf9); outline-offset: 2px; }
+.mpoll-opt.sel { border-color: var(--amber, #26ddf9); background: rgba(38,221,249,.10); }
 .mpoll-emoji { font-size: 1.25rem; flex: 0 0 auto; }
 .mpoll-label { flex: 1; }
 .mpoll-vote, .mpoll-again {
   display: block; width: 100%; margin-top: .9rem; padding: .8rem;
   border: 0; border-radius: 12px; cursor: pointer;
   font-size: 1rem; font-weight: 800; color: #000000;
-  background: linear-gradient(100deg, var(--acc1, #67e8f9), var(--acc2, #0369a1));
+  background: linear-gradient(100deg, var(--acc1, #67e6f9), var(--acc2, #a0041b));
   transition: transform .15s, opacity .15s;
 }
 .mpoll-vote:hover:not(:disabled), .mpoll-again:hover { transform: translateY(-1px); }
 .mpoll-vote:disabled { opacity: .45; cursor: not-allowed; transform: none; }
 .mpoll-note {
-  margin-top: .7rem; font-size: .88rem; color: #fbbf24;
-  border: 1px dashed rgba(251,191,36,.4); border-radius: 10px; padding: .6rem .8rem;
+  margin-top: .7rem; font-size: .88rem; color: #26ddf9;
+  border: 1px dashed rgba(38,221,249,.4); border-radius: 10px; padding: .6rem .8rem;
 }
 .mpoll-bars { display: grid; gap: .6rem; margin-top: .4rem; }
 .mpoll-rowtop {
   display: flex; justify-content: space-between; gap: .8rem;
-  font-size: .9rem; color: var(--ink, #c2cae7); margin-bottom: .28rem;
+  font-size: .9rem; color: var(--ink, #d4c2e7); margin-bottom: .28rem;
 }
-.mpoll-pct { font-weight: 800; color: var(--muted, #8b92aa); flex: 0 0 auto; }
-.mpoll-mine { color: var(--amber, #fbbf24); font-weight: 700; font-size: .8rem; }
+.mpoll-pct { font-weight: 800; color: var(--muted, #9a8baa); flex: 0 0 auto; }
+.mpoll-mine { color: var(--amber, #26ddf9); font-weight: 700; font-size: .8rem; }
 .mpoll-track {
   height: 10px; border-radius: 999px; overflow: hidden;
   background: rgba(255,255,255,.07);
 }
 .mpoll-fill {
   height: 100%; width: 0; border-radius: 999px;
-  background: linear-gradient(90deg, var(--acc1, #67e8f9), var(--acc2, #0369a1), var(--acc3, #6472a1));
+  background: linear-gradient(90deg, var(--acc1, #67e6f9), var(--acc2, #a0041b), var(--acc3, #8264a1));
   transition: width .9s cubic-bezier(.22,.8,.3,1);
 }
-.mpoll-row.mine .mpoll-fill { box-shadow: 0 0 10px rgba(251,191,36,.45); }
+.mpoll-row.mine .mpoll-fill { box-shadow: 0 0 10px rgba(38,221,249,.45); }
 .mpoll-total {
   margin-top: .8rem; font-size: .85rem; color: var(--faint, #686d7f);
 }
-.mpoll-sub { margin-top: .8rem; font-size: .9rem; color: var(--muted, #8b92aa); }
-.mpoll-count { font-weight: 800; color: var(--ink, #c2cae7); font-variant-numeric: tabular-nums; }
+.mpoll-sub { margin-top: .8rem; font-size: .9rem; color: var(--muted, #9a8baa); }
+.mpoll-count { font-weight: 800; color: var(--ink, #d4c2e7); font-variant-numeric: tabular-nums; }
 .mpoll-disc {
   margin-top: .9rem; padding-top: .7rem;
   border-top: 1px dashed var(--line, rgba(255,255,255,.09));
@@ -478,13 +507,16 @@ mini-poll { display: block; }
   .mpoll-q { font-size: 1.02rem; }
 }
 
+.vpulse{transform-box:fill-box;transform-origin:center;animation:vpulse 3.2s ease-in-out infinite}
+@keyframes vpulse{0%,100%{transform:scale(.72);opacity:.65}50%{transform:scale(1);opacity:1}}
+.rate-head{text-align:center;font-family:var(--disp);font-size:1.45rem;font-weight:800;margin:2.6rem 0 .4rem;letter-spacing:-.01em}
 </style>
 </head>
 <body>
 <svg class="sr-only" aria-hidden="true" focusable="false">
   <defs>
     <linearGradient id="triGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" stop-color="#67e8f9"/><stop offset="50%" stop-color="#0369a1"/><stop offset="100%" stop-color="#6472a1"/>
+      <stop offset="0%" stop-color="#67e6f9"/><stop offset="50%" stop-color="#a0041b"/><stop offset="100%" stop-color="#8264a1"/>
     </linearGradient>
   </defs>
 </svg>
@@ -510,17 +542,19 @@ mini-poll { display: block; }
   <a href="#ch3"><span class="n">03</span>How It Might Work</a>
   <a href="#ch4"><span class="n">04</span>Evidence Check</a>
   <a href="#ch5"><span class="n">05</span>VIP vs PACAP</a>
-  <a href="#ch6"><span class="n">06</span>What People Say</a>
-  <a href="#ch7"><span class="n">07</span>Risks &amp; Unknowns</a>
-  <a href="#ch8"><span class="n">08</span>Glossary</a>
-  <a href="#ch9"><span class="n">09</span>Takeaways</a>
+<a href="#ch6"><span class="n">06</span>Potential Benefits</a>
+  <a href="#ch7"><span class="n">07</span>Who It Suits</a>
+  <a href="#ch8"><span class="n">08</span>Community Reports</a>
+  <a href="#ch9"><span class="n">09</span>Risks &amp; Unknowns</a>
+  <a href="#ch10"><span class="n">10</span>Glossary</a>
+  <a href="#ch11"><span class="n">11</span>Takeaways</a>
   <div class="mini"><span>Read</span><span id="tocPct">0%</span></div>
   <div class="mini-bar"><i id="tocBar"></i></div>
 </aside>
 <nav class="chapters" aria-label="Chapters"><div class="rail" id="rail">
   <a href="#ch1">01 · Peptide</a><a href="#ch2">02 · Discovery</a><a href="#ch3">03 · Mechanism</a>
-  <a href="#ch4">04 · Evidence</a><a href="#ch5">05 · Vs PACAP</a><a href="#ch6">06 · Reports</a><a href="#ch7">07 · Risks</a>
-  <a href="#ch8">08 · Glossary</a><a href="#ch9">09 · Takeaways</a>
+  <a href="#ch4">04 · Evidence</a><a href="#ch5">05 · Vs PACAP</a><a href="#ch6">06 · Benefits</a><a href="#ch7">07 · Who it suits</a><a href="#ch8">08 · Community</a><a href="#ch9">09 · Risks</a>
+  <a href="#ch10">10 · Glossary</a><a href="#ch11">11 · Takeaways</a>
 </div></nav>
 
 <header class="hero">
@@ -550,13 +584,13 @@ mini-poll { display: block; }
   <p class="lede">Not a lab invention — a <strong>28-amino-acid diplomat</strong> your body already employs across four organ systems. Real molecule, real jobs, no approved drug.</p>
 <div class="diagram reveal">
     <svg viewBox="0 0 640 210" role="img" aria-label="VIP · 28 AMINO ACIDS">
-      <text x="20" y="24" fill="#8b92aa" font-size="13" font-weight="700" letter-spacing="2">VIP · 28 AMINO ACIDS</text>
+      <text x="20" y="24" fill="#9a8baa" font-size="13" font-weight="700" letter-spacing="2">VIP · 28 AMINO ACIDS</text>
       <g id="vipchain"></g>
-      <text x="320" y="152" fill="#67e8f9" font-size="13" font-weight="800" text-anchor="middle">VASOACTIVE INTESTINAL PEPTIDE · 28 AA</text>
+      <text x="320" y="152" fill="#67e6f9" font-size="13" font-weight="800" text-anchor="middle">VASOACTIVE INTESTINAL PEPTIDE · 28 AA</text>
       <text x="320" y="172" fill="#686d7f" font-size="12" text-anchor="middle">a neuropeptide working in gut, lung, brain & immune tissue</text>
-      <rect x="170" y="186" width="300" height="4" rx="2" fill="#0369a1" opacity=".8"/>
+      <rect x="170" y="186" width="300" height="4" rx="2" fill="#a0041b" opacity=".8"/>
     </svg>
-    <script>(function(){var g=document.getElementById('vipchain');if(!g)return;var NS='http://www.w3.org/2000/svg';var n=28,h0=0,h1=28;for(var i=0;i<n;i++){var c=document.createElementNS(NS,'circle');var hot=i>=h0&&i<h1;c.setAttribute('cx',(40+i*19.5).toFixed(1));c.setAttribute('cy','93');c.setAttribute('r',hot?9:6);c.setAttribute('fill',hot?'#6472a1':'#181b27');if(hot){c.setAttribute('stroke','#67e8f9');c.setAttribute('stroke-width','2');}g.appendChild(c);}})();</script>
+    <script>(function(){var g=document.getElementById('vipchain');if(!g)return;var NS='http://www.w3.org/2000/svg';var n=28,h0=0,h1=28;for(var i=0;i<n;i++){var c=document.createElementNS(NS,'circle');var hot=i>=h0&&i<h1;c.setAttribute('cx',(40+i*19.5).toFixed(1));c.setAttribute('cy','93');c.setAttribute('r',hot?9:6);c.setAttribute('fill',hot?'#8264a1':'#1f1827');if(hot){c.setAttribute('stroke','#67e6f9');c.setAttribute('stroke-width','2');}g.appendChild(c);}})();</script>
     <div class="cap">Twenty-eight amino acids — one messenger with four different jobs in four different systems.</div>
   </div>
   <div class="grid3">
@@ -576,8 +610,8 @@ mini-poll { display: block; }
   <p class="lede">Discovered in 1970, interesting ever since. VIP is the <strong>perpetual prospect</strong> — brilliant in trials, absent from pharmacies.</p>
 <div class="diagram reveal">
     <svg viewBox="0 0 640 260" role="img" aria-label="Timeline from VIP discovery to modern clinical trials">
-      <line x1="40" y1="130" x2="600" y2="130" stroke="#0369a1" stroke-width="3" stroke-dasharray="8 6" class="flow"/>
-      <circle cx="70" cy="130" r="14" fill="#04050a" stroke="#67e8f9" stroke-width="2.5" class="pulse"/><circle cx="70" cy="130" r="5" fill="#67e8f9"/><line x1="70" y1="130" x2="70" y2="62" stroke="#262937" stroke-width="2"/><circle cx="236" cy="130" r="14" fill="#04050a" stroke="#0369a1" stroke-width="2.5" class="pulse"/><circle cx="236" cy="130" r="5" fill="#0369a1"/><line x1="236" y1="130" x2="236" y2="198" stroke="#262937" stroke-width="2"/><circle cx="403" cy="130" r="14" fill="#04050a" stroke="#67e8f9" stroke-width="2.5" class="pulse"/><circle cx="403" cy="130" r="5" fill="#67e8f9"/><line x1="403" y1="130" x2="403" y2="62" stroke="#262937" stroke-width="2"/><circle cx="570" cy="130" r="14" fill="#04050a" stroke="#0369a1" stroke-width="2.5" class="pulse"/><circle cx="570" cy="130" r="5" fill="#0369a1"/><line x1="570" y1="130" x2="570" y2="198" stroke="#262937" stroke-width="2"/><text x="70" y="52" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">1970</text><text x="70" y="68" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">VIP discovered</text><text x="70" y="82" fill="#686d7f" font-size="10" text-anchor="middle">Said & Mutt isolate it</text><text x="236" y="208" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">1970s–80s</text><text x="236" y="224" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">Jobs mapped</text><text x="236" y="238" fill="#686d7f" font-size="10" text-anchor="middle">vessels, gut, lungs</text><text x="403" y="52" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">2000s</text><text x="403" y="68" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">Immune role emerges</text><text x="403" y="82" fill="#686d7f" font-size="10" text-anchor="middle">the calming signal</text><text x="570" y="208" fill="#67e8f9" font-size="12" font-weight="800" text-anchor="middle">2010s–20s</text><text x="570" y="224" fill="#8b92aa" font-size="11" font-weight="700" text-anchor="middle">Clinical trials</text><text x="570" y="238" fill="#686d7f" font-size="10" text-anchor="middle">sarcoidosis, PAH</text>
+      <line x1="40" y1="130" x2="600" y2="130" stroke="#a0041b" stroke-width="3" stroke-dasharray="8 6" class="flow"/>
+      <circle cx="70" cy="130" r="14" fill="#07040a" stroke="#67e6f9" stroke-width="2.5" class="pulse"/><circle cx="70" cy="130" r="5" fill="#67e6f9"/><line x1="70" y1="130" x2="70" y2="62" stroke="#2e2637" stroke-width="2"/><circle cx="236" cy="130" r="14" fill="#07040a" stroke="#a0041b" stroke-width="2.5" class="pulse"/><circle cx="236" cy="130" r="5" fill="#a0041b"/><line x1="236" y1="130" x2="236" y2="198" stroke="#2e2637" stroke-width="2"/><circle cx="403" cy="130" r="14" fill="#07040a" stroke="#67e6f9" stroke-width="2.5" class="pulse"/><circle cx="403" cy="130" r="5" fill="#67e6f9"/><line x1="403" y1="130" x2="403" y2="62" stroke="#2e2637" stroke-width="2"/><circle cx="570" cy="130" r="14" fill="#07040a" stroke="#a0041b" stroke-width="2.5" class="pulse"/><circle cx="570" cy="130" r="5" fill="#a0041b"/><line x1="570" y1="130" x2="570" y2="198" stroke="#2e2637" stroke-width="2"/><text x="70" y="52" fill="#67e6f9" font-size="12" font-weight="800" text-anchor="middle">1970</text><text x="70" y="68" fill="#9a8baa" font-size="11" font-weight="700" text-anchor="middle">VIP discovered</text><text x="70" y="82" fill="#686d7f" font-size="10" text-anchor="middle">Said & Mutt isolate it</text><text x="236" y="208" fill="#67e6f9" font-size="12" font-weight="800" text-anchor="middle">1970s–80s</text><text x="236" y="224" fill="#9a8baa" font-size="11" font-weight="700" text-anchor="middle">Jobs mapped</text><text x="236" y="238" fill="#686d7f" font-size="10" text-anchor="middle">vessels, gut, lungs</text><text x="403" y="52" fill="#67e6f9" font-size="12" font-weight="800" text-anchor="middle">2000s</text><text x="403" y="68" fill="#9a8baa" font-size="11" font-weight="700" text-anchor="middle">Immune role emerges</text><text x="403" y="82" fill="#686d7f" font-size="10" text-anchor="middle">the calming signal</text><text x="570" y="208" fill="#67e6f9" font-size="12" font-weight="800" text-anchor="middle">2010s–20s</text><text x="570" y="224" fill="#9a8baa" font-size="11" font-weight="700" text-anchor="middle">Clinical trials</text><text x="570" y="238" fill="#686d7f" font-size="10" text-anchor="middle">sarcoidosis, PAH</text>
     </svg>
     <div class="cap">Half a century from gut extract to clinical trials — a serious molecule that never crossed the finish line.</div>
   </div>
@@ -596,12 +630,162 @@ mini-poll { display: block; }
   <p class="lede"><strong>Dilate, open, calm, balance</strong> — genuine physiology across four systems. But physiology is not a prescription.</p>
 <div class="diagram reveal">
     <svg viewBox="0 0 640 240" role="img" aria-label="Four proposed actions of VIP across body systems">
-      <g font-size="13" font-weight="800" text-anchor="middle"><rect x="20" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#67e8f9" stroke-width="2"/><text x="84" y="105" fill="1">DILATE · #67e8f9</text><text x="84" y="130" fill="#8b92aa" font-size="11" font-weight="600">Relaxes vessel walls,</text><text x="84" y="146" fill="#8b92aa" font-size="11" font-weight="600">blood flow increases</text><rect x="172" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#0369a1" stroke-width="2"/><text x="236" y="105" fill="2">OPEN · #0369a1</text><text x="236" y="130" fill="#8b92aa" font-size="11" font-weight="600">Relaxes airway muscle,</text><text x="236" y="146" fill="#8b92aa" font-size="11" font-weight="600">breathing eases</text><rect x="324" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#6472a1" stroke-width="2"/><text x="388" y="105" fill="3">CALM · #6472a1</text><text x="388" y="130" fill="#8b92aa" font-size="11" font-weight="600">Tells immune cells</text><text x="388" y="146" fill="#8b92aa" font-size="11" font-weight="600">to stand down</text><rect x="476" y="60" width="128" height="120" rx="14" fill="#04050a" stroke="#0369a1" stroke-width="2"/><text x="540" y="105" fill="4">BALANCE · #0369a1</text><text x="540" y="130" fill="#8b92aa" font-size="11" font-weight="600">Gut motility and secretion</text><text x="540" y="146" fill="#8b92aa" font-size="11" font-weight="600">settle toward normal</text></g>
+      <g font-size="13" font-weight="800" text-anchor="middle"><rect x="20" y="60" width="128" height="120" rx="14" fill="#07040a" stroke="#67e6f9" stroke-width="2"/><text x="84" y="105" fill="#67e6f9">DILATE</text><text x="84" y="130" fill="#9a8baa" font-size="11" font-weight="600">Relaxes vessel walls,</text><text x="84" y="146" fill="#9a8baa" font-size="11" font-weight="600">blood flow increases</text><rect x="172" y="60" width="128" height="120" rx="14" fill="#07040a" stroke="#a0041b" stroke-width="2"/><text x="236" y="105" fill="#f83854">OPEN</text><text x="236" y="130" fill="#9a8baa" font-size="11" font-weight="600">Relaxes airway muscle,</text><text x="236" y="146" fill="#9a8baa" font-size="11" font-weight="600">breathing eases</text><rect x="324" y="60" width="128" height="120" rx="14" fill="#07040a" stroke="#8264a1" stroke-width="2"/><text x="388" y="105" fill="#d0a5fc">CALM</text><text x="388" y="130" fill="#9a8baa" font-size="11" font-weight="600">Tells immune cells</text><text x="388" y="146" fill="#9a8baa" font-size="11" font-weight="600">to stand down</text><rect x="476" y="60" width="128" height="120" rx="14" fill="#07040a" stroke="#26ddf9" stroke-width="2"/><text x="540" y="105" fill="#26ddf9">BALANCE</text><text x="540" y="130" fill="#9a8baa" font-size="11" font-weight="600">Gut motility and secretion</text><text x="540" y="146" fill="#9a8baa" font-size="11" font-weight="600">settle toward normal</text></g>
       <g stroke="#686d7f" stroke-width="2" fill="none" class="flow" stroke-dasharray="6 6"><path d="M148 120 h24"/><path d="M300 120 h24"/><path d="M452 120 h24"/></g>
       <text x="320" y="220" fill="#686d7f" font-size="12" text-anchor="middle">Proposed from decades of physiology — real biology, unproven as a therapy</text>
     </svg>
     <div class="cap">The textbook story. Genuine physiology — but physiology is not a prescription.</div>
-  </div><div class="ebar"><div class="row"><span class="t">Basic physiology</span><span class="v">well established</span></div><div class="track"><div class="fill" style="--w:88%;background:linear-gradient(90deg,#0369a1,#67e8f9)"></div></div><div class="note">VIP’s effects on vessels, airways, and gut are textbook — decades of replicated lab work.</div></div><div class="ebar"><div class="row"><span class="t">Immune modulation</span><span class="v">real, complex</span></div><div class="track"><div class="fill" style="--w:62%;background:linear-gradient(90deg,#67e8f9,#6472a1)"></div></div><div class="note">Anti-inflammatory signals in cells and animals; immune systems are complicated customers.</div></div><div class="ebar"><div class="row"><span class="t">Clinical trials (sarcoidosis, PAH)</span><span class="v">interesting, inconclusive</span></div><div class="track"><div class="fill" style="--w:38%;background:linear-gradient(90deg,#6472a1,#0369a1)"></div></div><div class="note">Real human trials with real signals — but no approvals and no follow-through to market.</div></div><div class="ebar"><div class="row"><span class="t">Gray-market VIP products</span><span class="v">no data</span></div><div class="track"><div class="fill" style="--w:4%;background:linear-gradient(90deg,#262937,#262937)"></div></div></div>
+  </div><div class="diagram reveal">
+<h4 style="margin:0 0 .4rem;color:var(--ink)">The core signal: VIP &#8594; receptor &#8594; cAMP &#8594; response</h4>
+<svg viewBox="0 0 640 320" role="img" aria-label="VIP binds VPAC receptors on the cell membrane, triggering G-protein and cAMP signaling inside the cell">
+<text x="160" y="30" fill="#9a8baa" font-size="11" font-weight="700" letter-spacing="2" text-anchor="middle">EXTRACELLULAR</text>
+<text x="480" y="30" fill="#9a8baa" font-size="11" font-weight="700" letter-spacing="2" text-anchor="middle">INSIDE THE CELL</text>
+<rect x="20" y="110" width="110" height="90" rx="16" fill="#07040a" stroke="#67e6f9" stroke-width="2"/>
+<text x="75" y="142" fill="#67e6f9" font-size="12" font-weight="800" text-anchor="middle">nerve ending</text>
+<text x="75" y="162" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">releases VIP</text>
+<circle r="6" fill="#67e6f9"><animateMotion dur="3s" repeatCount="indefinite" path="M135 155 C 200 155, 240 155, 295 155"/></circle>
+<circle r="6" fill="#67e6f9" opacity=".7"><animateMotion dur="3s" begin="1s" repeatCount="indefinite" path="M135 155 C 200 155, 240 155, 295 155"/></circle>
+<circle r="6" fill="#67e6f9" opacity=".45"><animateMotion dur="3s" begin="2s" repeatCount="indefinite" path="M135 155 C 200 155, 240 155, 295 155"/></circle>
+<rect x="310" y="50" width="300" height="220" rx="18" fill="#07040a" stroke="#67e6f9" stroke-width="2"/>
+<line x1="310" y1="50" x2="310" y2="270" stroke="#26ddf9" stroke-width="5"/>
+<text x="310" y="294" fill="#26ddf9" font-size="10" font-weight="700" text-anchor="middle">cell membrane</text>
+<g stroke="#26ddf9" stroke-width="4" stroke-linecap="round">
+<line x1="310" y1="155" x2="296" y2="132"/><line x1="310" y1="155" x2="324" y2="132"/><line x1="310" y1="155" x2="310" y2="185"/>
+</g>
+<circle cx="310" cy="150" r="12" fill="none" stroke="#26ddf9" stroke-width="2" class="ringp"/>
+<text x="310" y="112" fill="#26ddf9" font-size="11" font-weight="800" text-anchor="middle" stroke="#07040a" stroke-width="5" style="paint-order:stroke">VPAC1 / VPAC2</text>
+<circle cx="365" cy="200" r="14" fill="#8264a1" class="glow-pulse"/>
+<text x="365" y="204" fill="#07040a" font-size="9" font-weight="800" text-anchor="middle">G</text>
+<text x="365" y="232" fill="#9a8baa" font-size="10" font-weight="700" text-anchor="middle">G-protein</text>
+<circle r="5" fill="#d0a5fc"><animateMotion dur="4s" repeatCount="indefinite" path="M365 185 C 400 150, 440 140, 470 110"/></circle>
+<circle r="5" fill="#d0a5fc" opacity=".7"><animateMotion dur="4s" begin="1.3s" repeatCount="indefinite" path="M365 185 C 400 150, 440 140, 470 110"/></circle>
+<circle r="5" fill="#d0a5fc" opacity=".45"><animateMotion dur="4s" begin="2.6s" repeatCount="indefinite" path="M365 185 C 400 150, 440 140, 470 110"/></circle>
+<text x="470" y="95" fill="#d0a5fc" font-size="11" font-weight="800" text-anchor="middle">cAMP &#8593;</text>
+<rect x="500" y="130" width="80" height="44" rx="10" fill="#07040a" stroke="#d0a5fc" stroke-width="2"/>
+<text x="540" y="157" fill="#d0a5fc" font-size="12" font-weight="800" text-anchor="middle">PKA</text>
+<text x="540" y="205" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">tissue-specific</text>
+<text x="540" y="220" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">response</text>
+<path d="M470 152 H498" stroke="#686d7f" stroke-width="2" fill="none" class="flow"/>
+</svg>
+<div class="cap">VIP never enters the cell &#8212; it knocks, the receptor answers, and the message travels inside as cAMP.</div>
+</div><div class="diagram reveal">
+<h4 style="margin:0 0 .4rem;color:var(--ink)">What happens in the body? One signal, four destinations</h4>
+<svg viewBox="0 0 640 300" role="img" aria-label="VIP release, receptor binding and signaling lead to different outcomes in gut, vessels, airways and immune cells">
+<g font-size="12" font-weight="800" text-anchor="middle">
+<rect x="20" y="30" width="180" height="70" rx="14" fill="#07040a" stroke="#67e6f9" stroke-width="2"/>
+<text x="110" y="58" fill="#67e6f9">1 &#183; RELEASE</text>
+<text x="110" y="80" fill="#9a8baa" font-size="10" font-weight="600">nerves / gut cells</text>
+<rect x="230" y="30" width="180" height="70" rx="14" fill="#07040a" stroke="#26ddf9" stroke-width="2"/>
+<text x="320" y="58" fill="#26ddf9">2 &#183; BIND</text>
+<text x="320" y="80" fill="#9a8baa" font-size="10" font-weight="600">VPAC1 / VPAC2</text>
+<rect x="440" y="30" width="180" height="70" rx="14" fill="#07040a" stroke="#d0a5fc" stroke-width="2"/>
+<text x="530" y="58" fill="#d0a5fc">3 &#183; SIGNAL</text>
+<text x="530" y="80" fill="#9a8baa" font-size="10" font-weight="600">cAMP &#8594; PKA</text>
+<path d="M205 65 h20 M415 65 h20" stroke="#686d7f" stroke-width="2" fill="none" class="flow"/>
+<rect x="20" y="150" width="140" height="112" rx="14" fill="#07040a" stroke="#f83854" stroke-width="2"/>
+<text x="90" y="180" fill="#f83854">GUT</text>
+<text x="90" y="202" fill="#9a8baa" font-size="10" font-weight="600">secretion &#8593;</text>
+<text x="90" y="218" fill="#9a8baa" font-size="10" font-weight="600">muscle relaxes</text>
+<text x="90" y="238" fill="#fb7185" font-size="10" font-weight="600">excess &#8594; diarrhea</text>
+<rect x="175" y="150" width="140" height="112" rx="14" fill="#07040a" stroke="#67e6f9" stroke-width="2"/>
+<text x="245" y="180" fill="#67e6f9">VESSELS</text>
+<text x="245" y="202" fill="#9a8baa" font-size="10" font-weight="600">vasodilation</text>
+<text x="245" y="218" fill="#9a8baa" font-size="10" font-weight="600">walls relax</text>
+<text x="245" y="238" fill="#9a8baa" font-size="10" font-weight="600">pressure can dip</text>
+<rect x="330" y="150" width="140" height="112" rx="14" fill="#07040a" stroke="#d0a5fc" stroke-width="2"/>
+<text x="400" y="180" fill="#d0a5fc">AIRWAYS</text>
+<text x="400" y="202" fill="#9a8baa" font-size="10" font-weight="600">bronchodilation</text>
+<text x="400" y="218" fill="#9a8baa" font-size="10" font-weight="600">airway muscle relaxes</text>
+<text x="400" y="238" fill="#9a8baa" font-size="10" font-weight="600">easier airflow</text>
+<rect x="485" y="150" width="140" height="112" rx="14" fill="#07040a" stroke="#26ddf9" stroke-width="2" stroke-dasharray="7 5"/>
+<text x="555" y="180" fill="#26ddf9">IMMUNE</text>
+<text x="555" y="202" fill="#9a8baa" font-size="10" font-weight="600">calmer signals</text>
+<text x="555" y="218" fill="#9a8baa" font-size="10" font-weight="600">proposed &#8212;</text>
+<text x="555" y="238" fill="#9a8baa" font-size="10" font-weight="600">not a treatment</text>
+</g>
+<g stroke="#686d7f" stroke-width="2" fill="none" class="flowseq">
+<path d="M530 100 V132"/><path d="M90 132 H555"/>
+<path d="M90 132 V146"/><path d="M245 132 V146"/><path d="M400 132 V146"/><path d="M555 132 V146"/>
+</g>
+<circle r="5" fill="#67e6f9"><animateMotion dur="4s" repeatCount="indefinite" path="M530 100 V132 H90 V148"/></circle>
+<circle r="5" fill="#67e6f9" opacity=".7"><animateMotion dur="4s" begin="1s" repeatCount="indefinite" path="M530 100 V132 H245 V148"/></circle>
+<circle r="5" fill="#67e6f9" opacity=".7"><animateMotion dur="4s" begin="2s" repeatCount="indefinite" path="M530 100 V132 H400 V148"/></circle>
+<circle r="5" fill="#67e6f9" opacity=".7"><animateMotion dur="4s" begin="3s" repeatCount="indefinite" path="M530 100 V132 H555 V148"/></circle>
+<circle r="5" fill="#67e6f9"><animateMotion dur="2.5s" repeatCount="indefinite" path="M205 65 h20"/></circle>
+<circle r="5" fill="#26ddf9"><animateMotion dur="2.5s" repeatCount="indefinite" path="M415 65 h20"/></circle>
+</svg>
+<div class="cap">Same knock on the door &#8212; a different answer in every tissue. That is why one molecule can&#8217;t be one drug.</div>
+</div><div class="diagram reveal">
+<h4 style="margin:0 0 .4rem;color:var(--ink)">Four tissues, four answers &#8212; up close</h4>
+<svg viewBox="0 0 640 470" role="img" aria-label="Animated VIP effects in gut, blood vessels, airways and immune cells">
+<rect x="20" y="20" width="300" height="210" rx="14" fill="#07040a" stroke="#f83854" stroke-width="2"/>
+<text x="170" y="50" fill="#f83854" font-size="13" font-weight="800" text-anchor="middle">GUT &#8212; secretion &amp; motility</text>
+<path d="M70 190 L90 140 L110 190 Z M130 190 L150 140 L170 190 Z M190 190 L210 140 L230 190 Z" fill="#f83854" opacity=".25" stroke="#f83854" stroke-width="1.5"/>
+<circle r="4" fill="#67e6f9"><animateMotion dur="2.5s" repeatCount="indefinite" path="M90 145 V188"/></circle>
+<circle r="4" fill="#67e6f9" opacity=".7"><animateMotion dur="2.5s" begin=".8s" repeatCount="indefinite" path="M150 145 V188"/></circle>
+<circle r="4" fill="#67e6f9" opacity=".7"><animateMotion dur="2.5s" begin="1.6s" repeatCount="indefinite" path="M210 145 V188"/></circle>
+<text x="270" y="165" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">Cl&#8315; + water</text>
+<text x="270" y="180" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">flow out</text>
+<text x="170" y="214" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">chloride + water secreted; muscle relaxes</text>
+<rect x="340" y="20" width="300" height="210" rx="14" fill="#07040a" stroke="#67e6f9" stroke-width="2"/>
+<text x="490" y="50" fill="#67e6f9" font-size="13" font-weight="800" text-anchor="middle">BLOOD VESSELS &#8212; vasodilation</text>
+<circle cx="490" cy="140" r="55" fill="none" stroke="#67e6f9" stroke-width="3"/>
+<circle cx="490" cy="140" r="36" fill="#67e6f9" opacity=".25" class="vpulse"/>
+<circle cx="490" cy="140" r="10" fill="#67e6f9"/>
+<text x="490" y="214" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">walls relax &#8594; wider vessel, less resistance</text>
+<rect x="20" y="250" width="300" height="210" rx="14" fill="#07040a" stroke="#d0a5fc" stroke-width="2"/>
+<text x="170" y="280" fill="#d0a5fc" font-size="13" font-weight="800" text-anchor="middle">AIRWAYS &#8212; bronchodilation</text>
+<line x1="60" y1="340" x2="280" y2="340" stroke="#d0a5fc" stroke-width="4"/>
+<line x1="60" y1="400" x2="280" y2="400" stroke="#d0a5fc" stroke-width="4"/>
+<ellipse cx="170" cy="370" rx="95" ry="24" fill="#d0a5fc" opacity=".25" class="vpulse"/>
+<text x="170" y="445" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">airway muscle relaxes &#8212; easier airflow</text>
+<rect x="340" y="250" width="300" height="210" rx="14" fill="#07040a" stroke="#26ddf9" stroke-width="2" stroke-dasharray="7 5"/>
+<rect x="556" y="262" width="68" height="20" rx="10" fill="#26ddf9"/>
+<text x="590" y="276" fill="#07040a" font-size="9" font-weight="800" text-anchor="middle">PROPOSED</text>
+<text x="490" y="292" fill="#26ddf9" font-size="13" font-weight="800" text-anchor="middle">IMMUNE &#8212; calming signals</text>
+<circle cx="490" cy="370" r="34" fill="#26ddf9" opacity=".18" stroke="#26ddf9" stroke-width="2"/>
+<circle cx="490" cy="370" r="34" fill="none" stroke="#26ddf9" stroke-width="2" class="ringp"/>
+<text x="490" y="374" fill="#26ddf9" font-size="11" font-weight="800" text-anchor="middle">T cell</text>
+<text x="490" y="432" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">calmer inflammatory signals</text>
+<text x="490" y="448" fill="#9a8baa" font-size="10" font-weight="600" text-anchor="middle">experimental &#8212; not a therapy</text>
+</svg>
+<div class="cap">Too much of a good signal: VIP-secreting tumors cause profound watery diarrhea &#8212; the same gut pathway, runaway.</div>
+</div><div class="diagram reveal">
+<h4 style="margin:0 0 .4rem;color:var(--ink)">VPAC1 vs VPAC2 &#8212; and the PAC1 tell</h4>
+<svg viewBox="0 0 640 210" role="img" aria-label="VIP and PACAP both activate VPAC1 and VPAC2, while PAC1 is selective for PACAP">
+<g font-size="12" font-weight="800" text-anchor="middle">
+<circle cx="70" cy="60" r="18" fill="#67e6f9"/>
+<text x="70" y="64" fill="#07040a" font-size="10">VIP</text>
+<text x="70" y="96" fill="#9a8baa" font-size="10" font-weight="600">VIP</text>
+<circle cx="70" cy="150" r="18" fill="#f83854"/>
+<text x="70" y="154" fill="#07040a" font-size="9">PACAP</text>
+<text x="70" y="186" fill="#9a8baa" font-size="10" font-weight="600">PACAP</text>
+<rect x="250" y="30" width="150" height="60" rx="12" fill="#07040a" stroke="#67e6f9" stroke-width="2"/>
+<text x="325" y="56" fill="#67e6f9">VPAC1</text>
+<text x="325" y="76" fill="#9a8baa" font-size="10" font-weight="600">widespread</text>
+<rect x="250" y="120" width="150" height="60" rx="12" fill="#07040a" stroke="#d0a5fc" stroke-width="2"/>
+<text x="325" y="146" fill="#d0a5fc">VPAC2</text>
+<text x="325" y="166" fill="#9a8baa" font-size="10" font-weight="600">select tissues</text>
+<rect x="470" y="75" width="150" height="60" rx="12" fill="#07040a" stroke="#26ddf9" stroke-width="2"/>
+<text x="545" y="101" fill="#26ddf9">PAC1</text>
+<text x="545" y="121" fill="#9a8baa" font-size="10" font-weight="600">PACAP-selective</text>
+</g>
+<g stroke="#686d7f" stroke-width="2" fill="none" class="flow">
+<path d="M92 60 H246"/><path d="M92 68 C 170 88, 200 118, 246 140"/>
+<path d="M92 142 C 170 122, 200 92, 246 68"/><path d="M92 150 H246"/>
+</g>
+<path d="M92 168 C 230 200, 360 200, 466 118" stroke="#26ddf9" stroke-width="3" fill="none" class="flow"/>
+<circle r="5" fill="#67e6f9"><animateMotion dur="2.2s" repeatCount="indefinite" path="M92 60 H246"/></circle>
+<circle r="5" fill="#26ddf9"><animateMotion dur="3s" repeatCount="indefinite" path="M92 168 C 230 200, 360 200, 466 118"/></circle>
+</svg>
+<div class="cap">VIP and PACAP share VPAC1/VPAC2 &#8212; PAC1 is the receptor that can tell the siblings apart.</div>
+</div><h3 style="font-family:var(--disp);font-size:1.5rem;font-weight:800;margin:2.4rem 0 1rem;letter-spacing:-.01em">VIP and the <span class="hl">Immune System</span></h3>
+<p class="lede" style="font-size:1.02rem">The most intriguing &#8212; and most overhyped &#8212; frontier. Real signals in the lab, no immune therapy in the clinic.</p>
+<div class="grid3">
+<div class="card sky reveal"><h3>T-cell subsets <span class="chem">proposed</span></h3><p>In cell and animal models, VIP nudges T-cell balance &#8212; cooler Th1 fire, more Treg calm. A proposed tune of the immune orchestra, <strong>not a prescription</strong>.</p></div>
+<div class="card teal reveal"><h3>Inflammatory signaling</h3><p>Dampens pro-inflammatory cytokines (TNF-&#945;, IL-6, IL-12) in lab models. A quieter alarm bell &#8212; <strong>in a dish, not a patient</strong>.</p></div>
+<div class="card org reveal"><h3>The honest boundary</h3><p><strong>No established immune therapy exists.</strong> Sarcoidosis trials were real but inconclusive. The hope lives in the lab; the clinic is still waiting.</p></div>
+</div><div class="ebar reveal"><div class="row"><span class="t">Basic physiology</span><span class="v">well established</span></div><div class="track"><div class="fill" style="--w:88%;background:linear-gradient(90deg,#a0041b,#67e6f9)"></div></div><div class="note">VIP’s effects on vessels, airways, and gut are textbook — decades of replicated lab work.</div></div><div class="ebar reveal"><div class="row"><span class="t">Immune modulation</span><span class="v">real, complex</span></div><div class="track"><div class="fill" style="--w:62%;background:linear-gradient(90deg,#67e6f9,#8264a1)"></div></div><div class="note">Anti-inflammatory signals in cells and animals; immune systems are complicated customers.</div></div><div class="ebar reveal"><div class="row"><span class="t">Clinical trials (sarcoidosis, PAH)</span><span class="v">interesting, inconclusive</span></div><div class="track"><div class="fill" style="--w:38%;background:linear-gradient(90deg,#8264a1,#a0041b)"></div></div><div class="note">Real human trials with real signals — but no approvals and no follow-through to market.</div></div><div class="ebar reveal"><div class="row"><span class="t">Gray-market VIP products</span><span class="v">no data</span></div><div class="track"><div class="fill" style="--w:4%;background:linear-gradient(90deg,#2e2637,#2e2637)"></div></div></div>
   <div class="plain reveal"><div class="plabel">Plain English</div><p>The pitch: <strong>dilate → open → calm → balance</strong>. Like a <strong>building superintendent</strong> who loosens the pipes, airs the rooms, and quiets the noisy tenants. The super is real — hiring him as your personal contractor is the unproven part.</p></div></section>
 <mini-poll slug="vip-mini-ch3"
   data-question="Which proposed action is most compelling?"
@@ -636,16 +820,16 @@ mini-poll { display: block; }
   </div><div class="diagram reveal">
     <svg viewBox="0 0 640 230" role="img" aria-label="VIP and PACAP as two paths converging on the neuropeptide shelf">
       <g font-size="13" font-weight="800" text-anchor="middle">
-        <rect x="40" y="40" width="180" height="90" rx="14" fill="#04050a" stroke="#67e8f9" stroke-width="2"/>
-        <text x="130" y="75" fill="#67e8f9">VIP</text>
-        <text x="130" y="98" fill="#8b92aa" font-size="11" font-weight="600">28-aa messenger</text>
-        <text x="130" y="114" fill="#8b92aa" font-size="11" font-weight="600">trials, no approval</text>
-        <rect x="420" y="40" width="180" height="90" rx="14" fill="#04050a" stroke="#0369a1" stroke-width="2"/>
-        <text x="510" y="75" fill="#0369a1">PACAP</text>
-        <text x="510" y="98" fill="#8b92aa" font-size="11" font-weight="600">sister peptide</text>
-        <text x="510" y="114" fill="#8b92aa" font-size="11" font-weight="600">shared receptors</text>
-        <rect x="230" y="150" width="180" height="60" rx="14" fill="#04050a" stroke="#686d7f" stroke-width="2" stroke-dasharray="7 5"/>
-        <text x="320" y="176" fill="#8b92aa" font-size="12">"NEUROPEPTIDE SHELF"</text>
+        <rect x="40" y="40" width="180" height="90" rx="14" fill="#07040a" stroke="#67e6f9" stroke-width="2"/>
+        <text x="130" y="75" fill="#67e6f9">VIP</text>
+        <text x="130" y="98" fill="#9a8baa" font-size="11" font-weight="600">28-aa messenger</text>
+        <text x="130" y="114" fill="#9a8baa" font-size="11" font-weight="600">trials, no approval</text>
+        <rect x="420" y="40" width="180" height="90" rx="14" fill="#07040a" stroke="#a0041b" stroke-width="2"/>
+        <text x="510" y="75" fill="#a0041b">PACAP</text>
+        <text x="510" y="98" fill="#9a8baa" font-size="11" font-weight="600">sister peptide</text>
+        <text x="510" y="114" fill="#9a8baa" font-size="11" font-weight="600">shared receptors</text>
+        <rect x="230" y="150" width="180" height="60" rx="14" fill="#07040a" stroke="#686d7f" stroke-width="2" stroke-dasharray="7 5"/>
+        <text x="320" y="176" fill="#9a8baa" font-size="12">"NEUROPEPTIDE SHELF"</text>
         <text x="320" y="195" fill="#686d7f" font-size="10" font-weight="600">fascinating — and unproven</text>
       </g>
       <g stroke="#686d7f" stroke-width="2" fill="none" class="flow" stroke-dasharray="6 6">
@@ -654,37 +838,201 @@ mini-poll { display: block; }
     </svg>
     <div class="cap">Two sibling messengers sharing receptors, research programs, and the same empty trophy case.</div>
   </div>
+<h3 style="font-family:var(--disp);font-size:1.5rem;font-weight:800;margin:2.4rem 0 1rem;letter-spacing:-.01em">VIP <span class="hl">vs</span> GLP-1</h3>
+<p class="lede" style="font-size:1.02rem">Same neighborhood (gut peptides), very different careers.</p>
+<div class="grid2">
+<div class="card sky reveal"><h3>GLP-1 &#183; the approved cousin</h3><p><strong>Incretin hormone</strong>: gut &#8594; pancreas &#8594; brain. Slows digestion, boosts insulin, curbs appetite. Blockbuster drugs &#8212; <strong>approved, prescribed, everywhere</strong>. Receptor: GLP-1R.</p></div>
+<div class="card teal reveal"><h3>VIP &#183; the unhired generalist</h3><p><strong>Neuropeptide</strong>: gut, vessels, airways, immune. Broader, older, <strong>no approved drugs</strong>. Receptors: VPAC1/VPAC2. Same gut-peptide family tree, utterly different r&#233;sum&#233;.</p></div>
+</div>
+<h3 style="font-family:var(--disp);font-size:1.5rem;font-weight:800;margin:2.4rem 0 1rem;letter-spacing:-.01em">VIP <span class="hl">vs</span> GHRH</h3>
+<div class="grid2">
+<div class="card sky reveal"><h3>GHRH &#183; the specialist</h3><p><strong>Hypothalamus &#8594; pituitary &#8594; growth hormone.</strong> One axis, one job, done well. Receptor: GHRHR.</p></div>
+<div class="card teal reveal"><h3>VIP &#183; the diplomat</h3><p><strong>Four systems, no single job.</strong> Related peptide family, opposite career strategy: breadth over focus. Receptors: VPAC1/VPAC2.</p></div>
+</div>
+<div class="card org reveal"><h3>The PAC1 tell</h3><p>Back to the siblings: one receptor can tell them apart &#8212; <strong>PAC1 strongly prefers PACAP</strong>. Everything else, they share. That single selective receptor is why the two are studied side by side.</p></div>
   <div class="plain reveal"><div class="plabel">Plain English</div><p>VIP and PACAP are <strong>siblings who job-share</strong> — same receptors, overlapping shifts, both brilliant. Pharma keeps interviewing them for drug roles and keeps <strong>not hiring</strong>. There is a reason: a messenger this chatty is hard to aim.</p></div></section>
 <mini-poll slug="vip-mini-ch5"
-  data-question="VIP vs PACAP — which interests you more?"
-  data-answers='[["💙", "VIP the diplomat"], ["💜", "PACAP the sibling"], ["🤝", "Both, same story"], ["📊", "Neither until approval"]]'>
+  data-question="VIP vs PACAP vs GLP-1 vs GHRH — which comparison surprised you most?"
+  data-answers='[["🧬", "VIP vs PACAP"], ["💊", "VIP vs GLP-1"], ["🧠", "VIP vs GHRH"], ["📊", "Need more data"]]'>
 </mini-poll>
 <!-- ============ CHAPTER 6 ============ -->
 <section class="chapter" id="ch6">
-  <span class="eyebrow"><span class="n">06</span>What people say</span>
-  <h2>Reports from the <span class="hl">wild</span></h2>
-  <p class="lede">Thinner chatter than the cosmetic world — <strong>patient forums and biohacker threads</strong> circling the trial history. Stories, not data.</p>
-
-  <p class="lede" style="margin-bottom:1.2rem">Online chatter is thinner here than in the cosmetic-peptide world — mostly <strong>patient forums and biohacker threads</strong> circling the trial history. Stories, not data.</p>
-  <div class="ulegend reveal"><span class="udot" role="img" aria-label="Unverified anecdote"></span><p><strong>Unverified anecdote</strong> — the pulsing dot marks a paraphrased recurring theme from forums and social media: not verified, not evidence.</p></div>
-  <div class="anec-grid">
-    <div class="anec reveal"><div class="anec-head"><h4>The sarcoidosis hope</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Read about the trials — asked my doctor, who had never heard of it.&rdquo; <strong>Caveat:</strong> trial-stage molecules rarely reach clinics; "my doctor hasn’t heard of it" is the norm, not a conspiracy.</p><div class="caveat">Pattern: patient hope outpacing the trial pipeline.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The biohacker thread</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Someone’s self-experimenting with VIP nasal spray. Following closely.&rdquo; <strong>Caveat:</strong> uncontrolled self-experiments with unregulated vials prove nothing and risk plenty.</p><div class="caveat">Pattern: gray-market curiosity as spectator sport.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The breathing story</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Tried a VIP product for airways — breathing felt easier for an hour.&rdquo; <strong>Caveat:</strong> airway sensations fluctuate constantly; an hour of "easier" is noise, not signal.</p><div class="caveat">Pattern: short-window subjective outcomes.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The non-responder</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Ran it for a month. Nothing I could point to.&rdquo; <strong>Caveat:</strong> negative reports vanish quickly in enthusiast spaces.</p><div class="caveat">Pattern: quiet non-response, heavily underreported.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The blood-pressure dip</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Felt lightheaded after dosing — that means it’s working, right?&rdquo; <strong>Caveat:</strong> lightheadedness is a <strong>side effect</strong> (vasodilation), not a progress meter — and a warning sign.</p><div class="caveat">Pattern: side effects reframed as efficacy.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The immune hope</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;My autoimmune issues — hoping this calms things down.&rdquo; <strong>Caveat:</strong> immune modulation in a dish is not immune treatment in a person; hope is not a protocol.</p><div class="caveat">Pattern: disease hope attached to early science.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The price talk</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;It’s expensive, which makes me think the trials were onto something.&rdquo; <strong>Caveat:</strong> price reflects scarcity and marketing, not trial success — failed trials don’t discount vials.</p><div class="caveat">Pattern: cost-as-proof reasoning.</div></div>
-    <div class="anec reveal"><div class="anec-head"><h4>The honest shrug</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div><p>&ldquo;Interesting molecule. I’ll wait for an actual drug.&rdquo; <strong>Caveat:</strong> the most defensible position in the thread — and the least exciting.</p><div class="caveat">Pattern: patience as the contrarian take.</div></div>
+  <span class="eyebrow"><span class="n">06</span>Potential benefits</span>
+  <h2>Potential <span class="hl">benefits</span></h2>
+  <p class="lede">If VIP’s promise ever became a medicine, these are the benefits people would hope for — sorted into what the science has genuinely shown, what is still emerging, and what exists only as stories.</p>
+  <div class="tier tier-est reveal">
+    <span class="tbadge b-est">Established scientific data</span>
+    <p class="tintro">Real, replicated physiology — what the molecule genuinely does in the body.</p>
+    <ul class="tlist">
+      <li><strong>Blood-vessel relaxation.</strong> Vasodilation is VIP’s headline act — repeatedly shown in human physiology: vessel walls relax, blood flow increases.</li>
+      <li><strong>Airway relaxation.</strong> Airway smooth muscle relaxes under VIP’s signal — bronchodilation, demonstrated.</li>
+      <li><strong>Gut secretion and motility.</strong> Stimulates chloride and water secretion, relaxes gut muscle — replicated physiology. The extreme case: VIP-secreting tumors cause profound watery diarrhea, the same pathway runaway.</li>
+      <li><strong>Real trial history.</strong> Human trials in sarcoidosis and pulmonary arterial hypertension produced interesting signals — genuine research, even though no drug emerged.</li>
+    </ul>
+    <div class="laytip"><span class="ldot" aria-hidden="true"></span><p><strong>Think of it this way:</strong> VIP is like a building manager with master keys to four rooms — water pressure, air vents, the kitchen, and the alarm system. He really does open all four. That still doesn’t make him a plumber you can hire on demand.</p></div>
   </div>
-  <div class="folk-note reveal"><p>Read these the way scientists read case reports: <strong>useful for generating hypotheses, useless for proving them</strong>. The most honest sentence here is "I’ll wait for an actual drug" — because the trials never produced one.</p></div></section>
-<mini-poll slug="vip-mini-ch6"
-  data-question="Trial-stage stories online — how do you read them?"
-  data-answers='[["💬", "Encouraging"], ["🧂", "Salt required"], ["🚫", "Placebo-prone"], ["⚖️", "Stories aren&#39;t data"]]'>
+  <div class="tier tier-emg reveal">
+    <span class="tbadge b-emg">Predicted or emerging data</span>
+    <p class="tintro">Plausible from the biology — explicitly unproven as therapy.</p>
+    <ul class="tlist">
+      <li><strong>Immune calming.</strong> Cell and animal models show VIP nudging T-cell balance — cooler inflammatory signals. A proposed tune of the immune orchestra, not a treatment.</li>
+      <li><strong>Sarcoidosis and PAH treatment.</strong> The trial signals were interesting, but the trail went quiet afterward — no follow-through, no approvals. Emerging, then stalled.</li>
+      <li><strong>The breadth lesson.</strong> The emerging insight is itself a warning: a messenger this chatty is hard to aim — every job VIP does is a side effect waiting to happen.</li>
+    </ul>
+  </div>
+  <div class="tier tier-com reveal">
+    <span class="tbadge b-com">Community reports · stories, not data</span>
+    <div class="ulegend"><span class="udot" role="img" aria-label="Unverified anecdote"></span><p><strong>Unverified anecdote</strong> — the pulsing dot marks a paraphrased recurring theme from forums and social media: not verified, not evidence.</p></div>
+    <div class="anec-grid">
+      <div class="anec reveal">
+        <div class="anec-head"><h4>The digestion report</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div>
+        <p>“Tried a VIP product for gut issues — digestion felt calmer within days.” <strong>Caveat:</strong> digestion fluctuates with diet, stress, and everything else; days-long “calmer” is noise without controls.</p>
+        <div class="caveat">Pattern: gut feelings, literally.</div>
+      </div>
+      <div class="anec reveal">
+        <div class="anec-head"><h4>The breathing story</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div>
+        <p>“Used a VIP nasal spray — breathing felt easier for an hour.” <strong>Caveat:</strong> airway sensations fluctuate constantly; an hour of “easier” is noise, not signal.</p>
+        <div class="caveat">Pattern: short-window subjective outcomes.</div>
+      </div>
+      <div class="anec reveal">
+        <div class="anec-head"><h4>The sleep note</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div>
+        <p>“Sleep felt deeper the week I tried it.” <strong>Caveat:</strong> sleep responds to everything — expectation most of all.</p>
+        <div class="caveat">Pattern: the everything-affects-sleep confound.</div>
+      </div>
+      <div class="anec reveal">
+        <div class="anec-head"><h4>The non-responder</h4><span class="udot" role="img" aria-label="Unverified anecdote"></span></div>
+        <p>“Ran it for a month. Nothing I could point to.” <strong>Caveat:</strong> negative reports vanish quickly in enthusiast spaces.</p>
+        <div class="caveat">Pattern: quiet non-response, heavily underreported.</div>
+      </div>
+    </div>
+  </div>
+</section>
+<mini-poll slug="vip-mini-benefits"
+  data-question="Which benefit tier is most convincing to you?"
+  data-answers='[["✅", "Established scientific data"], ["🔬", "Predicted or emerging data"], ["💬", "Community reports"], ["⚖️", "None convince me yet"]]'>
 </mini-poll>
+
 <!-- ============ CHAPTER 7 ============ -->
 <section class="chapter" id="ch7">
-  <span class="eyebrow"><span class="n">07</span>Risks & unknowns</span>
+  <span class="eyebrow"><span class="n">07</span>Who it suits</span>
+  <h2>Who it may suit — <span class="hl">and who it should not</span></h2>
+  <p class="lede">Two separate boxes: who the research actually studied, and who should steer clear or tread carefully. This is general information, not personal medical advice.</p>
+  <div class="fit-grid">
+    <div class="scard lvl-fit reveal">
+      <span class="level">May be relevant to</span>
+      <h4>Who the research actually studied</h4>
+      <ul class="fitlist">
+        <li><strong>People with the studied conditions.</strong> Sarcoidosis and pulmonary arterial hypertension patients — in trials, under clinician supervision, not as self-experiment.</li>
+        <li><strong>Vascular and airway researchers.</strong> The physiology is genuine and useful for understanding blood pressure and breathing — as science, not as a product.</li>
+        <li><strong>The curious, as spectators.</strong> VIP is fascinating endogenous chemistry worth learning about — curiosity needs no prescription.</li>
+      </ul>
+    </div>
+    <div class="scard lvl-nofit reveal">
+      <span class="level">May not suit · extra caution</span>
+      <h4>Who should steer clear</h4>
+      <ul class="fitlist">
+        <li><strong>People with low blood pressure</strong> or on blood-pressure medication — vasodilation is the job description, and the warning label.</li>
+        <li><strong>Pregnant or nursing people</strong> — no safety data exists at all.</li>
+        <li><strong>Healthy casual users</strong> — zero safety data for unregulated VIP products; the trials studied patients, under supervision.</li>
+        <li><strong>People with immune conditions</strong> — immune calming is theoretical and double-edged; dialing down defense has costs.</li>
+      </ul>
+    </div>
+  </div>
+  <div class="laytip reveal"><span class="ldot" aria-hidden="true"></span><p><strong>Think of it this way:</strong> trial volunteers are like test pilots — monitored, briefed, and insured. Buying an unregulated vial makes you a test pilot with no instruments and no parachute.</p></div>
+</section>
+<mini-poll slug="vip-mini-fit"
+  data-question="Who should be most cautious with VIP?"
+  data-answers='[["🩸", "People with low blood pressure"], ["🤰", "Pregnant or nursing people"], ["🧪", "Healthy casual users"], ["⚠️", "Everyone — it is all uncharted"]]'>
+</mini-poll>
+
+<!-- ============ CHAPTER 8 ============ -->
+<section class="chapter" id="ch8">
+  <span class="eyebrow"><span class="n">08</span>Community Reports</span>
+  <h2>Community <span class="hl">Reports</span></h2>
+  <p class="lede" style="margin-bottom:1.2rem">What people report online about a molecule with <strong>no approved drug</strong> &#8212; digestion, breathing, sleep, energy, and the quiet non-responses. <strong>Stories, not data.</strong></p>
+  <div class="ulegend reveal"><span class="udot" role="img" aria-label="Unverified anecdote"></span><p><strong>Unverified anecdote</strong> — the pulsing dot marks a paraphrased recurring theme from forums and social media: not verified, not evidence.</p></div>
+    <div class="anec-grid">
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The digestion report</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;Tried a VIP product for gut issues — digestion felt calmer within days.&rdquo; <strong>Caveat:</strong> digestion fluctuates with diet, stress, and everything else; days-long “calmer” is noise without controls.</p>
+<div class="caveat">Pattern: gut feelings, literally.</div>
+</div>
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The inflammation hope</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;My inflammatory markers — hoping VIP calms the fire.&rdquo; <strong>Caveat:</strong> immune modulation in a dish is not immune treatment in a person; hope is not a protocol.</p>
+<div class="caveat">Pattern: disease hope attached to early science.</div>
+</div>
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The breathing story</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;Used a VIP nasal spray — breathing felt easier for an hour.&rdquo; <strong>Caveat:</strong> airway sensations fluctuate constantly; an hour of “easier” is noise, not signal.</p>
+<div class="caveat">Pattern: short-window subjective outcomes.</div>
+</div>
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The sleep note</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;Sleep felt deeper the week I tried it.&rdquo; <strong>Caveat:</strong> sleep responds to everything — expectation most of all.</p>
+<div class="caveat">Pattern: the everything-affects-sleep confound.</div>
+</div>
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The energy claim</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;Felt more energetic, less wiped out by afternoon.&rdquo; <strong>Caveat:</strong> energy is the most placebo-prone outcome there is.</p>
+<div class="caveat">Pattern: energy as the universal anecdote.</div>
+</div>
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The blood-pressure dip</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;Felt lightheaded after dosing — that means it’s working, right?&rdquo; <strong>Caveat:</strong> lightheadedness is a side effect (vasodilation), not a progress meter — and a warning sign.</p>
+<div class="caveat">Pattern: side effects reframed as efficacy.</div>
+</div>
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The non-responder</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;Ran it for a month. Nothing I could point to.&rdquo; <strong>Caveat:</strong> negative reports vanish quickly in enthusiast spaces.</p>
+<div class="caveat">Pattern: quiet non-response, heavily underreported.</div>
+</div>
+    <div class="anec reveal">
+<div class="anec-head">
+<h4>The honest shrug</h4>
+<span class="udot" role="img" aria-label="Unverified anecdote">
+</span>
+</div>
+<p>&ldquo;Interesting molecule. I’ll wait for an actual drug.&rdquo; <strong>Caveat:</strong> the most defensible position in the thread — and the least exciting.</p>
+<div class="caveat">Pattern: patience as the contrarian take.</div>
+</div>
+  </div>
+<div class="folk-note reveal"><p>Read these the way scientists read case reports: <strong>useful for generating hypotheses, useless for proving them</strong>. The most honest sentence here is "I’ll wait for an actual drug" — because the trials never produced one.</p></div></section>
+<mini-poll slug="vip-mini-ch6"
+  data-question="Which community-report pattern stands out to you?"
+  data-answers='[["🫁", "Breathing reports"], ["😴", "Sleep/energy"], ["🤷", "Non-responders"], ["⚠️", "Side-effect stories"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 9 ============ -->
+<section class="chapter" id="ch9">
+  <span class="eyebrow"><span class="n">09</span>Risks & unknowns</span>
   <h2>Risks &amp; <span class="hl">unknowns</span></h2>
   <p class="lede">It <strong>moves blood pressure by design</strong>. Everything about casual use of unregulated vials is unknown — kept in separate boxes on purpose.</p>
 
@@ -701,31 +1049,35 @@ mini-poll { display: block; }
   data-question="Which unknown bothers you most?"
   data-answers='[["🩸", "Blood pressure swings"], ["🛡️", "Immune unknowns"], ["🏭", "What&#39;s in the vial"], ["❓", "All of it"]]'>
 </mini-poll>
-<!-- ============ CHAPTER 8 ============ -->
-<section class="chapter" id="ch8">
-  <span class="eyebrow"><span class="n">08</span>Glossary</span>
-  <h2>Speak <span class="hl">neuropeptide</span></h2>
-  <p class="lede">Twelve terms, each with the science, an example, and a plain-English translation. Tap any term to expand it.</p>
+<!-- ============ CHAPTER 10 ============ -->
+<section class="chapter" id="ch10">
+  <span class="eyebrow"><span class="n">10</span>Glossary</span>
+  <h2>Understanding <span class="hl">VIP</span> Terminology</h2>
+  <p class="lede">Twelve terms, each with the scientific definition and a plain-English translation. Tap any term to expand it.</p>
 
   <div class="gloss">
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M14 24h20M24 14v20" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">VIP</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Vasoactive Intestinal Peptide: a 28-amino-acid neuropeptide made by the body, active in the gut, lungs, brain, and immune system.</p><p class="gex"><span class="gslabel">Example</span>The molecule this whole page is about — the multilingual diplomat.</p><div class="plain"><span class="plabel">Plain English</span>A natural messenger with four different jobs.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M18 8h12v6l-6 4-6-4zM24 18v14M16 40h16" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Neuropeptide</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>A small protein used by nerve cells as a chemical messenger — slower and longer-acting than classic neurotransmitters.</p><p class="gex"><span class="gslabel">Example</span>VIP’s job category: the postal service, not the telephone.</p><div class="plain"><span class="plabel">Plain English</span>A slow, long-lasting nerve message.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M24 6c6 8 10 14 10 20a10 10 0 0 1-20 0c0-6 4-12 10-20z" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Vasodilation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Widening of blood vessels, increasing blood flow and typically lowering blood pressure. VIP’s namesake effect.</p><p class="gex"><span class="gslabel">Example</span>The headline act — and the built-in warning label.</p><div class="plain"><span class="plabel">Plain English</span>Pipes loosening so more blood flows through.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M24 40C14 32 8 26 8 18a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 8-6 14-16 22z" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">VPAC receptors</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>The cell-surface receptors (VPAC1, VPAC2) that VIP and its sibling PACAP bind — the locks the messenger’s key fits.</p><p class="gex"><span class="gslabel">Example</span>Why VIP and PACAP keep showing up in the same studies.</p><div class="plain"><span class="plabel">Plain English</span>The doorbells VIP knows how to ring.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M24 6l14 6v10c0 10-6 16-14 20C16 38 10 32 10 22V12z" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">PACAP</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Pituitary adenylate cyclase-activating polypeptide — VIP’s close sibling, sharing receptors and many jobs. Also research-stage.</p><p class="gex"><span class="gslabel">Example</span>The sister peptide job-sharing with VIP.</p><div class="plain"><span class="plabel">Plain English</span>VIP’s sibling, working the same beat.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M10 24a14 14 0 0 1 24-9M38 24a14 14 0 0 1-24 9M30 10l4 5-5 4M18 38l-4-5 5-4" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Sarcoidosis</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>An inflammatory disease causing tiny clumps of immune cells (granulomas) in organs, often the lungs. A VIP trial target.</p><p class="gex"><span class="gslabel">Example</span>Where VIP’s immune-calming act was auditioned.</p><div class="plain"><span class="plabel">Plain English</span>An inflammatory disease VIP was tested against.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M20 20a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM26 26l12 12" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Pulmonary arterial hypertension</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>High blood pressure in the lung arteries — a serious condition and another VIP trial target, given the vasodilation angle.</p><p class="gex"><span class="gslabel">Example</span>The other stage VIP auditioned on.</p><div class="plain"><span class="plabel">Plain English</span>Dangerously high lung blood pressure.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M6 18c4-6 8-6 12 0s8 6 12 0 8-6 12 0M6 30c4-6 8-6 12 0s8 6 12 0 8-6 12 0" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Immune modulation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Adjusting immune activity up or down. VIP tends to calm inflammatory responses — interesting, and double-edged.</p><p class="gex"><span class="gslabel">Example</span>The "stand down" order to immune cells.</p><div class="plain"><span class="plabel">Plain English</span>Turning the immune volume knob.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M24 14a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM24 4v6M24 38v6M4 24h6M38 24h6" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Bronchodilation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Widening of the airways — VIP relaxes airway smooth muscle, which is why lung researchers noticed it.</p><p class="gex"><span class="gslabel">Example</span>The "breathe easier" part of the pitch.</p><div class="plain"><span class="plabel">Plain English</span>Airways opening up.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M10 10h12v12H10zM26 10h12v12H26zM10 26h12v12H10zM26 26h12v12H26z" fill="none" stroke="#67e8f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Gut-brain axis</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>The two-way signaling between digestive system and brain, in which neuropeptides like VIP are fluent messengers.</p><p class="gex"><span class="gslabel">Example</span>VIP’s original neighborhood.</p><div class="plain"><span class="plabel">Plain English</span>The hotline between belly and brain.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M10 14h28v20H10zM10 14l14 10 14-10" fill="none" stroke="#0369a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Preclinical</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Lab and animal research before human trials. Much of VIP’s mechanism story lives here — necessary, not sufficient.</p><p class="gex"><span class="gslabel">Example</span>The minor leagues of medical proof.</p><div class="plain"><span class="plabel">Plain English</span>Dish and animal studies — not human proof.</div></div></div>
-<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M10 8h16a6 6 0 0 1 6 6v22H16a6 6 0 0 1-6-6zM16 8v28" fill="none" stroke="#6472a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Placebo</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Improvement from expectation — powerful for breathing ease and wellbeing, exactly where VIP anecdotes live.</p><p class="gex"><span class="gslabel">Example</span>The eternal rival explanation for every "I feel better" story.</p><div class="plain"><span class="plabel">Plain English</span>Feeling better because you expect to.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M14 24h20M24 14v20" fill="none" stroke="#67e6f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">VIP</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Vasoactive intestinal peptide is a 28-amino-acid neuropeptide produced by nerve and immune cells throughout the body. It acts in the gut, lungs, brain, and immune system through two related receptors, VPAC1 and VPAC2. Its jobs include dilating blood vessels, relaxing airway and gut smooth muscle, and calming inflammatory responses. It was first isolated from the intestine, which is where its name comes from — though it is far more than a gut peptide. It is a research compound, not an approved drug; its therapeutic uses were investigated in small trials but never commercialized.</p><div class="plain"><span class="plabel">Plain English</span>VIP is a short protein chain your own body makes — 28 building blocks long. It works as a messenger in your gut, lungs, brain, and immune system, delivered through two receptor types. It widens blood vessels, relaxes airways, and calms inflammation. Researchers once hoped to turn it into a drug, but the trials stayed small and nothing was approved.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M18 8h12v6l-6 4-6-4zM24 18v14M16 40h16" fill="none" stroke="#a0041b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Neuropeptide</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>A neuropeptide is a small chain of amino acids used by nerve cells as a chemical messenger. Compared with classic neurotransmitters, neuropeptides act more slowly, last longer, and often diffuse farther — modulating circuits rather than firing single synapses. They are released from neurons but can also be made by immune, gut, and endocrine cells. VIP, PACAP, and endorphins are all neuropeptides. Their broad, long-acting effects make them interesting drug templates but hard to turn into precise medicines.</p><div class="plain"><span class="plabel">Plain English</span>Nerve cells mostly talk with fast chemical zaps, but they also send slower, longer-lasting messages — those are neuropeptides. They drift further and set the mood of a whole circuit rather than firing one connection. VIP is one of these slow messengers. Their broad effects make them interesting but tricky to turn into precise drugs.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M24 6c6 8 10 14 10 20a10 10 0 0 1-20 0c0-6 4-12 10-20z" fill="none" stroke="#8264a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Vasodilation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Vasodilation is the widening of blood vessels caused by relaxation of the smooth muscle in vessel walls. It increases blood flow to tissues and typically lowers blood pressure. VIP is named for this effect — it is a potent vasodilator, which is why lung-blood-pressure research investigated it. The same effect is also a built-in safety concern: too much vasodilation causes flushing and drops in blood pressure. In the body, vasodilation is how organs request more blood during heat, exercise, or inflammation.</p><div class="plain"><span class="plabel">Plain English</span>Your blood vessels can loosen or tighten, and loosening is called vasodilation. It lets more blood flow through and usually lowers blood pressure. VIP got its name from this trick — it is very good at it. That is also why it comes with a warning: too much widening drops blood pressure and causes flushing.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M24 40C14 32 8 26 8 18a8 8 0 0 1 16-2 8 8 0 0 1 16 2c0 8-6 14-16 22z" fill="none" stroke="#67e6f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">VPAC receptors</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>VPAC1 and VPAC2 are the two cell-surface receptors that VIP binds, both members of the G-protein-coupled receptor family. They signal mainly by raising cyclic AMP inside the cell, which relaxes smooth muscle and dials down inflammatory activity. PACAP, VIP's close sibling peptide, activates the same two receptors plus a third of its own, PAC1. The receptors' wide distribution — gut, lungs, vessels, immune cells — explains VIP's multi-organ effects. Because they respond to both VIP and PACAP, studies of one peptide often illuminate the other.</p><div class="plain"><span class="plabel">Plain English</span>Think of receptors as doorbells on cells and VIP as a finger that knows two of them: VPAC1 and VPAC2. Ringing them raises a signal called cAMP inside the cell, which relaxes muscle and quiets inflammation. VIP's sibling PACAP rings the same two doorbells, plus a third of its own. Those shared doorbells are why the two peptides keep appearing in the same studies.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M24 6l14 6v10c0 10-6 16-14 20C16 38 10 32 10 22V12z" fill="none" stroke="#a0041b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">PACAP</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Pituitary adenylate cyclase-activating polypeptide is a neuropeptide closely related to VIP, existing in 27- and 38-amino-acid forms. It shares the VPAC1 and VPAC2 receptors with VIP and has a third receptor, PAC1, that is largely its own. Its studied roles span neuroprotection, stress responses, gut function, and migraine biology. Like VIP, it is a research-stage molecule rather than an approved therapy. The two peptides are often compared because their overlapping receptor targets make their effects hard to separate.</p><div class="plain"><span class="plabel">Plain English</span>PACAP is VIP's close sibling — a similar messenger that comes in two lengths. It shares VIP's two receptors and has a third that is mostly its own. Researchers study it for brain protection, stress, and migraine. Like VIP, it is still research-stage, not an approved drug. The family resemblance is why their effects are hard to tell apart.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M10 24a14 14 0 0 1 24-9M38 24a14 14 0 0 1-24 9M30 10l4 5-5 4M18 38l-4-5 5-4" fill="none" stroke="#8264a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Sarcoidosis</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Sarcoidosis is an inflammatory disease in which the immune system forms tiny clumps called granulomas in organs, most often the lungs and lymph nodes. Its cause is unknown and its course unpredictable — it can vanish or turn chronic. VIP was investigated in sarcoidosis because of its ability to calm inflammatory immune responses. The trials were small and exploratory. Interest in the disease for peptide research reflects how badly better immune-calming options are needed.</p><div class="plain"><span class="plabel">Plain English</span>Sarcoidosis is an inflammatory disease where the immune system builds tiny clumps of cells in organs, usually the lungs. Nobody knows the cause, and it can vanish or stick around. VIP was tested in it because it can tell immune cells to stand down. The trials were small and exploratory.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M20 20a8 8 0 1 0 0 16 8 8 0 0 0 0-16zM26 26l12 12" fill="none" stroke="#67e6f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Pulmonary arterial hypertension</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Pulmonary arterial hypertension is a serious condition in which the small arteries of the lungs become narrowed and stiff, raising the pressure the heart must pump against. It causes breathlessness, fatigue, and eventually right-heart failure. VIP attracted research attention because it dilates pulmonary vessels and relaxes the smooth muscle in airway and vessel walls. Investigational inhaled VIP was tested in small studies but never advanced to approval. Modern treatment uses entirely different drug classes.</p><div class="plain"><span class="plabel">Plain English</span>In this disease, the small arteries of the lungs stiffen and narrow, forcing the heart to pump against high pressure. It causes breathlessness and eventually heart failure. VIP drew interest because it can relax those vessels. Inhaled VIP was tried in small studies but never became an approved treatment.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M6 18c4-6 8-6 12 0s8 6 12 0 8-6 12 0M6 30c4-6 8-6 12 0s8 6 12 0 8-6 12 0" fill="none" stroke="#a0041b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Immune modulation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Immune modulation means adjusting the activity of the immune system up or down rather than simply suppressing it. VIP tends to calm inflammatory responses: it reduces pro-inflammatory signaling and favors regulatory immune cells. That calming action is therapeutically interesting but double-edged, because a dampened immune response can also blunt defense against infection. The concept underlies both VIP research and many approved autoimmune therapies. In the infographic, it is framed as one proposed mechanism, not a proven treatment.</p><div class="plain"><span class="plabel">Plain English</span>Instead of just shutting the immune system off, immune modulation means adjusting its volume. VIP tends to turn the inflammatory volume down and favor the immune cells that keep the peace. That is appealing but risky — a quieter immune system can also miss real threats. Many approved autoimmune drugs work on the same idea.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M24 14a10 10 0 1 0 0 20 10 10 0 0 0 0-20zM24 4v6M24 38v6M4 24h6M38 24h6" fill="none" stroke="#8264a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Bronchodilation</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Bronchodilation is the widening of the airways caused by relaxation of the smooth muscle wrapping the bronchial tubes. It lets more air move in and out of the lungs, which is why it is the core goal of asthma and COPD treatment. VIP relaxes airway smooth muscle, which drew lung researchers to it as a candidate bronchodilator. Approved bronchodilators today are small-molecule drugs, not peptides. The effect illustrates how one messenger can serve both blood vessels and airways.</p><div class="plain"><span class="plabel">Plain English</span>Your airways are wrapped in muscle, and when that muscle relaxes, the tubes widen — that is bronchodilation. It is the whole point of asthma inhalers. VIP relaxes that muscle, which is what caught lung researchers' attention. Today's approved bronchodilators are different, simpler drugs.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#67e8f922"/><path d="M10 10h12v12H10zM26 10h12v12H26zM10 26h12v12H10zM26 26h12v12H26z" fill="none" stroke="#67e6f9" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Gut-brain axis</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>The gut-brain axis is the two-way communication network between the digestive system and the brain, carried by nerves, hormones, and immune signals. Neuropeptides like VIP are fluent messengers on this axis: they are released by gut nerves and immune cells and influence both digestion and mood-related signaling. The vagus nerve is its main physical cable. Because VIP was first found in the intestine, the gut-brain axis is its original neighborhood. The concept explains why gut inflammation and mental state so often travel together.</p><div class="plain"><span class="plabel">Plain English</span>Your gut and brain are in constant two-way contact through nerves, hormones, and immune signals — that is the gut-brain axis. VIP is one of the messengers fluent in this conversation, since it was first found in the gut. The vagus nerve is the main cable carrying the chatter. It helps explain why gut trouble and low mood so often show up together.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#0369a122"/><path d="M10 14h28v20H10zM10 14l14 10 14-10" fill="none" stroke="#a0041b" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Preclinical</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>Preclinical research is the laboratory and animal work that happens before any human trials — cell cultures, tissue studies, and animal models. It establishes plausibility and basic safety, but it cannot prove a treatment works in people. Much of VIP's mechanism story lives at this level, which is necessary but not sufficient evidence. Most preclinical findings never survive human testing. The term is a reminder to weight lab results accordingly.</p><div class="plain"><span class="plabel">Plain English</span>Before any drug is tried in people, it goes through lab and animal studies — that is the preclinical stage. It shows an idea is plausible, not that it works in humans. A lot of VIP's story lives here. Most ideas that look good in a dish never survive human trials.</div></div></div>
+<div class="g-item"><button class="g-q" aria-expanded="false"><svg class="gthumb" viewBox="0 0 48 48" aria-hidden="true"><rect width="48" height="48" rx="12" fill="#6472a122"/><path d="M10 8h16a6 6 0 0 1 6 6v22H16a6 6 0 0 1-6-6zM16 8v28" fill="none" stroke="#8264a1" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg><span class="term">Placebo</span><span class="plus">+</span></button><div class="g-a"><p class="gsci"><span class="gslabel">The science</span>The placebo effect is real improvement in symptoms driven by expectation, ritual, and attention rather than the treatment's chemistry. It is especially powerful for subjective outcomes like breathing ease, pain, and general wellbeing — exactly where cosmetic and wellness anecdotes live. This does not mean the improvement is imaginary; expectation genuinely changes brain and body chemistry. It does mean uncontrolled stories cannot prove a molecule works. That is why blinded trials exist.</p><div class="plain"><span class="plabel">Plain English</span>If you expect to feel better, you often do — that is the placebo effect, and it is genuinely powerful for things like breathing ease and pain. It does not mean the improvement is fake; expectation really changes body chemistry. It just means stories without a comparison group cannot prove a molecule works. That is what blinded trials are for.</div></div></div>
   </div></section>
-<!-- ============ CHAPTER 9 ============ -->
-<section class="chapter" id="ch9">
-  <span class="eyebrow"><span class="n">09</span>Takeaways</span>
+<mini-poll slug="vip-mini-ch8"
+  data-question="Which term will you actually remember?"
+  data-answers='[["🧬", "VPAC1/VPAC2"], ["⚡", "cAMP/PKA"], ["🦠", "VIPoma"], ["📖", "Knew them all"]]'>
+</mini-poll>
+<!-- ============ CHAPTER 11 ============ -->
+<section class="chapter" id="ch11">
+  <span class="eyebrow"><span class="n">11</span>Takeaways</span>
   <h2>The <span class="hl">bottom line</span></h2>
-  <p class="lede">Nine chapters, distilled. Brilliant physiology, no prescription — and a molecule to respect, not to self-experiment with.</p>
+  <p class="lede">Eleven chapters, distilled. Brilliant physiology, no prescription — and a molecule to respect, not to self-experiment with.</p>
 
   <div class="take-grid">
     <div class="take reveal"><div class="tk">🧬</div><h4>A real endogenous messenger</h4><p>VIP is <strong>made by your body</strong> — 28 amino acids working across gut, lung, brain, and immune tissue.</p></div>
@@ -747,7 +1099,8 @@ mini-poll { display: block; }
       <li><strong>No medical advice.</strong> Nothing here is a recommendation for or against any treatment. Talk to a licensed clinician about any health decision.</li>
     </ul>
   </div></section>
-<mini-poll slug="vip-mini-ch8"
+<h3 class="rate-head reveal">⭐ How would you rate this infographic?</h3>
+<mini-poll slug="vip-mini-ch9"
   data-question="How would you rate this infographic?"
   data-answers='[["😍", "⭐⭐⭐⭐⭐ · Loved it"], ["🙂", "⭐⭐⭐⭐ · Good stuff"], ["😐", "⭐⭐⭐ · It&#39;s okay"]]'>
 </mini-poll>
@@ -792,7 +1145,7 @@ setTheme(document.documentElement.getAttribute("data-theme")==="light"?"light":"
   function size(){W=window.innerWidth;H=window.innerHeight;svg.setAttribute("viewBox","0 0 "+W+" "+H);}
   size();window.addEventListener("resize",size);
   var NS="http://www.w3.org/2000/svg";
-  var colors=["#67e8f9","#0369a1","#6472a1","#0369a1","#67e8f9","#172554"];
+  var colors=["#67e6f9","#a0041b","#8264a1","#a0041b","#67e6f9","#351754"];
   for(var i=0;i<140;i++){
     var c=document.createElementNS(NS,"circle");
     var col=colors[i%colors.length];
@@ -842,7 +1195,7 @@ setTheme(document.documentElement.getAttribute("data-theme")==="light"?"light":"
       var l=document.createElementNS(NS,"line");
       l.setAttribute("x1",x.toFixed(1));l.setAttribute("y1",yy.toFixed(1));
       l.setAttribute("x2",x2.toFixed(1));l.setAttribute("y2",yy2.toFixed(1));
-      l.setAttribute("stroke","#262937");l.setAttribute("stroke-width","3");
+      l.setAttribute("stroke","#2e2637");l.setAttribute("stroke-width","3");
       g.insertBefore(l,g.firstChild);
     }
   }
@@ -852,6 +1205,7 @@ var io=new IntersectionObserver(function(es){
   es.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target);}});
 },{threshold:0.12,rootMargin:"0px 0px -6% 0px"});
 document.querySelectorAll(".reveal").forEach(function(el){io.observe(el);});
+if(reduced){document.querySelectorAll("svg").forEach(function(s){try{if(s.pauseAnimations)s.pauseAnimations();}catch(e){}});}
 /* ---------- count-up stats ---------- */
 var cio=new IntersectionObserver(function(es){
   es.forEach(function(e){
@@ -899,7 +1253,7 @@ var bar=document.getElementById("progress"),
     tocBar=document.getElementById("tocBar"),tocPct=document.getElementById("tocPct"),
     links=Array.prototype.slice.call(document.querySelectorAll(".toc a, nav.chapters a")),
     rail=document.getElementById("rail"),
-    sections=["ch1","ch2","ch3","ch4","ch5","ch6","ch7","ch8","ch9"].map(function(id){return document.getElementById(id);}),
+    sections=["ch1","ch2","ch3","ch4","ch5","ch6","ch7","ch8","ch9","ch10","ch11"].map(function(id){return document.getElementById(id);}),
     pill=document.querySelector(".toc-pill"),cur=-1,ticking=false;
 function easeWidth(el,v){el.style.width=v+"%";}
 function update(){
@@ -942,7 +1296,7 @@ function fireConfetti(){
   var c=document.getElementById("confetti"),ctx=c.getContext("2d");
   c.width=window.innerWidth;c.height=window.innerHeight;
   c.classList.add("show");
-  var cols=["#67e8f9","#0369a1","#6472a1","#fbbf24","#c2cae7"],parts=[];
+  var cols=["#67e6f9","#a0041b","#8264a1","#26ddf9","#d4c2e7"],parts=[];
   for(var i=0;i<45;i++)parts.push({x:Math.random()*c.width,y:-20-Math.random()*c.height*0.25,
     w:4+Math.random()*4,h:5+Math.random()*5,c:cols[i%cols.length],
     vy:0.7+Math.random()*1.1,ph:Math.random()*Math.PI*2,sw:0.4+Math.random()*0.8,
@@ -978,12 +1332,12 @@ fio.observe(document.querySelector("footer"));
 /* Mini-poll backend config. Empty = preview mode (local votes, 3-day cooldown).
    To go live: fill in your Supabase project URL + anon key (see poll-admin README). */
 window.MINI_POLL_CONFIG = { supabaseUrl: "", anonKey: "", turnstileSiteKey: "",
-  accents: ["#67e8f9", "#0369a1", "#0369a1", "#0369a1", "#6472a1", "#67e8f9", "#fbbf24", "#0369a1", "#6472a1"] };
+  accents: ["#67e6f9", "#a0041b", "#a0041b", "#a0041b", "#8264a1", "#67e6f9", "#26ddf9", "#a0041b", "#8264a1"] };
 </script>
 <script>
 /* Mini-poll web component — vanilla JS, no dependencies.
    Usage:
-     <mini-poll slug="vip-mini-ch1"
+     <mini-poll slug="vip-mini-recap"
        data-question="Had you heard of VIP before today?"
        data-answers='[["🆕","No — brand new to me"],["👀","Heard the name"]]'>
      </mini-poll>
@@ -1062,8 +1416,8 @@ window.MINI_POLL_CONFIG = { supabaseUrl: "", anonKey: "", turnstileSiteKey: "",
      Palette comes from window.MINI_POLL_CONFIG.accents when the page sets one,
      otherwise the default nine-color set. */
   var ACCENTS = (window.MINI_POLL_CONFIG && window.MINI_POLL_CONFIG.accents) ||
-                ['#67e8f9', '#0369a1', '#6472a1', '#8257f1', '#6472a1',
-                 '#0369a1', '#fbbf24', '#fb7185', '#0e8bcc'];
+                ['#67e6f9', '#a0041b', '#8264a1', '#8257f1', '#8264a1',
+                 '#a0041b', '#26ddf9', '#fb7185', '#cc0e2a'];
   function pollAccents(slug) {
     var m = /ch(\d+)/.exec(slug || '');
     var i = m ? parseInt(m[1], 10) - 1 : 0;
